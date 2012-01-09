@@ -1,0 +1,168 @@
+
+
+.story { 
+    height: 900px; 
+    padding: 0; 
+    margin: 0; 
+    width: 100%; 
+    max-width: 1920px; 
+    position: relative; 
+    margin: 0 auto; 
+    border-top: 1px solid rgba(255,255,255,0.3); 
+    border-bottom: 1px solid rgba(0,0,0,0.4); box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+#welcome { background: url(../img/purple-grain.png) fixed; }
+#the-bride { background: url(../img/the-bride.jpg) 50% 0% no-repeat fixed; }
+#the-groom { background: url(../img/the-groom.jpg) 50% 0% no-repeat fixed; }
+#our-story { background: url(../img/about-us.jpg) 20% 0% no-repeat fixed; }
+#the-ringer { background: url(../img/the-ringer.jpg) 50% 0% no-repeat fixed; }
+#the-wedding { background: url(../img/wedding3.jpg) 0% 0% no-repeat fixed; }
+
+article {
+    padding: 10px 20px;
+}
+article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-height: 1em; }
+
+/* Introduction */
+#welcome .intro { 
+    background: url(../img/logo.jpg) 50% 100px no-repeat fixed; 
+    min-height: 1000px; 
+    padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
+#welcome article { width: 100%; top: 300px; position: absolute; text-align: center; }
+#welcome article p,
+#welcome article a { color: #ccc; }
+#welcome article a { text-decoration: underline; }
+#welcome article a:hover { color: #fff; }
+
+/* The Bride */
+#the-bride { 
+    padding: 50px 0;
+}
+#the-bride article { 
+    background: url(../img/grain.png) repeat #333;
+    border: 1px solid rgba(150,150,150,0.1);
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    color: #fff;
+    line-height: 1.5em;
+    margin: 100px 0 0 55%; 
+    position: absolute;
+    top: 100px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    width: 445px;
+}
+#the-bride article p { 
+    margin-bottom: 25px; 
+}
+#the-bride article a { 
+    color: #ff0;
+}
+
+/* The Groom */
+#the-groom article {  
+    background: url(../img/purple-grain.png) repeat #333;
+    border: 1px solid rgba(150,150,150,0.1);
+    color: #fff; 
+    margin: 100px 0 0 20%; 
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5); 
+    line-height: 1.5em; color: #fff; 
+    position: absolute; 
+    box-shadow: 0 0 25px rgba(0,0,0,0.3); 
+}
+#the-groom .photograph { 
+    background: url(../img/photo.png) transparent 40% 100px no-repeat fixed; 
+    min-height: 1000px; 
+    padding: 0; 
+    margin: 0; 
+    width: 100%; 
+    max-width: 1920px; 
+    position: relative; 
+    margin: 0 auto; 
+}
+
+#the-groom article p { 
+    width: 300px; 
+    margin-bottom: 25px; 
+}
+
+/* Our Story */
+#our-story article {
+    background: url(../img/purple-grain.png) repeat #303;
+    color: #fff;
+    line-height: 1.5em;
+    margin: 370px 0 0 20%;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    width: 420px;
+}
+#our-story article p { 
+    width: 450px; 
+    margin: 50px 0; 
+}
+
+/* The Engagement */
+#the-ringer { 
+    padding: 50px 0;
+}
+#the-ringer article { 
+    background: url(../img/grain.png) repeat #333;
+    border: 1px solid rgba(150,150,150,0.1);
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    color: #fff;
+    line-height: 1.5em;
+    margin: 100px 0 0 50%;
+    padding: 10px 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    width: 445px;
+}
+#the-ringer article p { 
+    margin-bottom: 25px; 
+}
+#the-ringer article a { 
+    color: #ff0;
+}
+
+/* -------------------- */
+/* Navigation           */
+/* -------------------- */
+nav#side-nav { 
+    position: fixed; 
+    left: 20px; 
+    top: 350px; 
+    z-index: 9999;
+}
+nav#side-nav li {
+    display: inline;
+    height: 20px;
+    position: relative;
+}
+nav#side-nav a {
+   display: block;
+   width: 20px;
+   height: 20px;
+   background: url(../img/dotnav.png) 0 100% no-repeat;
+   text-indent: -9000px;
+   overflow: hidden;
+}
+nav#side-nav a:hover {
+   background: url(../img/dotnav.png) 0 0 no-repeat;
+   text-indent: -9000px;
+   overflow: hidden;
+}
+nav#side-nav h1 {
+   display: none;
+   opacity: 0;
+   position: absolute;
+   right: 25px;    
+   top: -4px;
+   white-space: nowrap;
+   padding: 0 6px 0 0;
+   /**background: url(../img/arrow_right.png) 100% 50% no-repeat;**/
+}
+
+#site-bottomnav a {
+    display: inline;
+    text-indent: -9000px;
+    overflow: hidden;
+    height: 100px;
+    width: 100px;
+}

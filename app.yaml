@@ -1,0 +1,12 @@
+application: nitya-and-sriram
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: (.*)/
+- static_files: wedding\1/index.html
+- upload: wedding/index.html
+
+- url: /
+- static_dir: wedding
