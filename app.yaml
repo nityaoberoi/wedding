@@ -5,8 +5,17 @@ api_version: 1
 
 handlers:
 - url: (.*)/
-- static_files: wedding\1/index.html
-- upload: wedding/index.html
+  static_files: index.html
+  upload: index.html
 
-- url: /
-- static_dir: wedding
+- url: /img
+  static_dir: media/img
+
+- url: /css
+  static_dir: media/css
+
+- url: /js
+  static_dir: media/js
+
+skip_files:
+- ^(.*/)?.*\.psd

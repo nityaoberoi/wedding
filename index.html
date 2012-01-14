@@ -16,6 +16,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/screen.css">
+  <link rel="stylesheet" href="css/tipsy.css">
   <link href='http://fonts.googleapis.com/css?family=Qwigley' rel='stylesheet' type='text/css'>
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
@@ -29,14 +30,20 @@
 <body>
 <div id="main" role="main">
         <nav id="side-nav" data-controller="MainNav" style="margin-top: -200px; ">
-         <ul>
+        <ul>
+             <li data-id="nav-welcome" class="active"><a href="#welcome" class="tip" title="Welcome">welcome</a></li>
              <li data-id="nav-bride" class="active"><a href="#the-bride" class="tip" title="The Bride">the-bride</a></li>
-             <li data-id="nav-bride" class="active"><a href="#the-groom" title="The Groom">the-bride</a></li>
-             <li data-id="nav-bride" class="active"><a href="#our-story" title="Our Story">the-bride</a></li>
-             <li data-id="nav-bride" class="active"><a href="#the-ringer" title="The Engagement">the-bride</a></li>
-             <li data-id="nav-bride" class="active"><a href="#the-wedding" title="The Wedding">the-bride</a></li>
-            </ul>
+             <li data-id="nav-groom" class="active"><a href="#the-groom" title="The Groom">the-bride</a></li>
+             <li data-id="nav-story" class="active"><a href="#our-story" title="Our Story">the-bride</a></li>
+             <li data-id="nav-engagement" class="active"><a href="#the-ringer" title="The Engagement">the-bride</a></li>
+             <li data-id="nav-wedding" class="active"><a href="#the-wedding" title="The Wedding">the-bride</a></li>
+        </ul>
         </nav>
+        
+        <div id="site-bottomnav" data-controller="SiteFunctions" class="  active">
+            <a href="#/contact-us" title="Contact Us" class="icon-contact">Contact Us</a>
+            <a href="#/gift-registry" title="Gift Registry" class="icon-registry">Gift Registry</a>
+        </div>
         
     <!-- Section #1 / Intro -->
     <section id="welcome" class="story" data-speed="8" data-type="background">
@@ -127,7 +134,7 @@
   <![endif]-->
   <script type="text/javascript">
     $(function() {
-      $('.tip').tipsy({gravity: 'e'});
+      $('.tip').tipsy({gravity: 'w', fade: true, delayIn: 100});
 
     });
   </script>

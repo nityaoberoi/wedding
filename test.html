@@ -1,0 +1,43 @@
+<!doctype html>
+<head></head>
+<body>
+    <table id="gravity" cellspacing="5">
+      <tbody><tr>
+        <td>
+          <a id="north-west" href="#" original-title="This is an example of north-west gravity">Northwest</a>
+        </td>
+        <td>
+          <a id="north" href="#" original-title="This is an example of north gravity">North</a>
+        </td>
+        <td>
+          <a id="north-east" href="#" original-title="This is an example of north-east gravity">Northeast</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a id="west" href="#" original-title="This is an example of west gravity">West</a>
+        </td>
+        <td>&nbsp;</td>
+        <td>
+          <a id="east" href="#" original-title="This is an example of east gravity">East</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a id="south-west" href="#" original-title="This is an example of south-west gravity">Southwest</a>
+        </td>
+        <td>
+          <a id="south" href="#" original-title="This is an example of south gravity">South</a>
+        </td>
+        <td>
+          <a id="south-east" href="#" original-title="This is an example of south-east gravity">Southeast</a>
+        </td>
+      </tr>
+    </tbody></table>
+    <script src="js/jquery.tipsy.js"></script>
+    <script type="text/javascript">
+        $(function() {
+          $('#north-west').tipsy({gravity: 'n'});
+        });
+      </script>
+</body>
