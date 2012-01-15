@@ -1,5 +1,3 @@
-
-
 .story { 
     height: 900px; 
     padding: 0; 
@@ -7,22 +5,27 @@
     width: 100%; 
     max-width: 1920px; 
     position: relative; 
-    margin: 0 auto; 
-    border-top: 1px solid rgba(255,255,255,0.3); 
-    border-bottom: 1px solid rgba(0,0,0,0.4); box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    margin: 0 auto;
 }
 
-#welcome { background: url(../img/background.png) fixed; }
-#the-bride { background: url(../img/the-bride.jpg) 50% 0% no-repeat fixed; }
-#the-groom { background: url(../img/the-groom.jpg) 50% 0% no-repeat fixed; }
-#our-story { background: url(../img/about-us.jpg) 20% 0% no-repeat fixed; }
-#the-ringer { background: url(../img/the-ringer.jpg) 50% 0% no-repeat fixed; }
-#the-wedding { background: url(../img/wedding3.jpg) 0% 0% no-repeat fixed; }
-
+.story article {
+    z-index: 999;
+}
 article {
+    color: #fff;
     padding: 10px 20px;
 }
 article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-height: 1em; }
+
+
+#welcome { 
+    background: url(../img/background.png) no-repeat center center fixed;
+}
+#the-bride { background: url(../img/the-bride.jpg) center center no-repeat fixed; }
+#the-groom { background: url(../img/the-groom.jpg) center center no-repeat fixed; }
+#our-story { background: url(../img/about-us.jpg) center center no-repeat fixed; }
+#the-ringer { background: url(../img/the-ringer.jpg) center center no-repeat fixed; }
+#the-wedding { background: url(../img/wedding3.jpg) center center no-repeat fixed; }
 
 /* Introduction */
 #welcome .intro { 
@@ -62,10 +65,9 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 #the-groom article {  
     background: url(../img/purple-grain.png) repeat #333;
     border: 1px solid rgba(150,150,150,0.1);
-    color: #fff; 
     margin: 100px 0 0 20%; 
     text-shadow: 0 -1px 0 rgba(0,0,0,0.5); 
-    line-height: 1.5em; color: #fff; 
+    line-height: 1.5em;
     position: absolute; 
     box-shadow: 0 0 25px rgba(0,0,0,0.3); 
 }
@@ -88,9 +90,7 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 /* Our Story */
 #our-story article {
     background: url(../img/purple-grain.png) repeat #303;
-    color: #fff;
     line-height: 1.5em;
-    margin: 370px 0 0 20%;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
     width: 420px;
 }
@@ -107,10 +107,8 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
     background: url(../img/grain.png) repeat #333;
     border: 1px solid rgba(150,150,150,0.1);
     box-shadow: 0 0 25px rgba(0,0,0,0.3);
-    color: #fff;
     line-height: 1.5em;
     margin: 100px 0 0 50%;
-    padding: 10px 20px;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
     width: 445px;
 }
