@@ -16,7 +16,11 @@ body {
 }
 
 .story article {
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
     z-index: 999;
+}
+.story article p {
+    margin-bottom: 25px; 
 }
 article {
     border: 1px solid rgba(150,150,150,0.1);
@@ -53,15 +57,11 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
     padding: 50px 0;
 }
 #the-bride article { 
-    background: url(../img/purple-grain.png) repeat #333;
+    background: url(../img/purple-grain.png) repeat #303;
     border: 1px solid rgba(150,150,150,0.1);
-    box-shadow: 0 0 25px rgba(0,0,0,0.3);
     margin: 100px 0 0 55%; 
     top: 100px;
     width: 445px;
-}
-#the-bride article p { 
-    margin-bottom: 25px; 
 }
 #the-bride article a { 
     color: #ff0;
@@ -69,7 +69,7 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 
 /* The Groom */
 #the-groom article {  
-    background: url(../img/purple-grain.png) repeat #333;
+    background: url(../img/purple-grain.png) repeat #303;
     margin: 100px 0 0 10%; 
     width: 445px;
     box-shadow: 0 0 25px rgba(0,0,0,0.3); 
@@ -84,36 +84,36 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
     margin: 0 auto; 
 }
 
-#the-groom article p { 
-    width: 300px; 
-    margin-bottom: 25px; 
-}
-
 /* Our Story */
 #our-story article {
     background: url(../img/grain.png) repeat #333;
-    margin: 350px 0 0 55%   ;
+    margin: 350px 0 0 55%;
     width: 420px;
 }
-#our-story article p { 
-    width: 450px; 
-    margin: 50px 0; 
-}
-
 /* The Engagement */
 #the-ringer { 
     padding: 50px 0;
 }
 #the-ringer article { 
     background: url(../img/grain.png) repeat #333;
-    box-shadow: 0 0 25px rgba(0,0,0,0.3);
     margin: 100px 0 0 50%;
     width: 445px;
 }
-#the-ringer article p { 
-    margin-bottom: 25px; 
-}
 #the-ringer article a { 
+    color: #ff0;
+}
+
+/* The Wedding */
+#the-wedding { 
+    padding: 50px 0;
+}
+#the-wedding article { 
+    background: #333;
+    opacity: 0.7;
+    margin: 100px 0 0 40%;
+    width: 700px;
+}
+#the-wedding article a { 
     color: #ff0;
 }
 
@@ -141,16 +141,6 @@ nav#side-nav a {
 }
 nav#side-nav a:hover {
    background: url(../img/dotnav.png) 0 0 no-repeat;
-}
-nav#side-nav h1 {
-   display: none;
-   opacity: 0;
-   position: absolute;
-   right: 25px;    
-   top: -4px;
-   white-space: nowrap;
-   padding: 0 6px 0 0;
-   /**background: url(../img/arrow_right.png) 100% 50% no-repeat;**/
 }
 #site-bottomnav {
     position: fixed;
