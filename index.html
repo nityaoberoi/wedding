@@ -42,8 +42,8 @@
         </nav>
         
         <div id="site-bottomnav" data-controller="SiteFunctions" class="  active">
-            <a href="#/contact-us" title="Contact Us" class="icon-contact function-tip">Contact Us</a>
-            <a href="#/rsvp" title="RSVP" class="icon-rsvp function-tip">RSVP</a>
+            <a href="/contact-us" title="Contact Us" class="icon-contact function-tip">Contact Us</a>
+            <a href="/rsvp" title="RSVP" class="icon-rsvp function-tip">RSVP</a>
         </div>
         
     <!-- Section #1 / Intro -->
@@ -82,10 +82,11 @@
           <article>
               <h2>The Engagement</h2>
               <div class="textbox">        
-                  <p>The next step in your parallax scrolling adventure is to create some sprites!</p>
-                  <p>I have cut out one of the photos in this background and use it as a sprite. It scrolls at a different speed to the background <i>and</i> the window, and it's this effect that's used so well on Nike Better World and other parallax sites..</p>
-                  <p>Using too many sprites can slow down older computers, and you need to use some clever maths (and trial & error!) to work out their placement on the page.</p>
-              </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, ante vel iaculis malesuada, nunc purus malesuada sapien, sit amet suscipit eros lacus et lorem. Maecenas sagittis venenatis augue ut dictum. Maecenas non massa lorem, ac iaculis lorem. Donec turpis odio, bibendum et porttitor vel, dignissim quis metus. Suspendisse eros nisl, volutpat et mollis ac, eleifend ut erat. Pellentesque quis volutpat diam. Phasellus euismod ultricies augue vel euismod.</p>
+
+                  <p>Nam sollicitudin, dolor accumsan tempus eleifend, est massa condimentum orci, ac accumsan sapien ante sit amet augue. Mauris ligula augue, tincidunt sit amet cursus sit amet, sollicitudin ac ligula. Cras sit amet nunc vel sapien accumsan porttitor. Nulla nec diam mauris, sollicitudin ullamcorper massa. Nullam ut mauris mi, eu vehicula elit. Maecenas placerat semper odio, eu interdum est ornare ut. Pellentesque nec nibh ac elit varius euismod quis quis augue. Suspendisse turpis eros, laoreet vel pretium quis, sollicitudin id eros. Maecenas mi leo, bibendum ac auctor vestibulum, euismod a orci.</p>
+
+                </div>
           </article>
       </section>    
 
@@ -136,7 +137,7 @@
   <script type="text/javascript">
     $(function() {
       $('.tip').tipsy({gravity: 'w', fade: true, delayIn: 100});
-
+      $('.function-tip').tipsy({gravity: 'n', fade: true, delayIn: 100, offset: 7});
     });
   </script>
 </body>

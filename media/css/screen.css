@@ -38,9 +38,14 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 
 /* Introduction */
 #welcome .intro { 
-    background: url(../img/logo.jpg) 50% 100px no-repeat fixed; 
+    background: url(../img/wedding-logo.jpg) 50% 100px no-repeat fixed; 
     min-height: 1000px; 
-    padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
+    padding: 0; 
+    width: 100%; 
+    max-width: 1920px; 
+    position: relative; 
+    margin: 0 auto; 
+}
 #welcome article { width: 100%; top: 300px; position: absolute; text-align: center; }
 #welcome article p,
 #welcome article a { color: #ccc; }
@@ -152,31 +157,28 @@ nav#side-nav h1 {
    /**background: url(../img/arrow_right.png) 100% 50% no-repeat;**/
 }
 #site-bottomnav {
+    background: #000;
     position: fixed;
-    bottom: 15px;
-    right: 25px;
+    top: 20px;
+    left: 10px;
+    opacity: 0.7;
+    padding: 10px 0 10px 10px;
+    min-width: 7%;
     z-index: 99999;
 }
 #site-bottomnav a{
-     display: block;
-     margin: 0 4px 0 0 !important;
-     width: 55px;
-     height: 55px;
-     overflow: hidden;
+     margin: 0 10px 0 0 !important;
+     width: 45px;
+     height: 45px;
      text-indent: -9000px;
      float: left;
-     border: 0 !important;
-     text-decoration: none !important;
 }
 .icon-contact {
     background: url(../img/contact-us.png) 0 0 no-repeat;
 }
-.icon-contact:hover {
-    background: url(../img/contact-us.png) 0 100% no-repeat;
-}
 .icon-rsvp {
     background: url(../img/rsvp.png) 0 0 no-repeat;
 }
-.icon-rsvp:hover {
-    background: url(../img/rsvp.png) 0 100% no-repeat;
+.icon-contact:hover,  .icon-rsvp:hover{
+    background-position: 0 100%;
 }
