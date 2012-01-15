@@ -69,8 +69,8 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 /* The Groom */
 #the-groom article {  
     background: url(../img/purple-grain.png) repeat #303;
-    margin: 100px 0 0 10%; 
-    width: 445px;
+    margin: 100px 0 0 8%; 
+    width: 430px;
     box-shadow: 0 0 25px rgba(0,0,0,0.3); 
 }
 #the-groom .photograph { 
@@ -86,6 +86,7 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 /* Our Story */
 #our-story article {
     background: url(../img/grain.png) repeat #333;
+    opacity: 0.9;
     margin: 200px 0 0 55%;
     width: 420px;
 }
