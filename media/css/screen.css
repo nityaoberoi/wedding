@@ -21,6 +21,7 @@ article {
     color: #fff;
     line-height: 1.5em;
     padding: 10px 20px;
+    position: absolute;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
 }
 article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-height: 1em; }
@@ -55,7 +56,6 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
     border: 1px solid rgba(150,150,150,0.1);
     box-shadow: 0 0 25px rgba(0,0,0,0.3);
     margin: 100px 0 0 10%; 
-    position: absolute;
     top: 100px;
     width: 445px;
 }
@@ -70,7 +70,6 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 #the-groom article {  
     background: url(../img/purple-grain.png) repeat #333;
     margin: 100px 0 0 20%; 
-    position: absolute; 
     box-shadow: 0 0 25px rgba(0,0,0,0.3); 
 }
 #the-groom .photograph { 
@@ -91,7 +90,8 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 
 /* Our Story */
 #our-story article {
-    background: url(../img/purple-grain.png) repeat #303;
+    background: url(../img/grain.png) repeat #333;
+    margin: 350px 0 0 55%   ;
     width: 420px;
 }
 #our-story article p { 
