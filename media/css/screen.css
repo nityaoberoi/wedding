@@ -4,7 +4,7 @@ body {
 }
 
 .story {
-    height: 900px;
+    height: 1000px;
     margin: 0 auto; 
     padding: 0;
     position: relative;
@@ -56,7 +56,7 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
     background: url(../img/purple-grain.png) repeat #333;
     border: 1px solid rgba(150,150,150,0.1);
     box-shadow: 0 0 25px rgba(0,0,0,0.3);
-    margin: 100px 0 0 10%; 
+    margin: 100px 0 0 55%; 
     top: 100px;
     width: 445px;
 }
@@ -70,7 +70,8 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 /* The Groom */
 #the-groom article {  
     background: url(../img/purple-grain.png) repeat #333;
-    margin: 100px 0 0 20%; 
+    margin: 100px 0 0 10%; 
+    width: 445px;
     box-shadow: 0 0 25px rgba(0,0,0,0.3); 
 }
 #the-groom .photograph { 
