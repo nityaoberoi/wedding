@@ -3,12 +3,17 @@ body {
     font-size: 13px;
 }
 
-.story { 
-    height: 900px; 
-    padding: 0; 
-    width: 100%; 
-    position: relative; 
+.story {
+    height: 900px;
     margin: 0 auto;
+    max-width: 1500px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .story article {
@@ -25,16 +30,16 @@ article {
 article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-height: 1em; }
 
 
-#welcome { background: url(../img/background.jpg) center center no-repeat fixed; }
-#the-bride { background: url(../img/the-bride.jpg) center center no-repeat fixed; }
-#the-groom { background: url(../img/the-groom.jpg) center center no-repeat fixed; }
-#our-story { background: url(../img/our-story.jpg) center center no-repeat fixed; }
-#the-ringer { background: url(../img/the-ringer.jpg) center center no-repeat fixed; }
-#the-wedding { background: url(../img/wedding3.jpg) center center no-repeat fixed; }
+#welcome { background: url(../img/background.jpg) 50% 50% no-repeat fixed; }
+#the-bride { background: url(../img/the-bride.jpg) 50% 50% no-repeat fixed; }
+#the-groom { background: url(../img/the-groom.jpg) 50% 50% no-repeat fixed; }
+#our-story { background: url(../img/our-story.jpg) 50% 50% no-repeat fixed; }
+#the-ringer { background: url(../img/the-ringer.jpg) 50% 50% no-repeat fixed; }
+#the-wedding { background: url(../img/wedding3.jpg) 50% 50% no-repeat fixed; }
 
 /* Introduction */
 #welcome .intro { 
-    background: url(../img/wedding-logo.jpg) 50% 100px no-repeat fixed; 
+    background: url(../img/logo.jpg) 50% 100px no-repeat fixed; 
     position: relative; 
     margin: 0 auto; 
 }

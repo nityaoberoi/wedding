@@ -1,7 +1,6 @@
 /* Author: 
 
 */
-// On your marks, get set...
 $(document).ready(function(){
     // Cache the Window object
     $window = $(window);
@@ -13,9 +12,6 @@ $(document).ready(function(){
             var $self = $(this),
             offsetCoords = $self.offset(),
             topOffset = offsetCoords.top;
-            if ($self.data('offsetY')) {
-                console.log($self.data('offsetY'));
-            }
             // When the window is scrolled...
             $(window).scroll(function() {
                 // If this section is in view
@@ -24,10 +20,9 @@ $(document).ready(function(){
                         // Scroll the background at var speed
                         // the yPos is a negative value because we're scrolling it UP!
                         var yPos = -($window.scrollTop() / $self.data('speed'));
-
                         // If this element has a Y offset then add it on
-                        if ($self.data('offsetY')) {
-                           yPos += $self.data('offsetY');
+                        if ($self.data('offsety')) {
+                            yPos += $self.data('offsety');
                         }
 
                        // Put together our final background position
