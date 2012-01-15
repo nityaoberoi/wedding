@@ -38,12 +38,25 @@ $(document).ready(function(){
                            var $sprite = $(this);
 
                            // Use the same calculation to work out how far to scroll the sprite
-                           var yPos = -($window.scrollTop() / $sprite.data('speed'));                    
+                           var yPos = ($window.scrollTop() / $sprite.data('speed'));                    
                            var coords = $sprite.data('Xposition') + ' ' + (yPos + $sprite.data('offsetY')) + 'px';
 
                            $sprite.css({ backgroundPosition: coords });                                                    
 
                        }); // sprites
+                       
+                        $('[data-type="horizontal-sprite"]', $self).each(function() {
+
+                              // Cache the sprite
+                              var $sprite = $(this);
+
+                              // Use the same calculation to work out how far to scroll the sprite
+                              var xPos = ($window.scrollLeft() / $sprite.data('speed'));                    
+                              var coords = (xPos + $sprite.data('offsetX')) + 'px' + $sprite.data('Yposition') + '40%';
+
+                              $sprite.css({ backgroundPosition: coords });                                                    
+
+                          }); // sprites
                     }
             });
         });
