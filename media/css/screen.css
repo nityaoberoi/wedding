@@ -1,3 +1,8 @@
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 13px;
+}
+
 .story { 
     height: 900px; 
     padding: 0; 
@@ -12,8 +17,11 @@
     z-index: 999;
 }
 article {
+    border: 1px solid rgba(150,150,150,0.1);
     color: #fff;
+    line-height: 1.5em;
     padding: 10px 20px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
 }
 article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-height: 1em; }
 
@@ -23,7 +31,7 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 }
 #the-bride { background: url(../img/the-bride.jpg) center center no-repeat fixed; }
 #the-groom { background: url(../img/the-groom.jpg) center center no-repeat fixed; }
-#our-story { background: url(../img/about-us.jpg) center center no-repeat fixed; }
+#our-story { background: url(../img/our-story.jpg) center center no-repeat fixed; }
 #the-ringer { background: url(../img/the-ringer.jpg) center center no-repeat fixed; }
 #the-wedding { background: url(../img/wedding3.jpg) center center no-repeat fixed; }
 
@@ -43,15 +51,12 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
     padding: 50px 0;
 }
 #the-bride article { 
-    background: url(../img/grain.png) repeat #333;
+    background: url(../img/purple-grain.png) repeat #333;
     border: 1px solid rgba(150,150,150,0.1);
     box-shadow: 0 0 25px rgba(0,0,0,0.3);
-    color: #fff;
-    line-height: 1.5em;
-    margin: 100px 0 0 55%; 
+    margin: 100px 0 0 10%; 
     position: absolute;
     top: 100px;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
     width: 445px;
 }
 #the-bride article p { 
@@ -64,10 +69,7 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 /* The Groom */
 #the-groom article {  
     background: url(../img/purple-grain.png) repeat #333;
-    border: 1px solid rgba(150,150,150,0.1);
     margin: 100px 0 0 20%; 
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.5); 
-    line-height: 1.5em;
     position: absolute; 
     box-shadow: 0 0 25px rgba(0,0,0,0.3); 
 }
@@ -90,8 +92,6 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 /* Our Story */
 #our-story article {
     background: url(../img/purple-grain.png) repeat #303;
-    line-height: 1.5em;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
     width: 420px;
 }
 #our-story article p { 
@@ -105,11 +105,8 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 }
 #the-ringer article { 
     background: url(../img/grain.png) repeat #333;
-    border: 1px solid rgba(150,150,150,0.1);
     box-shadow: 0 0 25px rgba(0,0,0,0.3);
-    line-height: 1.5em;
     margin: 100px 0 0 50%;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
     width: 445px;
 }
 #the-ringer article p { 
@@ -125,7 +122,7 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 nav#side-nav { 
     position: fixed; 
     left: 20px; 
-    top: 350px; 
+    top: 400px; 
     z-index: 9999;
 }
 nav#side-nav li {
@@ -143,8 +140,6 @@ nav#side-nav a {
 }
 nav#side-nav a:hover {
    background: url(../img/dotnav.png) 0 0 no-repeat;
-   text-indent: -9000px;
-   overflow: hidden;
 }
 nav#side-nav h1 {
    display: none;
@@ -158,21 +153,30 @@ nav#side-nav h1 {
 }
 #site-bottomnav {
     position: fixed;
-    bottom: 25px;
+    bottom: 15px;
     right: 25px;
     z-index: 99999;
 }
 #site-bottomnav a{
      display: block;
      margin: 0 4px 0 0 !important;
-     width: 100px;
-     height: 100px;
+     width: 55px;
+     height: 55px;
      overflow: hidden;
      text-indent: -9000px;
      float: left;
      border: 0 !important;
      text-decoration: none !important;
 }
-#site-bottomnav .icon-contact {
-    background: url(../img/button-gift.png) 0 0 no-repeat;
+.icon-contact {
+    background: url(../img/contact-us.png) 0 0 no-repeat;
+}
+.icon-contact:hover {
+    background: url(../img/contact-us.png) 0 100% no-repeat;
+}
+.icon-rsvp {
+    background: url(../img/rsvp.png) 0 0 no-repeat;
+}
+.icon-rsvp:hover {
+    background: url(../img/rsvp.png) 0 100% no-repeat;
 }
