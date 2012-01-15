@@ -6,9 +6,7 @@ body {
 .story { 
     height: 900px; 
     padding: 0; 
-    margin: 0; 
     width: 100%; 
-    max-width: 1920px; 
     position: relative; 
     margin: 0 auto;
 }
@@ -27,9 +25,7 @@ article {
 article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-height: 1em; }
 
 
-#welcome { 
-    background: url(../img/background.png) no-repeat center center fixed;
-}
+#welcome { background: url(../img/background.jpg) center center no-repeat fixed; }
 #the-bride { background: url(../img/the-bride.jpg) center center no-repeat fixed; }
 #the-groom { background: url(../img/the-groom.jpg) center center no-repeat fixed; }
 #our-story { background: url(../img/our-story.jpg) center center no-repeat fixed; }
@@ -39,10 +35,6 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 /* Introduction */
 #welcome .intro { 
     background: url(../img/wedding-logo.jpg) 50% 100px no-repeat fixed; 
-    min-height: 1000px; 
-    padding: 0; 
-    width: 100%; 
-    max-width: 1920px; 
     position: relative; 
     margin: 0 auto; 
 }
@@ -83,7 +75,6 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
     padding: 0; 
     margin: 0; 
     width: 100%; 
-    max-width: 1920px; 
     position: relative; 
     margin: 0 auto; 
 }
