@@ -5,8 +5,7 @@ body {
 
 .story {
     height: 900px;
-    margin: 0 auto;
-    max-width: 1500px;
+    margin: 0 auto; 
     padding: 0;
     position: relative;
     width: 100%;
@@ -153,17 +152,14 @@ nav#side-nav h1 {
    /**background: url(../img/arrow_right.png) 100% 50% no-repeat;**/
 }
 #site-bottomnav {
-    background: #000;
     position: fixed;
     top: 20px;
     left: 10px;
-    opacity: 0.7;
-    padding: 10px 0 10px 10px;
-    min-width: 7%;
+    padding: 10px;
     z-index: 99999;
 }
 #site-bottomnav a{
-     margin: 0 10px 0 0 !important;
+     margin: 0 7px 0 0 !important;
      width: 45px;
      height: 45px;
      text-indent: -9000px;
