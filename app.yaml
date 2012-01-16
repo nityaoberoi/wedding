@@ -1,13 +1,10 @@
 application: nitya-and-sriram
 version: 1
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: true
 
 handlers:
-- url: (.*)/
-  static_files: index.html
-  upload: index.html
-
 - url: /img
   static_dir: media/img
 
@@ -16,6 +13,9 @@ handlers:
 
 - url: /js
   static_dir: media/js
+
+- url: /.*
+  script: wedding.app
 
 skip_files:
 - ^(.*/)?.*\.psd
