@@ -26,18 +26,19 @@ article {
     border: 1px solid rgba(150,150,150,0.1);
     color: #fff;
     line-height: 1.5em;
+    opacity: 0.9;
     padding: 10px 20px;
     position: absolute;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
 }
-article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-height: 1em; }
+article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; line-height: 1em; }
 
 
 #welcome { background: url(../img/background.jpg) 50% 50% no-repeat fixed; }
 #the-bride { background: url(../img/the-bride.jpg) 50% 50% no-repeat fixed; }
 #the-groom { background: url(../img/the-groom.jpg) 50% 50% no-repeat fixed; }
 #our-story { background: url(../img/our-story.jpg) 50% 50% no-repeat fixed; }
-#the-ringer { background: url(../img/the-ringer.jpg) 50% 50% no-repeat fixed; }
+#the-engagement { background: url(../img/the-ringer.jpg) 50% 50% no-repeat fixed; }
 #the-wedding { background: url(../img/wedding3.jpg) 50% 50% no-repeat fixed; }
 
 /* Introduction */
@@ -86,20 +87,19 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 /* Our Story */
 #our-story article {
     background: url(../img/grain.png) repeat #333;
-    opacity: 0.9;
     margin: 200px 0 0 55%;
     width: 420px;
 }
 /* The Engagement */
-#the-ringer { 
+#the-engagement { 
     padding: 50px 0;
 }
-#the-ringer article { 
+#the-engagement article { 
     background: url(../img/grain.png) repeat #333;
     margin: 100px 0 0 50%;
     width: 445px;
 }
-#the-ringer article a { 
+#the-engagement article a { 
     color: #ff0;
 }
 
@@ -139,8 +139,8 @@ nav#side-nav a {
    text-indent: -9000px;
    overflow: hidden;
 }
-nav#side-nav a:hover {
-   background: url(../img/dotnav.png) 0 0 no-repeat;
+nav#side-nav a:hover, a.active {
+   background: url(../img/dotnav.png) 0 0 no-repeat !important;
 }
 #site-bottomnav {
     position: fixed;

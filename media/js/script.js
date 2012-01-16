@@ -30,6 +30,13 @@ $(document).ready(function(){
 
                        // Move the background
                        $self.css({ backgroundPosition: coords });
+                       
+                       $('#side-nav li a').each(function(){
+                           $(this).removeClass('active');
+                           if($(this).html() == $self.attr('id')){
+                                $(this).addClass('active');
+                            }
+                        });
 
                        // Check for other sprites in this section    
                        $('[data-type="sprite"]', $self).each(function() {
@@ -38,8 +45,8 @@ $(document).ready(function(){
                            var $sprite = $(this);
 
                            // Use the same calculation to work out how far to scroll the sprite
-                           var yPos = ($window.scrollTop() / $sprite.data('speed'));                    
-                           var coords = $sprite.data('Xposition') + ' ' + (yPos + $sprite.data('offsetY')) + 'px';
+                           var yPos = ($window.scrollTop() / $sprite.data('speed'));
+                           var coords = $sprite.data('xposition') + ' ' + (yPos + $sprite.data('offsety')) + 'px';
 
                            $sprite.css({ backgroundPosition: coords });                                                    
 
@@ -52,7 +59,7 @@ $(document).ready(function(){
 
                               // Use the same calculation to work out how far to scroll the sprite
                               var xPos = ($window.scrollLeft() / $sprite.data('speed'));                    
-                              var coords = (xPos + $sprite.data('offsetX')) + 'px' + $sprite.data('Yposition') + '40%';
+                              var coords = (xPos + $sprite.data('offsetx')) + 'px' + $sprite.data('yposition') + '40%';
 
                               $sprite.css({ backgroundPosition: coords });                                                    
 
