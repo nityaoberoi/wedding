@@ -39,7 +39,8 @@ article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; li
 #the-groom { background: url(../img/the-groom.jpg) 50% 50% no-repeat fixed; }
 #our-story { background: url(../img/our-story.jpg) 50% 50% no-repeat fixed; }
 #the-engagement { background: url(../img/the-ringer.jpg) 50% 50% no-repeat fixed; }
-#the-wedding { background: url(../img/wedding3.jpg) 50% 50% no-repeat fixed; }
+#the-wedding-1 { background: url(../img/wedding3.jpg) 50% 50% no-repeat fixed; }
+#the-wedding-2 { background: url(../img/wedding.jpg) 50% 50% no-repeat fixed; }
 
 /* Introduction */
 #welcome .intro { 
@@ -104,17 +105,18 @@ article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; li
 }
 
 /* The Wedding */
-#the-wedding { 
-    padding: 50px 0;
-}
-#the-wedding article { 
+#the-wedding-1 article { 
     background: #333;
     opacity: 0.7;
-    margin: 100px 0 0 40%;
+    margin: 100px 0 0 10%;
     width: 650px;
 }
-#the-wedding article a { 
-    color: #ff0;
+
+#the-wedding-2 article { 
+    background: #333;
+    opacity: 0.7;
+    margin: 100px 0 0 10%;
+    width: 650px;
 }
 
 /* -------------------- */
