@@ -8,7 +8,7 @@ body {
     height: 100%;
     position: fixed;
     width: 100%;
-    z-index: 9999;
+    z-index: 99999;
 }
 #loading span {
     position: absolute;
@@ -165,7 +165,7 @@ nav#side-nav a:hover, a.active {
     top: 20px;
     left: 10px;
     padding: 10px;
-    z-index: 99999;
+    z-index: 9999;
 }
 #site-bottomnav a{
      margin: 0 7px 0 0 !important;
