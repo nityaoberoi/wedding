@@ -8,7 +8,7 @@ body {
     height: 100%;
     position: fixed;
     width: 100%;
-    z=index: -9999;
+    z-index: 9999;
 }
 #loading span {
     position: absolute;
@@ -30,24 +30,21 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
-
-.story article {
-    box-shadow: 0 0 25px rgba(0,0,0,0.3);
-    z-index: 999;
-}
-.story article p {
-    margin-bottom: 25px; 
-}
 article {
     border: 1px solid rgba(150,150,150,0.1);
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
     color: #fff;
     line-height: 1.5em;
     opacity: 0.9;
     padding: 10px 20px;
     position: absolute;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    z-index: 999;
 }
 article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; line-height: 1em; }
+.story article p {
+    margin-bottom: 25px; 
+}
 
 
 #welcome { background: url(../img/background.jpg) 50% 50% no-repeat fixed; }
@@ -76,7 +73,7 @@ article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; li
 #the-bride article { 
     background: url(../img/purple-grain.png) repeat #303;
     border: 1px solid rgba(150,150,150,0.1);
-    margin: 100px 0 0 55%; 
+    margin: 70px 0 0 55%; 
     top: 100px;
     width: 445px;
 }
@@ -104,8 +101,8 @@ article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; li
 /* Our Story */
 #our-story article {
     background: url(../img/grain.png) repeat #333;
-    margin: 200px 0 0 55%;
-    width: 420px;
+    margin: 150px 0 0 55%;
+    width: 450px;
 }
 /* The Engagement */
 #the-engagement { 
