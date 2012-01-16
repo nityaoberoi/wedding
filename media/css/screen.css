@@ -47,7 +47,7 @@ article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; li
 }
 
 
-#welcome { background: url(../img/background.jpg) 50% 50% no-repeat fixed; }
+#welcome { background: url(../img/background.jpg) 50% 0px no-repeat fixed; }
 #the-bride { background: url(../img/the-bride.jpg) 50% 50% no-repeat fixed; }
 #the-groom { background: url(../img/the-groom.jpg) 50% 50% no-repeat fixed; }
 #our-story { background: url(../img/our-story.jpg) 50% 50% no-repeat fixed; }
@@ -57,7 +57,7 @@ article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; li
 
 /* Introduction */
 #welcome .intro { 
-    background: url(../img/logo.png) 50% 100px no-repeat fixed; 
+    background: url(../img/logo.png) 50% 200px no-repeat fixed; 
     min-height: 900px; 
     padding: 0; width: 100%; max-width: 1000px; position: relative; margin: 0 auto; }
 #welcome article { width: 100%; top: 300px; position: absolute; text-align: center; }
