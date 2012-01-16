@@ -59,7 +59,7 @@ article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; li
 #welcome .intro { 
     background: url(../img/logo.png) 50% 100px no-repeat fixed; 
     min-height: 900px; 
-    padding: 0; margin: 0; width: 100%; max-width: 1000px; position: relative; margin: 0 auto; }
+    padding: 0; width: 100%; max-width: 1000px; position: relative; margin: 0 auto; }
 #welcome article { width: 100%; top: 300px; position: absolute; text-align: center; }
 #welcome article p,
 #welcome article a { color: #ccc; }
@@ -119,17 +119,15 @@ article h2 { font-family: 'Ruthie', cursive; font-size: 60px; margin: 25px 0; li
 
 /* The Wedding */
 #the-wedding-1 article { 
-    background: #333;
-    opacity: 0.7;
+    background: url(../img/grain.png) repeat #333;
     margin: 100px 0 0 10%;
     width: 650px;
 }
 
 #the-wedding-2 article { 
-    background: #333;
-    opacity: 0.7;
-    margin: 100px 0 0 10%;
-    width: 650px;
+    background: url(../img/grain.png) repeat #333;
+    margin: 100px 0 0 45%;
+    width: 40%;
 }
 
 /* -------------------- */
