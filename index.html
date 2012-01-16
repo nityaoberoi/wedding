@@ -30,6 +30,7 @@
 </head>
 
 <body>
+<div id="loading"><span>Just a moment please...</span></div>
 <div id="main" role="main">
         <nav id="side-nav" data-controller="MainNav" style="margin-top: -200px; ">
         <ul>
@@ -157,6 +158,9 @@
     $(function() {
       $('.tip').tipsy({gravity: 'w', fade: true, delayIn: 100});
       $('.function-tip').tipsy({gravity: 'n', fade: true, delayIn: 100, offset: 7});
+      $(window).load(function() {
+          $('#loading').animate({"left" : "100%"});
+      });
     });
   </script>
 </body>

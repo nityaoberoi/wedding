@@ -2,7 +2,23 @@ body {
     font-family: "Open Sans", Arial, sans-serif;
     font-size: 14px;
 }
+/* Loader */
+#loading {
+    background: url(../img/ajax-loader.gif) 50% 50% no-repeat #333;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z=index: -9999;
+}
+#loading span {
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    margin-left: -65px;
+    color: #999;
+}
 
+/* Stories */
 .story {
     height: 900px;
     margin: 0 auto; 
