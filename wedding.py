@@ -10,7 +10,7 @@ class MainPage(webapp2.RequestHandler):
 
       start_rt = time.time()
       rt = template.render(path, {})  # rendered template
-      logging.info("LOG: Rendering main page took: %s secs" , time.time()-start_rt)
+      logging.debug("LOG: Rendering main page took: %s secs" , time.time()-start_rt)
       self.response.out.write(rt)
 
 class RSVPPage(webapp2.RequestHandler):
@@ -20,5 +20,6 @@ class RSVPPage(webapp2.RequestHandler):
     self.response.out.write(template.render(path,{}))
 
 
+logging.getLogger().setLevel(logging.DEBUG)
 app = webapp2.WSGIApplication([('/', MainPage),
                                ('/rsvp', RSVPPage)])
