@@ -42,9 +42,9 @@ article h2 { font-family: 'Qwigley'; font-size: 60px; margin: 25px 0; line-heigh
 
 /* Introduction */
 #welcome .intro { 
-    background: url(../img/ganesh.jpg) 50% 100px no-repeat fixed; 
-    min-height: 1000px; 
-    padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
+    background: url(../img/logo.png) 50% 100px no-repeat fixed; 
+    min-height: 900px; 
+    padding: 0; margin: 0; width: 100%; max-width: 1000px; position: relative; margin: 0 auto; }
 #welcome article { width: 100%; top: 300px; position: absolute; text-align: center; }
 #welcome article p,
 #welcome article a { color: #ccc; }
