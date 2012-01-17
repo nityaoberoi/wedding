@@ -21,7 +21,6 @@ body {
 /* Stories */
 .story {
     height: 900px;
-    max-width: 1250px;
     margin: 0 auto; 
     padding: 0;
     position: relative;
