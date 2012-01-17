@@ -1,5 +1,14 @@
 <!doctype html>
 <body>
-  <div>RSVP Page html</div>
+  <div align="left">
+    Will you be joining us in Pune?
+    <form name="coming" action="/rsvp/coming?%s" method="POST">
+      <select name="mydropdown">
+	<option value="yes">Yes, of course!</option>
+	<option value="no">No, I can't make it.</option>
+	<option value="maybe">I think so, but will confirm soon.</option>
+      </select>
+    </form>
+  </div>
 </body>
 </html>

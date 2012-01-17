@@ -1,6 +1,7 @@
 #!/usr/lib/python2.5
 
 import logging, os, time, webapp2
+from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 
 class MainPage(webapp2.RequestHandler):
@@ -15,6 +16,7 @@ class MainPage(webapp2.RequestHandler):
 
 class RSVPPage(webapp2.RequestHandler):
   def get(self):
+    self.request.get('g
     self.response.headers['Content-Type'] = 'text/html'
     path = os.path.join(os.path.dirname(__file__), 'rsvp.html')
     self.response.out.write(template.render(path,{}))
