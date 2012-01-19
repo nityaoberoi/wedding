@@ -25,7 +25,6 @@ body {
     padding: 0;
     position: relative;
     width: 100%;
-    overflow: hidden;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -53,13 +52,28 @@ article h2 {
     margin-bottom: 25px; 
 }
 
-#welcome { background: url(../img/background.jpg) 50% 0px no-repeat fixed; }
-#the-bride { background: url(../img/the-bride.jpg) 50% 50% no-repeat fixed; }
-#the-groom { background: url(../img/the-groom.jpg) 50% 50% no-repeat fixed; }
-#our-story { background: url(../img/our-story.jpg) 50% 50% no-repeat fixed; }
-#the-engagement { background: url(../img/the-ringer.jpg) 50% 50% no-repeat fixed; }
-#the-wedding-1 { background: url(../img/wedding3.jpg) 50% 50% no-repeat fixed; }
-#the-wedding-2 { background: url(../img/wedding.jpg) 50% 50% no-repeat fixed; }
+#welcome { 
+    background: url(../img/background.jpg) 50% 0px no-repeat fixed;
+    background-color: #606060;
+}
+#the-bride { 
+    background: url(../img/the-bride.jpg) 50% 50% no-repeat fixed;
+    background-color: #416867;
+}
+#the-groom { 
+    background: url(../img/the-groom.jpg) 50% 50% no-repeat fixed;
+    background-color: #F4F3F1;
+}
+#our-story { 
+    background: url(../img/our-story.jpg) 50% 50% no-repeat fixed; }
+#the-engagement { 
+    background: url(../img/the-ringer.jpg) 50% 50% no-repeat fixed; }
+#the-wedding-1 { 
+    background: url(../img/wedding3.jpg) 50% 50% no-repeat fixed; 
+    background-color: #170b4d;
+}
+#the-wedding-2 { 
+    background: url(../img/wedding.jpg) 50% 50% no-repeat fixed; }
 
 /* Introduction */
 #welcome .intro { 
