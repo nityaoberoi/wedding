@@ -197,6 +197,9 @@ nav#side-nav a:hover, a.active {
 .icon-rsvp {
     background: url(../img/rsvp.png) 0 0 no-repeat;
 }
-.icon-contact:hover,  .icon-rsvp:hover{
+.icon-photo {
+    background: url(../img/photo-gallery.png) 0 0 no-repeat;
+}
+.icon-contact:hover, .icon-rsvp:hover, .icon-photo:hover{
     background-position: 0 100%;
 }
