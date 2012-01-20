@@ -1,35 +1,11 @@
-<!doctype html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
+{% extends "base.html" %}
 
-  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-       More info: h5bp.com/b/378 -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+{% block extra_css %}
+    <link rel="stylesheet" href="css/tipsy.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox-1.3.4.css" media="screen" />
+{% endblock %}
 
-  <title></title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/screen.css">
-  <link rel="stylesheet" href="css/tipsy.css">
-  <link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-  <link href='http://fonts.googleapis.com/css?family=Ruthie' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,400' rel='stylesheet' type='text/css'>
-
-  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
-
-  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
-       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
-       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-       <script src="js/libs/modernizr-2.0.6.min.js"></script>
-</head>
-
-<body>
+{% block content %}
 <div id="loading"><span>Just a moment please...</span></div>
 <div id="main" role="main">
         <nav id="side-nav" data-controller="MainNav" style="margin-top: -200px; ">
@@ -46,17 +22,18 @@
         
         <div id="site-bottomnav" data-controller="SiteFunctions">
             <a id="contact-us" href="/contact-us" title="Contact Us" class="icon-contact function-tip">Contact Us</a>
-            <a id="rsvp" href="/rsvp" title="RSVP" class="icon-rsvp function-tip">RSVP</a>
+            <a id="rsvp" href="/rsvp.html" title="RSVP" class="icon-rsvp function-tip">RSVP</a>
+            <a id="photos" href="/gallery" title="Photo Gallery" class="icon-photo function-tip">Photo Gallery</a>
         </div>
         
     <!-- Section #1 / Intro -->
-    <section id="welcome" class="story" data-speed="4" data-type="background">
+    <section id="welcome" class="story" data-speed="6" data-type="background">
         <div class="intro" data-type="sprite" data-offsety="200" data-xposition="50%" data-speed="4"></div>
         
     </section>
     
     <!-- Section #2 / Bride & Groom -->
-    <section id="the-bride" class="story" data-speed="8" data-type="background">
+    <section id="the-bride" class="story" data-speed="6" data-type="background" data-offsety="150">
         <div class="intro" data-type="horizontal-sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div>
         <article>
             <h2>The Bride</h2>
@@ -66,7 +43,7 @@
         </article>
     </section>
     
-    <section id="the-groom" class="story" data-speed="6" data-type="background" data-offsety="200">
+    <section id="the-groom" class="story" data-speed="6" data-type="background" data-offsety="265">
         <article>
             <h2>The Groom</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, ante vel iaculis malesuada, nunc purus malesuada sapien, sit amet suscipit eros lacus et lorem. Maecenas sagittis venenatis augue ut dictum. Maecenas non massa lorem, ac iaculis lorem. Donec turpis odio, bibendum et porttitor vel, dignissim quis metus. Suspendisse eros nisl, volutpat et mollis ac, eleifend ut erat. Pellentesque quis volutpat diam. Phasellus euismod ultricies augue vel euismod.</p>
@@ -76,7 +53,7 @@
     </section>
 
     <!-- Section #4 / Our Story -->
-    <section id="our-story" class="story" data-speed="8" data-type="background" data-offsety="300">
+    <section id="our-story" class="story" data-speed="9" data-type="background" data-offsety="300">
         <article>
             <h2>Our Story</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, ante vel iaculis malesuada, nunc purus malesuada sapien, sit amet suscipit eros lacus et lorem. Maecenas sagittis venenatis augue ut dictum. Maecenas non massa lorem, ac iaculis lorem. Donec turpis odio, bibendum et porttitor vel, dignissim quis metus. Suspendisse eros nisl, volutpat et mollis ac, eleifend ut erat. Pellentesque quis volutpat diam. Phasellus euismod ultricies augue vel euismod.</p>
@@ -86,7 +63,7 @@
     </section>
 
     <!-- Section #5 / Engagement -->
-      <section id="the-engagement" class="story" data-speed="10" data-type="background" data-offsety="300">
+      <section id="the-engagement" class="story" data-speed="9" data-type="background" data-offsety="400">
           <article>
               <h2>The Engagement</h2>
               <div class="textbox">        
@@ -100,7 +77,7 @@
 
 
       <!-- Section #6 / Wedding -1  -->
-      <section id="the-wedding-1" class="story" data-speed="6" data-type="background" data-offsety="700">
+      <section id="the-wedding-1" class="story" data-speed="10" data-type="background" data-offsety="480">
           <article>
               <h2>Wedding - Events &amp; Details</h2>
               <div class="textbox">        
@@ -112,7 +89,7 @@
       </section>
       
       <!-- Section #7 / Wedding -2 -->
-        <section id="the-wedding-2" class="story" data-speed="8" data-type="background" data-offsety="700">
+        <section id="the-wedding-2" class="story" data-speed="10" data-type="background" data-offsety="505">
             <article>
                 <h2>Guest Information</h2>
                 <div class="textbox">        
@@ -126,44 +103,27 @@
         </section>
       
     </div> <!-- // End of #main -->
-
+{% endblock %}
+{% block extra_js %}
 
   <!-- JavaScript at the bottom for fast page loading -->
-
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
   <script src="js/script.js"></script>
   <script src="js/jquery.tipsy.js"></script>
-    <!--[if lt IE 7 ]>
-      <script src="js/libs/dd_belatedpng.js"></script>
-      <script>DD_belatedPNG.fix("img, .png_bg");
-    <![endif]-->
+  <script src="js/jquery.fancybox-1.3.4.pack.js"></script>
+  <script src="js/jquery.easing-1.3.pack.js"></script>
 
-    
-  <!-- Change UA-XXXXX-X to be your site's ID -->
-  <script>
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
-
-
-  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
-       chromium.org/developers/how-tos/chrome-frame-getting-started -->
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
   <script type="text/javascript">
     $(function() {
-      $('.tip').tipsy({gravity: 'w', fade: true, delayIn: 100});
-      $('.function-tip').tipsy({gravity: 'n', fade: true, delayIn: 100, offset: 7});
-      $(window).load(function() {
-          $('#loading').animate({"left" : "100%"});
-      });
+        $('.tip').tipsy({gravity: 'w', fade: true, delayIn: 100});
+        $('.function-tip').tipsy({gravity: 'n', fade: true, delayIn: 100, offset: 7});
+        $(window).load(function() {
+            $('#loading').animate({"left" : "100%"});
+        });
+        $('#site-bottomnav a').live('click', function(e){
+            $(this).fancybox({
+                href: $(this).attr('href')
+            });
+        })
     });
   </script>
-</body>
-</html>
+{% endblock %}

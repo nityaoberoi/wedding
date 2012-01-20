@@ -19,3 +19,9 @@ handlers:
 
 skip_files:
 - ^(.*/)?.*\.psd
+
+libraries:
+- name: PIL
+  version: latest
+- name: django
+  version: latest
