@@ -1,1 +1,34 @@
+<!doctype html>
+<script type="text/javascript">
+function blank(a) { if(a.value == a.defaultValue) a.value = ""; }
+function unblank(a) { if(a.value == "") a.value = a.defaultValue; }
+</script>
+<body>
+  <div align="left">
+    <form action="/rsvp" method="get">
+      <div>
+	Your Name:<input type="text" name="fullname" size="70" maxlength="100">
+      </div>
+
+      <div>
+	<span>Will you be joining us in Pune?</span>
+	<span><select name="coming">
+	    <option value="yes">Yes, of course!</option>
+	    <option value="no">No, I'm unable to.</option>
+	    <option value="maybe">I'll decide soon.</option>
+	</select></span>
+      </div>
+
+      <div>
+	<textarea name="message" rows="5" cols="40" maxlength="200"
+		  onfocus="blank(this)" onblur="unblank(this)">
+	</textarea>
+      </div>
+
+      <div><input type="submit" /></div> <!--- make grey if name isn't entered --->
+    </form>
+  </div>
+</body>
+</html>
+
 <div class="fancybox">RSVP Page html</div>
