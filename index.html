@@ -28,8 +28,10 @@
         
     <!-- Section #1 / Intro -->
     <section id="welcome" class="story" data-speed="6" data-type="background">
-        <div class="intro" data-type="sprite" data-offsety="200" data-xposition="50%" data-speed="4"></div>
-        
+        <!--<div class="intro" data-type="sprite" data-offsety="200" data-xposition="50%" data-speed="4"></div>-->
+        <article>
+            <h2>We're tying the knot!</h2>
+        </article>
     </section>
     
     <!-- Section #2 / Bride & Groom -->
@@ -65,7 +67,7 @@
     <!-- Section #5 / Engagement -->
       <section id="the-engagement" class="story" data-speed="9" data-type="background" data-offsety="400">
           <article>
-              <h2>The Engagement</h2>
+              <h2>The Proposal</h2>
               <div class="textbox">        
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, ante vel iaculis malesuada, nunc purus malesuada sapien, sit amet suscipit eros lacus et lorem. Maecenas sagittis venenatis augue ut dictum. Maecenas non massa lorem, ac iaculis lorem. Donec turpis odio, bibendum et porttitor vel, dignissim quis metus. Suspendisse eros nisl, volutpat et mollis ac, eleifend ut erat. Pellentesque quis volutpat diam. Phasellus euismod ultricies augue vel euismod.</p>
 
@@ -109,21 +111,22 @@
   <!-- JavaScript at the bottom for fast page loading -->
   <script src="js/script.js"></script>
   <script src="js/jquery.tipsy.js"></script>
-  <script src="js/jquery.fancybox-1.3.4.pack.js"></script>
-  <script src="js/jquery.easing-1.3.pack.js"></script>
+  <script src="js/jquery.simplemodal.1.4.2.min.js"></script>
 
   <script type="text/javascript">
     $(function() {
+        
         $('.tip').tipsy({gravity: 'w', fade: true, delayIn: 100});
         $('.function-tip').tipsy({gravity: 'n', fade: true, delayIn: 100, offset: 7});
+        
         $(window).load(function() {
             $('#loading').animate({"left" : "100%"});
         });
-        $('#site-bottomnav a').live('click', function(e){
-            $(this).fancybox({
-                href: $(this).attr('href')
-            });
-        })
+        //$('#photos').modal();        
+        //$('#rsvp').modal();
+        /*$('#site-bottomnav a').live('click', function(e){
+            $(this).fancybox();
+        })*/
     });
   </script>
 {% endblock %}

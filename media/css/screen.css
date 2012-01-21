@@ -80,7 +80,17 @@ article h2 {
     background: url(../img/logo.png) 50% 200px no-repeat fixed; 
     min-height: 900px; 
     padding: 0; width: 100%; max-width: 1000px; position: relative; margin: 0 auto; }
-#welcome article { width: 100%; top: 300px; position: absolute; text-align: center; }
+#welcome article { 
+    width: 100%; 
+    top: 300px; 
+    position: absolute;
+    text-align: center;
+}
+#welcome article h2 {
+    color: #000;
+    font-size: 100px;
+    text-shadow: 0px 2px 3px #555;
+}
 #welcome article p,
 #welcome article a { color: #ccc; }
 #welcome article a { text-decoration: underline; }
@@ -160,11 +170,6 @@ nav#side-nav {
     left: 20px; 
     top: 400px; 
     z-index: 9999;
-}
-nav#side-nav li {
-    display: inline;
-    height: 20px;
-    position: relative;
 }
 nav#side-nav a {
    display: block;
