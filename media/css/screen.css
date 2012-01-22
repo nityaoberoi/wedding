@@ -2,7 +2,9 @@ body {
     font-family: "Open Sans", Arial, sans-serif;
     font-size: 14px;
 }
-/* Loader */
+/* -------------------- */
+/* Loader               */
+/* -------------------- */
 #loading {
     background: url(../img/ajax-loader.gif) 50% 50% no-repeat #333;
     height: 100%;
@@ -17,8 +19,9 @@ body {
     margin-left: -65px;
     color: #999;
 }
-
-/* Stories */
+/* -------------------- */
+/* Stories              */
+/* -------------------- */
 .story {
     height: 900px;
     margin: 0 auto; 
@@ -51,7 +54,6 @@ article h2 {
 .story article p {
     margin-bottom: 25px; 
 }
-
 #welcome { 
     background: url(../img/background.jpg) 50% 0px no-repeat fixed;
     background-color: #606060;
@@ -65,24 +67,34 @@ article h2 {
     background-color: #F4F3F1;
 }
 #our-story { 
-    background: url(../img/our-story.jpg) 50% 50% no-repeat fixed; }
+    background: url(../img/our-story.jpg) 50% 50% no-repeat fixed; 
+    background-color: #FDFDFC;
+}
 #the-engagement { 
-    background: url(../img/the-ringer.jpg) 50% 50% no-repeat fixed; }
+    background: url(../img/the-ringer.jpg) 50% 50% no-repeat fixed;
+    background-color: #ede8d5;
+}
 #the-wedding-1 { 
     background: url(../img/wedding3.jpg) 50% 50% no-repeat fixed; 
     background-color: #170b4d;
 }
 #the-wedding-2 { 
-    background: url(../img/wedding.jpg) 50% 50% no-repeat fixed; }
+    background: url(../img/wedding.jpg) 50% 50% no-repeat fixed; 
+    background-color: #729ea9;
+}
 
 /* Introduction */
 #welcome .intro { 
     background: url(../img/logo.png) 50% 200px no-repeat fixed; 
     min-height: 900px; 
-    padding: 0; width: 100%; max-width: 1000px; position: relative; margin: 0 auto; }
-#welcome article { 
+    padding: 0; 
     width: 100%; 
-    top: 300px; 
+    max-width: 1000px; 
+    position: relative; margin: 0 auto; }
+
+#welcome article { 
+    top: 300px;
+    left: 30%;
     position: absolute;
     text-align: center;
 }
