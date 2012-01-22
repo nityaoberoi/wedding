@@ -1,9 +1,14 @@
 <div class="fancybox">
     <div class="fancybox-title">
-        <h3>RSVP</h3>
+        <h3>RSVP for {{email}}</h3><!--- TODO: option to sign out --->
     </div>
     <div class="fancybox-body">
-        <form action="/rsvp-guest" method="get">           
+        <form action="/rsvp-submit" method="get">
+	    <input type="hidden" name="email" value="{{email}}"></input>
+            <p class="first">
+                <label for="fullname">Name</label>
+                <input type="text" name="fullname" size="50" maxlength="50" value="{{name}}">
+            </p>
             <p>
                 <label for="coming">Will you be joining us in Pune?</label>
                 <select name="coming"> <!-- ### onchange="this.form.submit()"> -->
@@ -16,20 +21,35 @@
                     {% endfor %}
                 </select>
             </p>
+	    <!--- IF YES --->
+            <p>
+                <label for="count">Your Family & Friends?</label>
+                <input type="text" name="count" size="2" maxlength="2">  <!--- regex for limiting number --->
+	    </p>
+
             <!-- Reaching pune details -->
             <p>
                 <label for="checkin">Checking in at Bonboutique? If so, when?</label>
                 <select name="checkin">
                     {% for val in checkin_opts %}
-                        <option value="{{val}}">{{val}}</option>
+                        <option value="{{val}}"
+				{% ifequal val checkout %}
+				selected
+				{% endifequal %}
+				>{{val}}</option>
                     {% endfor %}
                 </select>
             </p>
+
             <p>
                 <label for="checkout">...and checking out?</label>
                 <select name="checkout">
                     {% for val in checkout_opts %}
-                        <option value="{{val}}">{{val}}</option>
+                        <option value="{{val}}"
+				{% ifequal val checkin %}
+				selected
+				{% endifequal %}
+				>{{val}}</option>
                     {% endfor %}
                 </select>
             </p>
@@ -41,13 +61,12 @@
             	    <option value="no">No</option>
                 </select>
             </p>
+	    <!---- END OF "IF YES" --->
+ 
             <!-- Message -->
             <p>
                 <label for="message">Optional Message</label>
-                <textarea name="message" rows="5" cols="40" maxlength="200"
-                    onfocus="blank(this)" onblur="unblank(this)"
-                    placeholder="A message for the couple?">
-            	</textarea>
+                <textarea name="message" rows="5" cols="40" maxlength="200"></textarea>
             </p>
             <p>
                 <input type="submit" value="Submit">
@@ -55,7 +74,4 @@
         </form>
     </div>
 </div>
-<script type="text/javascript">
-function blank(a) { if(a.value == a.defaultValue) a.value = ""; }
-function unblank(a) { if(a.value == "") a.value = a.defaultValue; }
 </script>

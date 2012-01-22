@@ -18,7 +18,7 @@ class MainPage(webapp2.RequestHandler):
 class Guest(db.Model):
   name = db.StringProperty(required=True)
   email = db.StringProperty(required=True)
-  coming = db.StringProperty(required=True)
+  count = db.IntegerProperty(required=True)
 
   # Hotel specific. June 9 8am until Jun 9 11:59
   checkin = db.StringProperty()  # TODO: datetime?
@@ -26,33 +26,84 @@ class Guest(db.Model):
   ride_from_bom = db.BooleanProperty()
 
   # Other flight info, whatever they want to say
-  message = db.StringProperty(multiline=True)
-
+  message = db.StringListProperty()
   """
-  # If flying into Bombay airport, tell us
-  landing_at_bom = db.BooleanProperty()
+  # If flying into Bombay airport, tell ur ARR/DEP details
   arrival = db.StringProperty()
   departure = db.StringProperty()
   """
-
   # Private information about guests
   notes = db.StringProperty()
   updated = db.IntegerProperty()
 
-
-class RSVPGuest(webapp2.RequestHandler):
-  """Update RSVP info for a guest"""
+class RSVPLoginHTMLPage(webapp2.RequestHandler):
   def get(self):
+    path = os.path.join(os.path.dirname(__file__), 'rsvp-login.html')
+    self.response.out.write(template.render(path,{}))
+
+class RSVPLogin(webapp2.RequestHandler):
+  """On submitting email in RSVP Login page."""
+  def get(self):
+    email = self.request.get('email')
+    if not email:
+      self.redirect('/rsvp-login.html')
+    elif lookup_user_email(email):
+      # email matched in current RSVP list
+      self.redirect('/confirmation.html?email=%s' % email)
+    else:
+      # send the user to RSVP page, with only email detail filled.
+      self.redirect('/rsvp.html?email=%s' % email)
+
+    return
+
+class RSVPHTMLPage(webapp2.RequestHandler):
+  def get(self):
+    email = self.request.get("email")
+    if not email:  # go thru the email workflow
+      self.redirect("/rsvp-login.html")
+      return      
+
+    name = self.request.get("name")
+    path = os.path.join(os.path.dirname(__file__), 'rsvp.html')
+
+    coming = self.request.get('coming')
+    # RSVP overall choice
+    opts = {"": "", "yes": "Yes, of course!",
+            "no": "No, I'm unable to.", "maybe": "I'll decide soon"}
+    rsvp_opts = map(lambda (x,y): (x,y, x==coming), opts.items())
+    
+    # Guest count for this RSVP
+    count = self.request.get('count')
+    logging.debug("Count is %s" % count)
+    if count is None:
+      pass
+    elif count.isdigit():
+      count = int(count)
+    else:
+      count = 0
+
+    checkin = self.request.get('checkin')
+    checkin_opts = ["Sat, June 9 2012", "Sun, June 10 2012"]
+
+    checkout = self.request.get('checkout')
+    checkout_opts = ["Sun, June 10 2011", "Mon, June 11 2012"]
+
+    self.response.out.write(template.render(path,{
+          'rsvp_main_opts': rsvp_opts, "email": email,
+          "checkin_opts": checkin_opts, "checkout_opts": checkout_opts,
+          "checkin": checkin, "checkout": checkout,}))
+
+class RSVPSubmit(webapp2.RequestHandler):
+  """On submitting the RSVP details/message."""
+  def get(self):
+    # TODO: pass emails along?
     fullname = self.request.get('fullname')
     email = self.request.get('email')
     coming = self.request.get('coming')
-    if not fullname:
-      #self.response.headers['Content-Type'] = 'text/html'
-      self.redirect('/rsvp.html?rsvp_status=%s' % coming)
-      return
+    count = int(self.request.get('count'))
 
     logging.debug("%s rsvp'ed %s" % (fullname, coming))
-    guest = Guest(name=fullname, coming=coming, email=email)
+    guest = Guest(name=fullname, coming=coming, email=email, count=count)
     guest.updated = int(time.time())
     guest.put()
 
@@ -65,18 +116,13 @@ class RSVPGuest(webapp2.RequestHandler):
     message = self.request.get('message')
     if message:
       logging.debug("%s wrote %s" % (fullname, message))
-      guest.message = message
+      guest.message.append(message+"\n@%s" % time_str(time.time()))
 
     guest.put()  # save the guests info
     self.redirect('/confirmation.html?email=%s' % email)
 
 class ConfirmationPage(webapp2.RequestHandler):
   def get(self):
-    def time_str(timestamp):
-      return time.strftime(
-        "%Y-%m-%d %H:%M:%S", time.localtime(timestamp)
-        ) if timestamp else '-'
-
     self.response.headers['Content-Type'] = 'text/html'
     email = self.request.get('email')
     logging.info("Checking RSVP for %s" % email)
@@ -84,7 +130,7 @@ class ConfirmationPage(webapp2.RequestHandler):
     rsvps = []
     for guest in query:
       status = "- %s rsvp'd %s @ %s." % (
-        guest.name, guest.coming, time_str(guest.updated))
+        guest.name, "yes" if guest.count else "no", time_str(guest.updated))
 
       for a in ["checkin", "checkout", "ride_from_bom", "message"]:
         val = getattr(guest, a)
@@ -98,40 +144,6 @@ class ConfirmationPage(webapp2.RequestHandler):
     path = os.path.join(os.path.dirname(__file__), 'confirmation.html')
     self.response.out.write(template.render(path, {
           "rsvps": rsvps, "email": email,}))
-
-
-def date_range(date_range):
-  reply = []
-  for day in date_range:
-    reply.append(day)
-
-  return reply
-
-class RSVPHTMLPage(webapp2.RequestHandler):
-  def get(self):
-
-    self.response.headers['Content-Type'] = 'text/html'
-    path = os.path.join(os.path.dirname(__file__), 'rsvp-login.html')
-    rsvp_status = self.request.get('rsvp_status')
-    if rsvp_status not in ["yes", "no", "maybe"]:
-      rsvp_status = ""
-
-    opts = {"": "", "yes": "Yes, of course!",
-            "no": "No, I'm unable to.", "maybe": "I'll decide soon"}
-    rsvp_opts = map(lambda (x,y): (x,y, x==rsvp_status), opts.items())
-
-    checkin_opts = [""] + date_range(["Fri, Jun 8 2012",
-                                                 "Sat, Jun 9 2012",
-                                                 "Sun, Jan 10 2012"])
-
-    checkout_opts = [""] + date_range(["Sun, Jan 10 2011",
-                                                  "Mon, Jan 11 2012"])
-
-
-    self.response.out.write(template.render(path,{
-          'rsvp_main_opts': rsvp_opts,
-          "checkin_opts": checkin_opts,
-          "checkout_opts": checkout_opts}))
 
 class DeletePage(webapp2.RequestHandler):
   def get(self):
@@ -147,10 +159,25 @@ class DeletePage(webapp2.RequestHandler):
 
     self.response.out.write("There are %d users" % count)
 
+def time_str(timestamp):
+  return time.strftime(
+    "%Y-%m-%d %H:%M:%S", time.localtime(timestamp)
+    ) if timestamp else ''
+
+def lookup_user_email(email):
+  query = db.GqlQuery("SELECT * FROM Guest WHERE email='%s'" % email)
+  guest_list = []
+  for guest in query:
+    guest_list.append(guest)
+
+  return guest_list
+
 logging.getLogger().setLevel(logging.DEBUG)
 app = webapp2.WSGIApplication([('/', MainPage),
-                               ('/rsvp-guest', RSVPGuest),
+                               ('/rsvp-login.html', RSVPLoginHTMLPage),
+                               ('/rsvp-login', RSVPLogin),
+                               ('/rsvp.html', RSVPHTMLPage),
+                               ('/rsvp-submit', RSVPSubmit),
                                #('/rsvp-login', RSVPLoggedInView),
-                               ('/rsvp-login.html', RSVPHTMLPage),
                                ('/delete', DeletePage),
                                ('/confirmation.html', ConfirmationPage),])
