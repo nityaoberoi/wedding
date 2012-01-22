@@ -3,32 +3,75 @@
 function blank(a) { if(a.value == a.defaultValue) a.value = ""; }
 function unblank(a) { if(a.value == "") a.value = a.defaultValue; }
 </script>
+
 <body>
   <div align="left">
-    <form action="/rsvp" method="get">
+    <form action="/rsvp-guest" method="get">
+      <div>Your Name:<input type="text" name="fullname" size="50" maxlength="50"></div>
+      <div>Your Email:<input type="text" name="email" size="50" maxlength="50"></div>
       <div>
-	Your Name:<input type="text" name="fullname" size="70" maxlength="100">
+	Will you be joining us in Pune?
+	<select name="coming"> <!--- ### onchange="this.form.submit()"> --->
+	  {% for val,txt,default in rsvp_main_opts %}
+	  {% if default %}
+	  <option value="{{val}}" selected>{{txt}}</option>
+	  {% else %}
+	  <option value="{{val}}">{{txt}}</option>
+	  {% endif %}
+	  {% endfor %}
+	</select>
       </div>
 
+      <!--- Reaching pune details --->
       <div>
-	<span>Will you be joining us in Pune?</span>
-	<span><select name="coming">
-	    <option value="yes">Yes, of course!</option>
-	    <option value="no">No, I'm unable to.</option>
-	    <option value="maybe">I'll decide soon.</option>
+	Checking in at Bonboutique? If so, when?
+	<span align="left"><select name="checkin">
+	  {% for val in checkin_opts %}
+	  <option value="{{val}}">{{val}}</option>
+	  {% endfor %}
+	</select></span>
+
+	...and checking out?
+	<span align="right"><select name="checkout">
+	  {% for val in checkout_opts %}
+	  <option value="{{val}}">{{val}}</option>
+	  {% endfor %}
 	</select></span>
       </div>
-
+      
+      <!--- Bombay airport ride? --->
+      <div> 
+	Need a ride from Bombay?
+	<span align="left"><select name="ride_from_bom">
+	    <option value="yes">Yes</option>
+	    <option value="no">No</option>
+	</select></span> 
+	<!---
+	Arrival time:
+	<span align="left"><select name="bom-arrival-time">
+	    {% for val in arrival_bom_opts %}
+	    <option value="{{val}}">{{val}}</option>
+	    {% endfor %}    
+	</span>
+	Departure time:
+	<span align="left"><select name="bom-depart-time">
+	    {% for val in depart_bom_opts %}
+	    <option value="{{val}}">{{val}}</option>
+	    {% endfor %}    
+	</span>
+	--->
+      </div>
+      <!---- Message --->
       <div>
 	<textarea name="message" rows="5" cols="40" maxlength="200"
-		  onfocus="blank(this)" onblur="unblank(this)">
+		  onfocus="blank(this)" onblur="unblank(this)"
+		  placeholder="A message for the couple?">
 	</textarea>
       </div>
-
-      <div><input type="submit" /></div> <!--- make grey if name isn't entered --->
+      <input type="submit" value="Submit">
     </form>
   </div>
 </body>
 </html>
 
-<div class="fancybox">RSVP Page html</div>
+<div class="fancybox"></div>
