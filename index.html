@@ -2,7 +2,7 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="css/tipsy.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox-1.3.4.css" media="screen" />
+    <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
     <link rel="stylesheet" type="text/css" href="skins/tn3/tn3.css" />
     <link rel="stylesheet" type="Text/css" href="css/basic.css">
 {% endblock %}
@@ -24,12 +24,12 @@
     
     <div id="site-bottomnav" data-controller="SiteFunctions">
         <a id="contact-us" href="mailto:nityaandsrirami@gmail.com" title="Contact Us" class="icon-contact function-tip">Contact Us</a>
-        <a id="rsvp" href="/rsvp.html" title="RSVP" class="icon-rsvp function-tip">RSVP</a>
+        <a id="rsvp" title="RSVP" class="icon-rsvp function-tip">RSVP</a>
         <a id="photos" title="Photo Gallery" class="icon-photo function-tip">Photo Gallery</a>
     </div>
     
     <div id="gallery">
-        {% include "photo_gallery.html" %}
+        {% include "photo_gallery_2.html" %}
     </div>
     <!-- Section #1 / Intro -->
     <section id="welcome" class="story" data-speed="6" data-type="background">
@@ -118,6 +118,8 @@
   <script type="text/javascript" src="js/jquery.tipsy.js"></script>
   <script type="text/javascript" src="js/jquery.simplemodal.1.4.2.min.js"></script>
   <script type="text/javascript" src="js/jquery.tn3lite.min.js"></script>
+  <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+  <script type="text/javascript" src="js/jquery.easing-1.4.pack.js"></script>
 
   <script type="text/javascript">
     jQuery(function($) {
@@ -134,7 +136,38 @@
             $('#loading').animate({"left" : "100%"});
         });
         
-        $('#photos').live('click', function(e) {
+        $("#photos").click(function() {
+            $("a.fancybox").attr('rel', 'gallery').fancybox();
+        });
+        /*		$.fancybox([
+        			'http://farm5.static.flickr.com/4044/4286199901_33844563eb.jpg',
+        			'http://farm3.static.flickr.com/2687/4220681515_cc4f42d6b9.jpg',
+        			{
+        				'href'	: 'http://farm5.static.flickr.com/4005/4213562882_851e92f326.jpg',
+        				'title'	: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        			}   
+        		], {
+        			'padding'			: 0,
+        			'transitionIn'		: 'none',
+        			'transitionOut'		: 'none',
+        			'type'              : 'image',
+        			'changeFade'        : 0
+        		});
+        	});*/
+        
+        $('#rsvp').live('click', function(e) {
+            $.fancybox({
+                href: '/rsvp-login.html',
+                width: 800,
+                height: 600,
+                centerOnScroll: true,
+                overlayColor: '#333',
+                hideOnOverlayClick: false,
+            });
+        });
+        
+        
+        /*$('#photos').live('click', function(e) {
             $('#gallery').modal({
                 autoResize: true,
                 minHeight: 440,
@@ -151,7 +184,7 @@
             image:{
             maxZoom:1.5,
             crop:true}
-          });
+          });*/
           
         /*$('#site-bottomnav a').live('click', function(e){
             

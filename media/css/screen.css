@@ -220,3 +220,56 @@ nav#side-nav a:hover, a.active {
 .icon-contact:hover, .icon-rsvp:hover, .icon-photo:hover{
     background-position: 0 100%;
 }
+/* -------------------- */
+/* Fancybox             */
+/* -------------------- */
+
+.fancybox {
+    background-color: #333;
+    padding: 20px;
+}
+
+.fancybox .fancybox-title {
+    background-color: #666;
+    padding: 1px 20px;
+}
+
+.fancybox .fancybox-body {
+    padding: 20px 20px 10px;
+    overflow: auto;
+    color: #FFF;
+}
+
+.fancybox-body form p{
+    clear: both;
+    margin:.5em 0;
+    overflow: hidden;
+}
+
+.fancybox-body form label{
+    float: left;
+    width: 100px;
+    display: block;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.fancybox-body form input, .fancybox-body form textarea, .fancybox-body form select{
+    width:250px;
+    border:1px solid #111;
+    background:#282828 url(../img/form_input.gif) repeat-x;
+    padding:5px 3px;
+    color:#fff;
+}
+
+.fancybox-body textarea{
+    height:125px;
+    overflow:auto;
+}
+
+.fancybox-body p.submit {
+    clear: both;
+    margin: 1em 0;
+    padding: .5em 70px;
+    background: url(../img/grain.png) repeat-x;
+}

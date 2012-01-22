@@ -1,2 +1,6 @@
 *~
 *.pyc
+*.psd
+.DS_Store
+build/
+sections.txt

@@ -111,7 +111,7 @@ class RSVPHTMLPage(webapp2.RequestHandler):
   def get(self):
 
     self.response.headers['Content-Type'] = 'text/html'
-    path = os.path.join(os.path.dirname(__file__), 'rsvp.html')
+    path = os.path.join(os.path.dirname(__file__), 'rsvp-login.html')
     rsvp_status = self.request.get('rsvp_status')
     if rsvp_status not in ["yes", "no", "maybe"]:
       rsvp_status = ""
@@ -150,6 +150,7 @@ class DeletePage(webapp2.RequestHandler):
 logging.getLogger().setLevel(logging.DEBUG)
 app = webapp2.WSGIApplication([('/', MainPage),
                                ('/rsvp-guest', RSVPGuest),
-                               ('/rsvp.html', RSVPHTMLPage),
+                               #('/rsvp-login', RSVPLoggedInView),
+                               ('/rsvp-login.html', RSVPHTMLPage),
                                ('/delete', DeletePage),
                                ('/confirmation.html', ConfirmationPage),])
