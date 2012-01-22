@@ -14,9 +14,6 @@ handlers:
 - url: /js
   static_dir: media/js
 
-- url: /skins
-  static_dir: media/skins
-
 - url: /fancybox
   static_dir: media/fancybox
 

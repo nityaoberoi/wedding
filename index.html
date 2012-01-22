@@ -3,8 +3,7 @@
 {% block extra_css %}
     <link rel="stylesheet" href="css/tipsy.css">
     <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="skins/tn3/tn3.css" />
-    <link rel="stylesheet" type="Text/css" href="css/basic.css">
+    {# <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.0.4" type="text/css" media="screen" /> #}
 {% endblock %}
 
 {% block content %}
@@ -116,10 +115,9 @@
   <!-- JavaScript at the bottom for fast page loading -->
   <script type="text/javascript" src="js/script.js"></script>
   <script type="text/javascript" src="js/jquery.tipsy.js"></script>
-  <script type="text/javascript" src="js/jquery.simplemodal.1.4.2.min.js"></script>
-  <script type="text/javascript" src="js/jquery.tn3lite.min.js"></script>
   <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
-  <script type="text/javascript" src="js/jquery.easing-1.4.pack.js"></script>
+  <!--<script type="text/javascript" src="fancybox/source/jquery.fancybox.js?v=2.0.4"></script>-->
+  <script type="text/javascript" src="js/jquery.easing-1.3.pack.js"></script>
 
   <script type="text/javascript">
     jQuery(function($) {
@@ -136,30 +134,9 @@
             $('#loading').animate({"left" : "100%"});
         });
         
-        $("#photos").click(function() {
-            $("a.fancybox").attr('rel', 'gallery').fancybox();
-        });
-        /*		$.fancybox([
-        			'http://farm5.static.flickr.com/4044/4286199901_33844563eb.jpg',
-        			'http://farm3.static.flickr.com/2687/4220681515_cc4f42d6b9.jpg',
-        			{
-        				'href'	: 'http://farm5.static.flickr.com/4005/4213562882_851e92f326.jpg',
-        				'title'	: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-        			}   
-        		], {
-        			'padding'			: 0,
-        			'transitionIn'		: 'none',
-        			'transitionOut'		: 'none',
-        			'type'              : 'image',
-        			'changeFade'        : 0
-        		});
-        	});*/
-        
         $('#rsvp').live('click', function(e) {
             $.fancybox({
-                href: '/rsvp-login.html',
-                width: 800,
-                height: 600,
+                href: 'rsvp-login.html',
                 centerOnScroll: true,
                 overlayColor: '#333',
                 hideOnOverlayClick: false,
@@ -167,24 +144,28 @@
         });
         
         
-        /*$('#photos').live('click', function(e) {
-            $('#gallery').modal({
-                autoResize: true,
-                minHeight: 440,
-                minWidth: 640,
-                opacity:80,
-                overlayCss: {backgroundColor:"#999"}
-            });
-            return false;
+        $("#photos").click(function() {
+            //$("a.fancybox").attr('rel', 'gallery').fancybox();
+
+            $.fancybox([
+                '../img/fixed/image1.jpg',
+                '../img/fixed/image2.jpg',
+                '../img/fixed/image3.jpg',
+                '../img/fixed/image4.jpg',
+                '../img/fixed/image5.jpg',
+                '../img/fixed/image6.jpg',
+                '../img/fixed/image7.jpg',
+                '../img/fixed/image8.jpg',
+                '../img/fixed/image9.jpg',
+                '../img/fixed/image10.jpg',], 
+                {
+                        'padding'           : 0,
+                        'transitionIn'      : 'none',
+                        'transitionOut'     : 'none',
+                        'type'              : 'image',
+                        'changeFade'        : 0
+                    });
         });
-        
-        $('#tn3gallery').tn3({
-            skinDir:"skins",
-            imageClick:"fullscreen",
-            image:{
-            maxZoom:1.5,
-            crop:true}
-          });*/
           
         /*$('#site-bottomnav a').live('click', function(e){
             
