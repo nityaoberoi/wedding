@@ -1,13 +1,17 @@
 <div class="fancybox">
     <div class="fancybox-title">
-        <h3>RSVP for {{email}}</h3><!--- TODO: option to sign out --->
+        <h3>RSVP for {{guest.email}}</h3><!--- TODO: option to sign out --->
     </div>
     <div class="fancybox-body">
         <form action="/rsvp-submit" method="get">
-	    <input type="hidden" name="email" value="{{email}}"></input>
+	    <input type="hidden" name="email" value="{{guest.email}}"></input>
             <p class="first">
-                <label for="fullname">Name</label>
-                <input type="text" name="fullname" size="50" maxlength="50" value="{{name}}">
+                <label for="name">Name</label>
+                <input type="text" name="name" size="50" maxlength="50" 
+		       {% if guest.name %}
+		       value="{{guest.name}}"
+		       {% endif %}
+		       >
             </p>
             <p>
                 <label for="coming">Will you be joining us in Pune?</label>
@@ -21,10 +25,15 @@
                     {% endfor %}
                 </select>
             </p>
+
 	    <!--- IF YES --->
             <p>
-                <label for="count">Your Family & Friends?</label>
-                <input type="text" name="count" size="2" maxlength="2">  <!--- regex for limiting number --->
+                <label for="count">Great! Size of your group:</label>
+		<select name="count">
+		  {% for val in count_opts %}
+		  <option value={{val}}>{{val}}</option>  <!--- TODO: should be int --->
+		  {% endfor %}
+		</select>
 	    </p>
 
             <!-- Reaching pune details -->

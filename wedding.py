@@ -16,9 +16,10 @@ class MainPage(webapp2.RequestHandler):
       self.response.out.write(rt)
 
 class Guest(db.Model):
-  name = db.StringProperty(required=True)
   email = db.StringProperty(required=True)
-  count = db.IntegerProperty(required=True)
+  name = db.StringProperty()
+  coming = db.StringProperty()
+  count = db.IntegerProperty()
 
   # Hotel specific. June 9 8am until Jun 9 11:59
   checkin = db.StringProperty()  # TODO: datetime?
@@ -61,63 +62,57 @@ class RSVPHTMLPage(webapp2.RequestHandler):
     email = self.request.get("email")
     if not email:  # go thru the email workflow
       self.redirect("/rsvp-login.html")
-      return      
+      return
 
-    name = self.request.get("name")
-    path = os.path.join(os.path.dirname(__file__), 'rsvp.html')
+    guest = lookup_user_email(email)
+    if not guest:
+      guest = Guest(email=email)
+      guest.put()
 
-    coming = self.request.get('coming')
-    # RSVP overall choice
-    opts = {"": "", "yes": "Yes, of course!",
-            "no": "No, I'm unable to.", "maybe": "I'll decide soon"}
-    rsvp_opts = map(lambda (x,y): (x,y, x==coming), opts.items())
-    
-    # Guest count for this RSVP
-    count = self.request.get('count')
-    logging.debug("Count is %s" % count)
-    if count is None:
-      pass
-    elif count.isdigit():
-      count = int(count)
-    else:
-      count = 0
+    opts = {"yes": "Yes, of course!", "no": "No, I'm unable to.", "maybe": "I'll decide soon"}
+    rsvp_opts = map(lambda (x,y): (x,y, False), opts.items())
 
-    checkin = self.request.get('checkin')
     checkin_opts = ["Sat, June 9 2012", "Sun, June 10 2012"]
-
-    checkout = self.request.get('checkout')
     checkout_opts = ["Sun, June 10 2011", "Mon, June 11 2012"]
+    count_opts = range(1,5)  # 1-4 people
 
+    path = os.path.join(os.path.dirname(__file__), 'rsvp.html')
     self.response.out.write(template.render(path,{
-          'rsvp_main_opts': rsvp_opts, "email": email,
+          'rsvp_main_opts': rsvp_opts, "guest": guest,
           "checkin_opts": checkin_opts, "checkout_opts": checkout_opts,
-          "checkin": checkin, "checkout": checkout,}))
+          "count_opts": count_opts}))
 
 class RSVPSubmit(webapp2.RequestHandler):
   """On submitting the RSVP details/message."""
   def get(self):
-    # TODO: pass emails along?
-    fullname = self.request.get('fullname')
     email = self.request.get('email')
-    coming = self.request.get('coming')
-    count = int(self.request.get('count'))
+    if not email:
+      self.redirect('/rsvp-login.html')
+      return
 
-    logging.debug("%s rsvp'ed %s" % (fullname, coming))
-    guest = Guest(name=fullname, coming=coming, email=email, count=count)
-    guest.updated = int(time.time())
-    guest.put()
+    guest = lookup_user_email(email)
+    if not guest:
+      logging.warn("No guest has registered yet as %s" % email)
+      self.redirect('/rsvp.html?email=%s' % email)
+      return
 
-    attr = {}
-    for x in ['checkin', 'checkout', 'ride-from-bom']:
-      data = self.request.get(x)
-      if data: setattr(guest, x, data)
-
-    # TODO: make this a list of messages
+    for attr in ['name', 'email', 'coming', 'checkin', 'checkout', 'ride-from-bom']:
+      data = self.request.get(attr)
+      if data: setattr(guest, attr, data)
+    
+    count = self.request.get('count')
+    if type(count) != int:
+      try:
+        count = int(count)
+      except:
+        count = 0
+    guest.count = count
+      
     message = self.request.get('message')
     if message:
       logging.debug("%s wrote %s" % (fullname, message))
-      guest.message.append(message+"\n@%s" % time_str(time.time()))
-
+      guest.message.append("@%s -- %s" % (time_str(time.time(), message)))
+    guest.updated = int(time.time())
     guest.put()  # save the guests info
     self.redirect('/confirmation.html?email=%s' % email)
 
@@ -169,8 +164,8 @@ def lookup_user_email(email):
   guest_list = []
   for guest in query:
     guest_list.append(guest)
-
-  return guest_list
+    
+  return guest_list[0]  if guest_list else []
 
 logging.getLogger().setLevel(logging.DEBUG)
 app = webapp2.WSGIApplication([('/', MainPage),
