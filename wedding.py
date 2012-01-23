@@ -98,7 +98,8 @@ class RSVPHTMLPage(webapp2.RequestHandler):
       guest.put()
 
     logging.info("Guest: %s; coming: %s" % (guest.name, guest.coming))
-    opts = {"yes": "Yes, of course!", "no": "No, I'm unable to.", "maybe": "I'll decide soon"}
+    opts = {"yes": "Yes, of course!", "no": "No, I'm unable to.", 
+            "maybe": "I'll decide soon"}
     rsvp_opts = map(lambda (x,y): (x,y, guest.coming==x), opts.items())
 
     checkin_opts = ["Sat, June 9 2012", "Sun, June 10 2012"]
@@ -158,13 +159,25 @@ class RSVPSubmit(webapp2.RequestHandler):
       logging.warn("No guest has registered yet as %s" % email)
       self.redirect('/rsvp.html?email=%s' % email)
       return
+<<<<<<< HEAD
       
     for attr in ['name', 'email', 'coming', 'checkin', 'checkout', 'ride-from-bom']:
+=======
+
+    for attr in ['name', 'email', 'coming', 'checkin', 'checkout', 
+                 'ride-from-bom']:
+>>>>>>> bf04b519bcf691d975c5cf744632cd9d01e2fa1a
       data = self.request.get(attr)      
       if data and data != getattr(guest, attr):
-        log.info("%s (%s) updated %s with %s" % (guest.name, guest.email, attr, data))
+        logging.info("%s (%s) updated %s with %s (was %s)" % (
+            guest.name, guest.email, attr, data, getattr(guest,attr)))
         setattr(guest, attr, data)
+<<<<<<< HEAD
         
+=======
+
+    # TODO: make this part of for once count is an integer
+>>>>>>> bf04b519bcf691d975c5cf744632cd9d01e2fa1a
     count = self.request.get('count')
     if type(count) != int:
       try:
@@ -175,8 +188,8 @@ class RSVPSubmit(webapp2.RequestHandler):
     
     message = self.request.get('message')
     if message:
-      logging.debug("%s wrote %s" % (fullname, message))
-      guest.message.append("@%s -- %s" % (time_str(time.time(), message)))
+      logging.debug("%s wrote %s" % (guest.name, message))
+      guest.message.append("%s: %s" % (time_str(time.time()), message))
     guest.updated = int(time.time())
     guest.put()  # save the guests info
     self.redirect('/confirmation.html?email=%s' % email)
