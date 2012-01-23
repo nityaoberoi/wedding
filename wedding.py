@@ -74,7 +74,8 @@ class RSVPHTMLPage(webapp2.RequestHandler):
       guest.put()
 
     logging.info("Guest: %s; coming: %s" % (guest.name, guest.coming))
-    opts = {"yes": "Yes, of course!", "no": "No, I'm unable to.", "maybe": "I'll decide soon"}
+    opts = {"yes": "Yes, of course!", "no": "No, I'm unable to.", 
+            "maybe": "I'll decide soon"}
     rsvp_opts = map(lambda (x,y): (x,y, guest.coming==x), opts.items())
 
     checkin_opts = ["Sat, June 9 2012", "Sun, June 10 2012"]
@@ -101,12 +102,15 @@ class RSVPSubmit(webapp2.RequestHandler):
       self.redirect('/rsvp.html?email=%s' % email)
       return
 
-    for attr in ['name', 'email', 'coming', 'checkin', 'checkout', 'ride-from-bom']:
+    for attr in ['name', 'email', 'coming', 'checkin', 'checkout', 
+                 'ride-from-bom']:
       data = self.request.get(attr)      
       if data and data != getattr(guest, attr):
-        log.info("%s (%s) updated %s with %s" % (guest.name, guest.email, attr, data))
+        logging.info("%s (%s) updated %s with %s (was %s)" % (
+            guest.name, guest.email, attr, data, getattr(guest,attr)))
         setattr(guest, attr, data)
 
+    # TODO: make this part of for once count is an integer
     count = self.request.get('count')
     if type(count) != int:
       try:
@@ -133,6 +137,8 @@ class ConfirmationPage(webapp2.RequestHandler):
     for guest in query:
       status = str(guest)
       logging.info(status)
+      for msg in guest.message:
+        logging.info(msg)
       rsvps.append(status+"\n")
 
     path = os.path.join(os.path.dirname(__file__), 'confirmation.html')
