@@ -117,8 +117,8 @@ class RSVPSubmit(webapp2.RequestHandler):
 
     message = self.request.get('message')
     if message:
-      logging.debug("%s wrote %s" % (fullname, message))
-      guest.message.append("@%s -- %s" % (time_str(time.time(), message)))
+      logging.debug("%s wrote %s" % (guest.name, message))
+      guest.message.append("%s: %s" % (time_str(time.time()), message))
     guest.updated = int(time.time())
     guest.put()  # save the guests info
     self.redirect('/confirmation.html?email=%s' % email)
