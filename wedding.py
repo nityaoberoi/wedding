@@ -1,7 +1,10 @@
 #!/usr/lib/python2.7
 
-import logging, os, time, webapp2
+import logging, os, sys, time, webapp2
 from google.appengine.ext import db
+
+# os.environ['DJANGO_SETTINGS_MODULE'] = 'nitya-and-sriram.settings'
+# from google.appengine.ext.db import djangoforms
 from google.appengine.ext.webapp import template
 
 SAFETY_MODE = 1
@@ -41,11 +44,29 @@ class Guest(db.Model):
     return "%s (%s) rsvp'd %s for a group of %d. Hotel: %s until %s." % (
       self.name, self.email, self.coming, self.count, self.checkin, self.checkout)
 
+# class GuestForm(djangoforms.ModelForm):
+#   class Meta:
+#     model = models.Guest
+#     exclude = ['message', 'notes', 'updated']
+
 class RSVPLoginHTMLPage(webapp2.RequestHandler):
   def get(self):
     path = os.path.join(os.path.dirname(__file__), 'rsvp-login.html')
     self.response.out.write(template.render(path,{}))
+    
+  def post(self):
+    email = self.request.get('email')
+    if not email:
+      # TODO: Send required field error message back
+      self.redirect('/rsvp-login.html')
+    elif lookup_user_email(email):
+      # email matched in current RSVP list
+      self.redirect('/rsvp.html?email=%s' % email)
+    else:
+      # send the user to RSVP page, with only email detail filled.
+      self.redirect('/rsvp.html?email=%s' % email)
 
+# TODO: Can potentially get rid of this class
 class RSVPLogin(webapp2.RequestHandler):
   """On submitting email in RSVP Login page."""
   def get(self):
@@ -59,17 +80,20 @@ class RSVPLogin(webapp2.RequestHandler):
       # send the user to RSVP page, with only email detail filled.
       self.redirect('/rsvp.html?email=%s' % email)
 
-    return
 
 class RSVPHTMLPage(webapp2.RequestHandler):
   def get(self):
+    
+    # should never get here. TODO: Remove? - give user a 404 or remove direct url link
     email = self.request.get("email")
     if not email:  # go thru the email workflow
       self.redirect("/rsvp-login.html")
       return
-
+    
+    disabled = True
     guest = lookup_user_email(email)
     if not guest:
+      disabled = False
       guest = Guest(email=email)
       guest.put()
 
@@ -80,29 +104,26 @@ class RSVPHTMLPage(webapp2.RequestHandler):
     checkin_opts = ["Sat, June 9 2012", "Sun, June 10 2012"]
     checkout_opts = ["Sun, June 10 2012", "Mon, June 11 2012"]
     count_opts = range(1,5)  # 1-4 people
-
+    
     path = os.path.join(os.path.dirname(__file__), 'rsvp.html')
     self.response.out.write(template.render(path,{
           'rsvp_main_opts': rsvp_opts, "guest": guest,
           "checkin_opts": checkin_opts, "checkout_opts": checkout_opts,
-          "count_opts": count_opts}))
-
-class RSVPSubmit(webapp2.RequestHandler):
-  """On submitting the RSVP details/message."""
-  def get(self):
+          "count_opts": count_opts, 'disabled': disabled }))
+  
+  def post(self):
     email = self.request.get('email')
     if not email:
       self.redirect('/rsvp-login.html')
       return
-
     guest = lookup_user_email(email)
     if not guest:
       logging.warn("No guest has registered yet as %s" % email)
       self.redirect('/rsvp.html?email=%s' % email)
       return
-
+    
     for attr in ['name', 'email', 'coming', 'checkin', 'checkout', 'ride-from-bom']:
-      data = self.request.get(attr)      
+      data = self.request.get(attr)
       if data and data != getattr(guest, attr):
         log.info("%s (%s) updated %s with %s" % (guest.name, guest.email, attr, data))
         setattr(guest, attr, data)
@@ -122,22 +143,78 @@ class RSVPSubmit(webapp2.RequestHandler):
     guest.updated = int(time.time())
     guest.put()  # save the guests info
     self.redirect('/confirmation.html?email=%s' % email)
+  
+# TODO: Can potentially get rid of this class
+class RSVPSubmit(webapp2.RequestHandler):
+  """On submitting the RSVP details/message."""
+  def get(self):
+    email = self.request.get('email')
+    if not email:
+      self.redirect('/rsvp-login.html')
+      return
+      
+    guest = lookup_user_email(email)
+    if not guest:
+      logging.warn("No guest has registered yet as %s" % email)
+      self.redirect('/rsvp.html?email=%s' % email)
+      return
+      
+    for attr in ['name', 'email', 'coming', 'checkin', 'checkout', 'ride-from-bom']:
+      data = self.request.get(attr)      
+      if data and data != getattr(guest, attr):
+        log.info("%s (%s) updated %s with %s" % (guest.name, guest.email, attr, data))
+        setattr(guest, attr, data)
+        
+    count = self.request.get('count')
+    if type(count) != int:
+      try:
+        count = int(count)
+      except:
+        count = 0
+    guest.count = count
+    
+    message = self.request.get('message')
+    if message:
+      logging.debug("%s wrote %s" % (fullname, message))
+      guest.message.append("@%s -- %s" % (time_str(time.time(), message)))
+    guest.updated = int(time.time())
+    guest.put()  # save the guests info
+    self.redirect('/confirmation.html?email=%s' % email)
+
 
 class ConfirmationPage(webapp2.RequestHandler):
   def get(self):
     self.response.headers['Content-Type'] = 'text/html'
-    email = self.request.get('email')
     logging.info("Checking RSVP for %s" % email)
-    query = db.GqlQuery("SELECT * FROM Guest WHERE email='%s'" % email)
-    rsvps = []
-    for guest in query:
-      status = str(guest)
-      logging.info(status)
-      rsvps.append(status+"\n")
 
-    path = os.path.join(os.path.dirname(__file__), 'confirmation.html')
-    self.response.out.write(template.render(path, {
-          "rsvps": rsvps, "email": email,}))
+    email = self.request.get('email')
+    guest = lookup_user_email(email)
+    status = str(guest)
+    logging.info(status)
+
+    for a in ["checkin", "checkout", "ride_from_bom", "message"]:
+      val = getattr(guest, a)
+      if val:
+        logging.debug(" %s=%s;" % (a, val))
+        status += " %s=%s;" % (a, val)
+
+    logging.info(status)
+    
+    opts = {"yes": "Yes, of course!", "no": "No, I'm unable to.", "maybe": "I'll decide soon"}
+    rsvp_opts = map(lambda (x,y): (x,y, False), opts.items())
+
+    checkin_opts = ["Sat, June 9 2012", "Sun, June 10 2012"]
+    checkout_opts = ["Sun, June 10 2011", "Mon, June 11 2012"]
+    count_opts = range(1,5)  # 1-4 people
+    # path = os.path.join(os.path.dirname(__file__), 'confirmation.html')
+    #     self.response.out.write(template.render(path, {
+    #           "rsvps": rsvps, "email": email,}))
+    
+    path = os.path.join(os.path.dirname(__file__), 'rsvp.html')
+    self.response.out.write(template.render(path,{
+          'rsvp_main_opts': rsvp_opts, "guest": guest,
+          "checkin_opts": checkin_opts, "checkout_opts": checkout_opts,
+          "count_opts": count_opts, 'disabled': True}))
 
 class DeletePage(webapp2.RequestHandler):
   def get(self):
@@ -172,7 +249,7 @@ def lookup_user_email(email, all=False):
 logging.getLogger().setLevel(logging.DEBUG)
 app = webapp2.WSGIApplication([('/', MainPage),
                                ('/rsvp-login.html', RSVPLoginHTMLPage),
-                               ('/rsvp-login', RSVPLogin),
+                               ('/rsvp-login', RSVPLoginHTMLPage),
                                ('/rsvp.html', RSVPHTMLPage),
                                ('/rsvp-submit', RSVPSubmit),
                                #('/rsvp-login', RSVPLoggedInView),

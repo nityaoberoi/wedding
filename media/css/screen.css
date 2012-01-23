@@ -270,7 +270,12 @@ nav#side-nav a:hover, a.active {
 
 .fancybox-body form .submit {
     clear: both;
-    margin-left: 70px;
+    margin: 5px 0 5px 70px;
     padding: .5em 20px;
+    width: 150px;
     background: url(../img/purple-grain.png) repeat-x;
+}
+
+.rsvp_yes {
+  display: none;
 }
