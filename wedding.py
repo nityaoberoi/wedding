@@ -37,6 +37,10 @@ class Guest(db.Model):
   notes = db.StringProperty()
   updated = db.IntegerProperty()
 
+  def __str__(self):
+    return "%s (%s) rsvp'd %s for a group of %d. Hotel: %s until %s." % (
+      self.name, self.email, self.coming, self.count, self.checkin, self.checkout)
+
 class RSVPLoginHTMLPage(webapp2.RequestHandler):
   def get(self):
     path = os.path.join(os.path.dirname(__file__), 'rsvp-login.html')
@@ -69,11 +73,12 @@ class RSVPHTMLPage(webapp2.RequestHandler):
       guest = Guest(email=email)
       guest.put()
 
+    logging.info("Guest: %s; coming: %s" % (guest.name, guest.coming))
     opts = {"yes": "Yes, of course!", "no": "No, I'm unable to.", "maybe": "I'll decide soon"}
-    rsvp_opts = map(lambda (x,y): (x,y, False), opts.items())
+    rsvp_opts = map(lambda (x,y): (x,y, guest.coming==x), opts.items())
 
     checkin_opts = ["Sat, June 9 2012", "Sun, June 10 2012"]
-    checkout_opts = ["Sun, June 10 2011", "Mon, June 11 2012"]
+    checkout_opts = ["Sun, June 10 2012", "Mon, June 11 2012"]
     count_opts = range(1,5)  # 1-4 people
 
     path = os.path.join(os.path.dirname(__file__), 'rsvp.html')
@@ -97,9 +102,11 @@ class RSVPSubmit(webapp2.RequestHandler):
       return
 
     for attr in ['name', 'email', 'coming', 'checkin', 'checkout', 'ride-from-bom']:
-      data = self.request.get(attr)
-      if data: setattr(guest, attr, data)
-    
+      data = self.request.get(attr)      
+      if data and data != getattr(guest, attr):
+        log.info("%s (%s) updated %s with %s" % (guest.name, guest.email, attr, data))
+        setattr(guest, attr, data)
+
     count = self.request.get('count')
     if type(count) != int:
       try:
@@ -107,7 +114,7 @@ class RSVPSubmit(webapp2.RequestHandler):
       except:
         count = 0
     guest.count = count
-      
+
     message = self.request.get('message')
     if message:
       logging.debug("%s wrote %s" % (fullname, message))
@@ -124,15 +131,7 @@ class ConfirmationPage(webapp2.RequestHandler):
     query = db.GqlQuery("SELECT * FROM Guest WHERE email='%s'" % email)
     rsvps = []
     for guest in query:
-      status = "- %s rsvp'd %s @ %s." % (
-        guest.name, "yes" if guest.count else "no", time_str(guest.updated))
-
-      for a in ["checkin", "checkout", "ride_from_bom", "message"]:
-        val = getattr(guest, a)
-        if val:
-          logging.debug(" %s=%s;" % (a, val))
-          status += " %s=%s;" % (a, val)
-
+      status = str(guest)
       logging.info(status)
       rsvps.append(status+"\n")
 
@@ -145,7 +144,7 @@ class DeletePage(webapp2.RequestHandler):
     if SAFETY_MODE:
       return
 
-    logging.debug("DELETING RSVP'ed users:")
+    logging.debug("DELETING RSVP users:")
     count = 0
     for g in Guest.all():
       logging.debug("%s said %s. Deleting" % (g.name, g.coming))
@@ -159,12 +158,15 @@ def time_str(timestamp):
     "%Y-%m-%d %H:%M:%S", time.localtime(timestamp)
     ) if timestamp else ''
 
-def lookup_user_email(email):
+def lookup_user_email(email, all=False):
   query = db.GqlQuery("SELECT * FROM Guest WHERE email='%s'" % email)
   guest_list = []
   for guest in query:
     guest_list.append(guest)
-    
+
+  if all:
+    return guest_list
+
   return guest_list[0]  if guest_list else []
 
 logging.getLogger().setLevel(logging.DEBUG)

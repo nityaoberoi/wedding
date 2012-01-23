@@ -16,13 +16,12 @@
             <p>
                 <label for="coming">Will you be joining us in Pune?</label>
                 <select name="coming"> <!-- ### onchange="this.form.submit()"> -->
-                    {% for val,txt,default in rsvp_main_opts %}
-                        {% if default %}
-                            <option value="{{val}}" selected>{{txt}}</option>
-                        {% else %}
-                            <option value="{{val}}">{{txt}}</option>
-                        {% endif %}
-                    {% endfor %}
+                  {% for val,txt,default in rsvp_main_opts %}
+                  <option value="{{val}}"
+			  {% if default %} selected {% endif %}
+			  >{{txt}}
+                  </option>
+                  {% endfor %}
                 </select>
             </p>
 
@@ -31,7 +30,10 @@
                 <label for="count">Great! Size of your group:</label>
 		<select name="count">
 		  {% for val in count_opts %}
-		  <option value={{val}}>{{val}}</option>  <!--- TODO: should be int --->
+		  <option value={{val}}
+			  {% ifequal val guest.count %} selected {% endifequal %}
+			  >{{val}}
+		  </option>  <!--- TODO: should be int --->
 		  {% endfor %}
 		</select>
 	    </p>
@@ -42,10 +44,9 @@
                 <select name="checkin">
                     {% for val in checkin_opts %}
                         <option value="{{val}}"
-				{% ifequal val checkout %}
-				selected
-				{% endifequal %}
-				>{{val}}</option>
+				{% ifequal val guest.checkin %} selected {% endifequal %}
+				>{{val}}
+			</option>
                     {% endfor %}
                 </select>
             </p>
@@ -55,7 +56,7 @@
                 <select name="checkout">
                     {% for val in checkout_opts %}
                         <option value="{{val}}"
-				{% ifequal val checkin %}
+				{% ifequal val guest.checkout %}
 				selected
 				{% endifequal %}
 				>{{val}}</option>
@@ -64,10 +65,10 @@
             </p>
             <!--- Bombay airport ride? -->
             <p>
-                <label for="ride_from_bom">Need a ride from Bombay?</label>
+                <label for="ride_from_bom">Flying into BOM Airport on Jun 9?</label>
                 <select name="ride_from_bom">
-                    <option value="yes">Yes</option>
-            	    <option value="no">No</option>
+		  <option value="no">No</option>
+                  <option value="yes">Yes</option>
                 </select>
             </p>
 	    <!---- END OF "IF YES" --->
