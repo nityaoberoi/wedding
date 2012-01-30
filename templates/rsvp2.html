@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="fancybox">
+    <div class="fancybox-title">
+        <h3>RSVP for {{guest.email}} {% if disabled %}<a id="edit_form">CLICK TO EDIT</a>{% endif %}</h3>
+        <!--- TODO: option to sign out -->
+    </div>
+    <div class="fancybox-body">
+        <form action="{% url rsvp %}" method="post">
+            {{ form.non_field_errors }}
+             <p>
+                 {% if form.name.errors %}<div class="error_message" style="width: 300px">{{ form.email.errors }}</div>{% endif %}
+                 <label for="email">{{ form.email.label }}</label>
+                 {{ form.email }}
+            </p>
+            <p>
+                {% if form.name.errors %}<div class="error_message" style="width: 300px">{{ form.name.errors }}</div>{% endif %}
+               <label for="name">{{ form.name.label }}</label>
+               {{ form.name }}
+           </p>
+           <p>
+               {% if form.coming.errors %}<div class="error_message" style="width: 300px">{{ form.coming.errors }}</div>{% endif %}
+               <label for="coming">{{ form.coming.label }}</label>
+               {{ form.coming }}
+           </p>            
+           <!--- IF YES -->
+           <p class="rsvp_yes">
+               {% if form.count.errors %}<div class="error_message" style="width: 300px">{{ form.count.errors }}</div>{% endif %}
+               <label for="count">{{ form.count.label }}</label>
+               {{ form.count }}
+           </p>
+           <!-- Reaching pune details -->
+           <p class="rsvp_yes">
+               {% if form.checkin.errors %}<div class="error_message" style="width: 300px">{{ form.checkin.errors }}</div>{% endif %}
+               <label for="checkin">{{ form.checkin.label }}</label>
+               {{ form.checkin }}
+           </p>
+           <p class="rsvp_yes">
+               {% if form.checkout.errors %} <div class="error_message" style="width: 300px">{{ form.checkout.errors }}</div>{% endif %}
+               <label for="checkout">{{ form.checkout.label }}</label>
+               {{ form.checkout }}
+           </p>
+           <!--- Bombay airport ride? -->
+           {% if form.ride_from_bom.errors %}<div class="error_message" style="width: 300px">{{ form.ride_from_bom.errors }}</div>{% endif %}
+           <p class="rsvp_yes">
+               <label for="ride_from_bom">{{ form.ride_from_bom.label}}</label>
+               {{ form.ride_from_bom }}
+           </p>
+           <!-- END OF "IF YES" -->
+            <!-- Message -->
+            <p>
+                <label for="message">Optional Message</label>   
+                <textarea name="message" rows="5" cols="40" maxlength="200"></textarea>
+            </p>
+            <!-- display previous messages -->
+            <p><label for="message-print">
+                {% for m in guest.message %} {{m}} <br>{% endfor %}
+            </p>
+            <p>
+                <input type="submit" value="Submit" class="submit">
+            </p>
+
+	    
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script type='text/javascript'>
+    jQuery(function($){
+        // snippet to hide and show
+        $('select#id_coming').change(function(e){
+            display_all_fields();
+        });
+        
+        function display_all_fields(){
+            var select = $('select#id_coming').val();
+            if( select === "1" || select === '2'){
+                $('.rsvp_yes').show();
+            } else {
+                $('.rsvp_yes').hide();
+            }
+        }
+        display_all_fields();
+        
+        $("#id_checkin" ).datepicker({ 
+            minDate: new Date(2012, 5, 9), 
+            maxDate: new Date(2012, 5, 10) 
+        }).bind('keydown', false);
+        
+        $("#id_checkout" ).datepicker({ 
+            minDate: new Date(2012, 5, 10), 
+            maxDate: new Date(2012, 5, 11) 
+        }).bind('keydown', false);
+        
+        $('#edit_form').click(function(e){
+            $('[disabled]').removeAttr('disabled'); // enable all the fields
+        });
+    });
+</script>
+{% if disabled %}
+<script type='text/javascript'>
+    jQuery(function($){
+        $('input').attr('disabled', true);
+        $('select').attr('disabled', true);
+    });
+</script>
+{% endif %}
+{% endblock %}
