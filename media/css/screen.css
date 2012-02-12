@@ -135,26 +135,40 @@ article p {
 
 /* Introduction */
 #welcome .intro { 
-    background: url(../img/vakratunda.png) 90% 80px no-repeat fixed; 
+    background: url(../img/vakratunda.png) 94% 300px no-repeat fixed; 
     min-height: 900px; 
     padding: 0; 
     width: 100%; 
     position: relative; 
     margin: 0 auto;
     text-shadow: 0px 2px 3px #555;
+    z-index: 99;
 }
 
-#welcome article { 
-    top: 300px;
-    left: 30%;
+#welcome article {
+    background: url(../img/blue-grain.png) repeat #416867;
+    top: 200px;
+    left: 18%;
+    opacity: 0.7;
     position: absolute;
     text-align: center;
 }
-#welcome article h2 {
+
+#welcome article h2, #welcome article h4 {
     color: #000;
+    font-weight: 600;
+}
+
+#welcome article h2 {
     font-size: 100px;
     text-shadow: 0px 2px 3px #555;
+    margin-bottom: 10px;
 }
+
+#welcome article h4 {
+    margin-top: 10px;
+}
+
 #welcome article p,
 #welcome article a { color: #ccc; }
 #welcome article a { text-decoration: underline; }
