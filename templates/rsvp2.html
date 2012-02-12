@@ -6,56 +6,57 @@
         <!--- TODO: option to sign out -->
     </div>
     <div class="fancybox-body">
-        <form action="{% url rsvp %}" method="post">
+        <form action="{% url rsvp %}" method="post" id="rsvp_form">
             {{ form.non_field_errors }}
              <p>
-                 {% if form.name.errors %}<div class="error_message" style="width: 300px">{{ form.email.errors }}</div>{% endif %}
+                 {{ form.email.errors }}
                  <label for="email">{{ form.email.label }}</label>
                  {{ form.email }}
+             </p>
+             <p>
+                {{ form.name.errors }}
+                <label for="name">{{ form.name.label }}</label>
+                {{ form.name }}
             </p>
-            <p>
-                {% if form.name.errors %}<div class="error_message" style="width: 300px">{{ form.name.errors }}</div>{% endif %}
-               <label for="name">{{ form.name.label }}</label>
-               {{ form.name }}
-           </p>
            <p>
-               {% if form.coming.errors %}<div class="error_message" style="width: 300px">{{ form.coming.errors }}</div>{% endif %}
+               {{ form.coming.errors }}
                <label for="coming">{{ form.coming.label }}</label>
                {{ form.coming }}
            </p>            
            <!--- IF YES -->
            <p class="rsvp_yes">
-               {% if form.count.errors %}<div class="error_message" style="width: 300px">{{ form.count.errors }}</div>{% endif %}
+               {{ form.count.errors }}
                <label for="count">{{ form.count.label }}</label>
                {{ form.count }}
            </p>
            <!-- Reaching pune details -->
            <p class="rsvp_yes">
-               {% if form.checkin.errors %}<div class="error_message" style="width: 300px">{{ form.checkin.errors }}</div>{% endif %}
+               {{ form.checkin.errors }}
                <label for="checkin">{{ form.checkin.label }}</label>
                {{ form.checkin }}
            </p>
            <p class="rsvp_yes">
-               {% if form.checkout.errors %} <div class="error_message" style="width: 300px">{{ form.checkout.errors }}</div>{% endif %}
+               {{ form.checkout.errors }}
                <label for="checkout">{{ form.checkout.label }}</label>
                {{ form.checkout }}
            </p>
            <!--- Bombay airport ride? -->
-           {% if form.ride_from_bom.errors %}<div class="error_message" style="width: 300px">{{ form.ride_from_bom.errors }}</div>{% endif %}
            <p class="rsvp_yes">
+               {{ form.ride_from_bom.errors }}
                <label for="ride_from_bom">{{ form.ride_from_bom.label}}</label>
                {{ form.ride_from_bom }}
            </p>
            <!-- END OF "IF YES" -->
             <!-- Message -->
             <p>
-                <label for="message">Optional Message</label>   
-                <textarea name="message" rows="5" cols="40" maxlength="200"></textarea>
+                <label for="message">Optional Message:</label>
+                <textarea name="message" rows="5" cols="40" maxlength="200">{{ form.message }}</textarea>
             </p>
             <!-- display previous messages -->
-            <p><label for="message-print">
-                {% for m in guest.message %} {{m}} <br>{% endfor %}
-            </p>
+            {% if guest.message %}
+            <p><label for="message-print">Previous messages posted by you:</label>
+            {{ guest.message }}</p>
+            {% endif %}
             <p>
                 <input type="submit" value="Submit" class="submit">
             </p>
@@ -96,14 +97,10 @@
         $('#edit_form').click(function(e){
             $('[disabled]').removeAttr('disabled'); // enable all the fields
         });
+        
+        {% if disabled %}
+            $('#rsvp_form :input').attr('disabled', true);
+        {% endif %}
     });
 </script>
-{% if disabled %}
-<script type='text/javascript'>
-    jQuery(function($){
-        $('input').attr('disabled', true);
-        $('select').attr('disabled', true);
-    });
-</script>
-{% endif %}
 {% endblock %}

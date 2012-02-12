@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
 <div class="fancybox">
     <div class="fancybox-title">
         <h3>RSVP</h3>
@@ -5,9 +7,10 @@
     <div class="fancybox-body">
         <form action="{% url rsvp_login %}" method="post" id="email_form">
             <p>
-                <div class="error_message hidden" style="width: 300px">Please enter a valid email</div>
+                <div class="error_message hidden">Please enter a valid email</div>
             </p>
             <p>
+                {{ form.email.errors }}
                 <label for="email">Email: </label>
                 {{ form.email }}
             </p>
@@ -17,6 +20,8 @@
         </form>
     </div>
 </div>
+{% endblock %}
+{% block extra_js %}
 <script type="text/javascript">
     jQuery(function($){
         
@@ -30,24 +35,7 @@
                 $.fancybox.resize();
                 return false;
             }
-            /*$.ajax({
-                type: 'POST',
-                url: $(this).attr('action'),
-                data: $.param({'email': email}),
-                success: function(msg) {
-                    $.fancybox({
-                        href: '{% url rsvp %}',
-                        onComplete: function(msg){
-                            ('')
-                        }
-                    })
-                    
-                    
-                }
-                error: function(msg) {
-                    
-                }
-            })*/
         });
     });
-</script
+</script>
+{% endblock %}

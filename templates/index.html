@@ -8,6 +8,8 @@
 
 {% block content %}
 <div id="loading"><span>Just a moment please...</span></div>
+{% if thanks %}<div id="thanks_dialog" title="Thanks!">{{ thanks }}</div>{% endif %}
+{# <div id="browser_info" title="Browser Compatibility"> This site is best viewed in IE7+, Firefox, Safari or Chrome at </div> #}
 <div id="main" role="main">
     <nav id="side-nav" data-controller="MainNav" style="margin-top: -200px; ">
     <ul>
@@ -22,16 +24,16 @@
     </nav>
     
     <div id="site-bottomnav" data-controller="SiteFunctions">
-        <a id="contact-us" href="mailto:nityaandsrirami@gmail.com" title="Contact Us" class="icon-contact function-tip">Contact Us</a>
+        <!--<a id="contact-us" href="mailto:nityaandsriram@gmail.com" title="Contact Us" class="icon-contact function-tip">Contact Us</a>-->
         <a id="rsvp" title="RSVP" class="icon-rsvp function-tip" href="{% url rsvp_login %}">RSVP</a>
         <a id="photos" title="Photo Gallery" class="icon-photo function-tip">Photo Gallery</a>
     </div>
 
     <!-- Section #1 / Intro -->
     <section id="welcome" class="story" data-speed="6" data-type="background">
-        <!--<div class="intro" data-type="sprite" data-offsety="200" data-xposition="50%" data-speed="4"></div>-->
+        <div class="intro" data-type="sprite" data-offsety="80" data-xposition="90%" data-speed="4"></div>
         <article>
-            <h2>We're tying the knot!</h2>
+            <!--<h2>We're tying the knot!</h2>-->
         </article>
     </section>
     
@@ -40,18 +42,19 @@
         <div class="intro" data-type="horizontal-sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div>
         <article>
             <h2>The Bride</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, ante vel iaculis malesuada, nunc purus malesuada sapien, sit amet suscipit eros lacus et lorem. Maecenas sagittis venenatis augue ut dictum. Maecenas non massa lorem, ac iaculis lorem. Donec turpis odio, bibendum et porttitor vel, dignissim quis metus. Suspendisse eros nisl, volutpat et mollis ac, eleifend ut erat. Pellentesque quis volutpat diam. Phasellus euismod ultricies augue vel euismod.</p>
-
-              <p>Nam sollicitudin, dolor accumsan tempus eleifend, est massa condimentum orci, ac accumsan sapien ante sit amet augue. Mauris ligula augue, tincidunt sit amet cursus sit amet, sollicitudin ac ligula. Cras sit amet nunc vel sapien accumsan porttitor. Nulla nec diam mauris, sollicitudin ullamcorper massa. Nullam ut mauris mi, eu vehicula elit. Maecenas placerat semper odio, eu interdum est ornare ut. Pellentesque nec nibh ac elit varius euismod quis quis augue. Suspendisse turpis eros, laoreet vel pretium quis, sollicitudin id eros. Maecenas mi leo, bibendum ac auctor vestibulum, euismod a orci.</p>
+            <p>Nitya grew up in Kuwait but her roots still lie in India. After high school, Nitya went to UT Austin to pursue Bachelors in Computer Science and Advertising. After a summer internship in Goldman Sachs, Nitya decided she had to do her part in doing "<a href="http://www.timesonline.co.uk/tol/news/world/us_and_americas/article6907681.ece" target="_blank">God's work</a>" and joined Goldman Sachs full-time in 2006. After 4 years in the financial world, Nitya decided she'd had enough and decided to pursue her true passions - technology and web development. After a short stint in Lime Wire, she joined Yipit as their 6th employee and has been happily hacking away ever since.</p>
+            <p>Nitya closely fits both the cancerian and southpaw stereotypes. She is highly creative and obsessive about her artwork. In fact, Nitya has never lived in an apartment that she didn't paint herself. Luckily (for me), she takes very little help while doing so.</p>
+            <p>Another obsession of Nitya's is travel. Adventure travel is very much a part of her existence. Once in a while, she pushes the envelope with outrageously daring experiences like spending a week learning survival skills in Utah.</p>
+            <p>Lastly, Nitya forms strong and lasting bonds and it's no surprise to me that many of her closest friends till date are ones from her time in Kuwait.</p>
         </article>
     </section>
     
     <section id="the-groom" class="story" data-speed="6" data-type="background" data-offsety="265">
         <article>
             <h2>The Groom</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, ante vel iaculis malesuada, nunc purus malesuada sapien, sit amet suscipit eros lacus et lorem. Maecenas sagittis venenatis augue ut dictum. Maecenas non massa lorem, ac iaculis lorem. Donec turpis odio, bibendum et porttitor vel, dignissim quis metus. Suspendisse eros nisl, volutpat et mollis ac, eleifend ut erat. Pellentesque quis volutpat diam. Phasellus euismod ultricies augue vel euismod.</p>
-
-              <p>Nam sollicitudin, dolor accumsan tempus eleifend, est massa condimentum orci, ac accumsan sapien ante sit amet augue. Mauris ligula augue, tincidunt sit amet cursus sit amet, sollicitudin ac ligula. Cras sit amet nunc vel sapien accumsan porttitor. Nulla nec diam mauris, sollicitudin ullamcorper massa. Nullam ut mauris mi, eu vehicula elit. Maecenas placerat semper odio, eu interdum est ornare ut. Pellentesque nec nibh ac elit varius euismod quis quis augue. Suspendisse turpis eros, laoreet vel pretium quis, sollicitudin id eros. Maecenas mi leo, bibendum ac auctor vestibulum, euismod a orci.</p>
+            <p>Sriram was born and brought up in Chennai where he grew up with his sister, parents, and patti (grandmother). He went to UT, Austin for his Bachelors in Electrical Engineering and on graduating, joined Google as a software engineer, in California. After much coaxing (by me), he finally relented and left the west coast for New York, three years later. Last year, he moved to Spotify to pursue his interest in solving core backend engineering problems and loves it there.</p>
+            <p>Sriram is extremely passionate about music; he loves everything from psychedelic rock to classical carnatic. He's also an extremely adept percussionist, in all senses of the word. He first started playing the mirundangam at age 6 after some prodding from his mom and developed a natural sense of rhythm. At university, Sriram played for a band called Omkara. Later, he taught himself the tabla and drums, and he now regularly jams with friends to the tunes of Led Zep, Floyd etc. His other passions include traveling - he's travelled across 17 countries in 6 continents over the past 5 years and is always willing to partake in the next adventure even if it means hiccuping all the way up to the summit of Kilimanjaro.</p>
+            <p> Sriram's extremely fun loving and loves to live in the moment. He forms extremely tight bonds with his friends and enjoys spending quality time with them. There's always something to look forward to with him around, and he's truly the best friend I could ever hope to have.</p>
         </article>
     </section>
 
@@ -59,21 +62,21 @@
     <section id="our-story" class="story" data-speed="9" data-type="background" data-offsety="300">
         <article>
             <h2>Our Story</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, ante vel iaculis malesuada, nunc purus malesuada sapien, sit amet suscipit eros lacus et lorem. Maecenas sagittis venenatis augue ut dictum. Maecenas non massa lorem, ac iaculis lorem. Donec turpis odio, bibendum et porttitor vel, dignissim quis metus. Suspendisse eros nisl, volutpat et mollis ac, eleifend ut erat. Pellentesque quis volutpat diam. Phasellus euismod ultricies augue vel euismod.</p>
-
-              <p>Nam sollicitudin, dolor accumsan tempus eleifend, est massa condimentum orci, ac accumsan sapien ante sit amet augue. Mauris ligula augue, tincidunt sit amet cursus sit amet, sollicitudin ac ligula. Cras sit amet nunc vel sapien accumsan porttitor. Nulla nec diam mauris, sollicitudin ullamcorper massa. Nullam ut mauris mi, eu vehicula elit. Maecenas placerat semper odio, eu interdum est ornare ut. Pellentesque nec nibh ac elit varius euismod quis quis augue. Suspendisse turpis eros, laoreet vel pretium quis, sollicitudin id eros. Maecenas mi leo, bibendum ac auctor vestibulum, euismod a orci.</p>
+            <p>One of my first memories of Sriram was from UT, Austin, when I was at the library, attempting to procure a book stamp for an art project. Sriram worked as a library proctor, and so I asked if he could help out. Not knowing him very well at the time, I was a bit taken aback when he replied with a grin, "What's in it for me?"</p>
+            <p>Over the next couple of years at school, we met intermittently and became good friends. When we finally realized we liked each other, it was time for me to graduate and move to New York. Sriram moved to California six months later.</p>
+            <p>Today, we've travelled six continents together, over the course of five years, visited four of the world's wonders, survived three long distance years, lived in two home cities, and overall it's been one amazing adventure. Last summer, Sriram took me aback once more with another grin and question when we trekked up Mt. Kilimanjaro. Only this time, his question was, "Will you marry me?"
+            </p>
             </article>
     </section>
 
     <!-- Section #5 / Engagement -->
-      <section id="the-engagement" class="story" data-speed="9" data-type="background" data-offsety="400">
+      <section id="the-engagement" class="story" data-speed="5" data-type="background" data-offsety="700">
           <article>
               <h2>The Proposal</h2>
               <div class="textbox">        
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, ante vel iaculis malesuada, nunc purus malesuada sapien, sit amet suscipit eros lacus et lorem. Maecenas sagittis venenatis augue ut dictum. Maecenas non massa lorem, ac iaculis lorem. Donec turpis odio, bibendum et porttitor vel, dignissim quis metus. Suspendisse eros nisl, volutpat et mollis ac, eleifend ut erat. Pellentesque quis volutpat diam. Phasellus euismod ultricies augue vel euismod.</p>
-
-                  <p>Nam sollicitudin, dolor accumsan tempus eleifend, est massa condimentum orci, ac accumsan sapien ante sit amet augue. Mauris ligula augue, tincidunt sit amet cursus sit amet, sollicitudin ac ligula. Cras sit amet nunc vel sapien accumsan porttitor. Nulla nec diam mauris, sollicitudin ullamcorper massa. Nullam ut mauris mi, eu vehicula elit. Maecenas placerat semper odio, eu interdum est ornare ut. Pellentesque nec nibh ac elit varius euismod quis quis augue. Suspendisse turpis eros, laoreet vel pretium quis, sollicitudin id eros. Maecenas mi leo, bibendum ac auctor vestibulum, euismod a orci.</p>
-
+                <h5>Stella Point, Aug 22 2011 - 8.00 a.m.</h5>
+                <p>About five hundred feet beneath Africa's highest peak (Uhuru), balancing unsteadily on a knelt position after an arduous trek uphill, I popped the question "Nitya, would you like to take our relationship to greater heights?" and offered her a ring in exchange for her hand. She said "yes, of course!" and I was overwhelmed with joy.</p>
+                  <p>During the five-day ascent up the mountain, I had felt my body struggling under the hostile conditions but each time, I was able to push through a bit further with the hopes of proposing to Nitya near the top. After the proposal, we hugged and I realized how lucky I was to get that far up and have my dreams come true. For a moment, reaching the summit was merely a bonus experience!</p>
                 </div>
           </article>
       </section>    
@@ -84,9 +87,15 @@
           <article>
               <h2>Wedding - Events &amp; Details</h2>
               <div class="textbox">        
-                  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                  <p>Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. o.</p>
+                  <h4>Saturday, June 9th, 2012</h4>
+                  <h5 class="event-tip" title="The mehndi ceremony is a colorful, musical celebration where the bride and other females in the bridal party get ornate mehndi patterns applied on their hands. Mehndi signifies the union of two families and the love and affection in a marriage. It is believed that the darker the mehndi stains on the bride’s hand, the stronger the bond will be with her husband.">Mehndi Ceremony: 11am - 3pm</h5>
+                  <p><h5 class="event-tip" title="The Baraat is the groom's wedding procession where the groom  a horse, accompanied by a band. Once the groom's party arrives, they are received by the bride's side. Later the bride and the groom exchange garlands (jaimala). The process of may be complicated by each side carrying the groom/bride, making it difficult for the other side to garland. This is basically traditional family entertainment.">Baraat Swagat, Jaimala &amp; Sangeet: 7pm onwards</h5>
+                  </p>
+                  <h4>Sunday, June 10th, 2012</h4>
+                  <p><h5 class="event-tip" title="">Nischayathartham - the Engagement Ceremony: 10am - 10.30am</h5></p>
+                  <p><h5 class="event-tip" title="">Muhurtham - the Wedding: 10.30am - 12am</h5>
+                  </p>
+                  <p><h5>Reception, Dance &amp; Dinner: 7.30pm onwards</h5></p>
               </div>
           </article>
       </section>
@@ -95,10 +104,14 @@
         <section id="the-wedding-2" class="story" data-speed="10" data-type="background" data-offsety="505">
             <article>
                 <h2>Guest Information</h2>
-                <div class="textbox">        
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    <p>Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                <div class="textbox">
+                    <ul>
+                        <li>We request all our guests to RSVP via the RSVP link on the top left of the screen.</li>
+                        <li></li>
+                        <li>For our non-indian citizen guests, we encourage that you acquire your Indian Visas well before .</li>
+                    </ul>
                 <h2>Recommendations</h2>
+                    <p>We've put together a list of recommendations for our guests to do while they're in India. We suggest </p>
                     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. o.</p>
                     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
                 </div>
@@ -126,10 +139,21 @@
             delayIn: 100, 
             offset: 7
         });
+        $('.event-tip').tipsy({
+            gravity: 'w',
+            fade: 'true',
+            delayIn: 100,
+            offset: 10,
+            html: true
+        });
         
+        {% if not thanks %}
         $(window).load(function() {
             $('#loading').animate({"left" : "100%"});
         });
+        {% endif %}
+        
+        $('#thanks_dialog').dialog();
         
         $('#rsvp').fancybox({
             centerOnScroll: true,
@@ -164,6 +188,7 @@
             
             $(this).html().modal();
         })*/
+        
     });
   </script>
 {% endblock %}

@@ -1,20 +1,27 @@
 body {
     font-family: "Open Sans", Arial, sans-serif;
     font-size: 14px;
+    background-color: #333;
 }
 
 .hidden {
     display: none;
 }
 
-.error_message {
+.errorlist {
   background-color: #666;
   border: 1px solid #303;
+  font-weight: bold;
   color: #303;
   line-height: 26px;
+  list-style: none;
   padding: 4px 18px;
   margin-bottom: 10px;
-  font-weight: bold;
+  width: 335px;
+}
+
+a {
+  color: #416867;
 }
 
 /* -------------------- */
@@ -57,15 +64,26 @@ article {
     padding: 10px 20px;
     position: absolute;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
-    z-index: 999;
+    z-index: 5;
 }
-article h2 { 
+article h2, article h3, article h4{ 
     font-family: 'Ruthie', cursive; 
     font-size: 60px;
     font-weight: 500;
     line-height: 1em; 
     margin: 25px 0;  
 }
+
+article h4 {
+    font-size: 30px;
+}
+
+article h5 {
+    font-size: 15px;
+    display: initial;
+}
+
+
 .story article p {
     margin-bottom: 25px; 
 }
@@ -100,12 +118,14 @@ article h2 {
 
 /* Introduction */
 #welcome .intro { 
-    background: url(../img/logo.png) 50% 200px no-repeat fixed; 
+    background: url(../img/vakratunda.png) 90% 80px no-repeat fixed; 
     min-height: 900px; 
     padding: 0; 
     width: 100%; 
-    max-width: 1000px; 
-    position: relative; margin: 0 auto; }
+    position: relative; 
+    margin: 0 auto;
+    text-shadow: 0px 2px 3px #555;
+}
 
 #welcome article { 
     top: 300px;
@@ -166,9 +186,9 @@ article h2 {
 }
 #the-engagement article { 
     background: url(../img/grain.png) repeat #333;
-    top: 100px;
+    top: 180px;
     right: 150px;
-    width: 445px;
+    width: 415px;
 }
 #the-engagement article a { 
     color: #ff0;
@@ -178,14 +198,14 @@ article h2 {
 #the-wedding-1 article { 
     background: url(../img/grain.png) repeat #333;
     top: 130px;
-    left: 120px;
-    width: 650px;
+    left: 45%;
+    width: 45%;
 }
 
 #the-wedding-2 article { 
     background: url(../img/grain.png) repeat #333;
     top: 100px;
-    right: 140px;
+    left: 10%;
     width: 40%;
 }
 
@@ -270,6 +290,10 @@ nav#side-nav a:hover, a.active {
     margin-top: 5px;
 }
 
+#email_form label {
+    width: 100px;
+}
+
 .fancybox-body form input, .fancybox-body form textarea, .fancybox-body form select{
     width: 250px;
     border: 1px solid #111;
@@ -277,7 +301,7 @@ nav#side-nav a:hover, a.active {
     padding: 5px 0 5px 10px;
     color: #fff;
 }
-
+    
 .fancybox-body form select{
     width: 262px;
     height: 30px;
@@ -288,7 +312,7 @@ nav#side-nav a:hover, a.active {
     background: url(../img/select_box.jpg) no-repeat;
 }
 
-.fancybox-body form input:disabled, .fancybox-body form select:disabled{
+.fancybox-body form input:disabled, .fancybox-body form select:disabled, .fancybox-body form textarea:disabled{
     background: #444;
 }
 
@@ -305,11 +329,15 @@ nav#side-nav a:hover, a.active {
     width: 150px;
 }
 
+#email_form .submit {
+    margin-left: 110px;
+}
+
 .rsvp_yes {
   display: none;
 }
 
-#edit_form {
+a#edit_form {
     color: white;
     float: right;
     cursor: pointer;

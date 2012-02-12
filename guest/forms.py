@@ -14,16 +14,7 @@ class GuestForm(forms.ModelForm):
     class Meta:
         model = Guest
         exclude = ('message', 'updated')
-    
-    def clean_message(self):
-        message = forms.cleaned_data['message']
-    # def clean_coming(self):
-    #        coming = forms.cleaned_data['coming']
-    #        for v, k in COMING_OPTS:
-    #            if v == val:
-    #                return k
-    #    return 'Yes'
-        
+
 class GuestEmailForm(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True, label="Email:")
     
