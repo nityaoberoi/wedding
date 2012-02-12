@@ -46,6 +46,7 @@ def rsvp(request):
     context = {}
     if request.method == 'POST':
         email = request.session.get('email')
+        logging.debug('email is: %s' % email)
         try:
             guest = Guest.objects.get(email=email)
         except Guest.DoesNotExist:
@@ -66,8 +67,6 @@ def rsvp(request):
             context['disabled'] = True
             context['thanks'] = True
             request.session['email'] = guest.email
-            #logging.debug("I am here")
-            #return render(request, 'index.html', {'thanks': "Thanks! We got it! You can update your RSVP at any time by logging in with your email and editing your information."})
         context['form'] = form
         return render(request, 'rsvp2.html', context)
     return HttpResponseRedirect(reverse('rsvp_login'))

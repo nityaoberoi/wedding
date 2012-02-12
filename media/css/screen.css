@@ -135,7 +135,7 @@ article p {
 
 /* Introduction */
 #welcome .intro { 
-    background: url(../img/vakratunda.png) 94% 300px no-repeat fixed; 
+    background: url(../img/vakratunda.png) 94% 260px no-repeat fixed; 
     min-height: 900px; 
     padding: 0; 
     width: 100%; 
@@ -178,7 +178,7 @@ article p {
 #the-bride article { 
     background: url(../img/purple-grain.png) repeat #303;
     border: 1px solid rgba(150,150,150,0.1);
-    top: 100px;
+    top: 160px;
     right: 90px;
     width: 445px;
 }
@@ -189,7 +189,7 @@ article p {
 /* The Groom */
 #the-groom article {  
     background: url(../img/purple-grain.png) repeat #303;
-    top: 100px;
+    top: 120px;
     left: 70px;
     width: 430px;
     box-shadow: 0 0 25px rgba(0,0,0,0.3); 
@@ -207,7 +207,7 @@ article p {
 /* Our Story */
 #our-story article {
     background: url(../img/grain.png) repeat #333;
-    top: 150px;
+    top: 170px;
     right: 90px;
     width: 450px;
 }
@@ -381,11 +381,4 @@ a#edit_form {
     color: white;
     float: right;
     cursor: pointer;
-}
-
-/* ----------------- */
-/* UI Dialog */
-
-.ui-dialog-titlebar {
-    display: none;
 }

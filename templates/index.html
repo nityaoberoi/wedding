@@ -31,7 +31,7 @@
 
     <!-- Section #1 / Intro -->
     <section id="welcome" class="story" data-speed="6" data-type="background">
-        <div class="intro" data-type="sprite" data-offsety="300" data-xposition="94%" data-speed="-4"></div>
+        <div class="intro" data-type="sprite" data-offsety="260" data-xposition="94%" data-speed="-4"></div>
         <article>
             <h2>Nitya weds Sriram</h2>
             <h4>June 9-10, 2012</h4>
@@ -164,8 +164,10 @@
         $('#rsvp').fancybox({
             centerOnScroll: true,
             overlayColor: '#333',
-            hideOnOverlayClick: false,
-        })
+            hideOnOverlayClick: false
+        });
+        
+        
         
         $("#photos").click(function() {
             //$("a.fancybox").attr('rel', 'gallery').fancybox();
@@ -189,11 +191,11 @@
                         'changeFade'        : 0
                     });
         });
-          
-        /*$('#site-bottomnav a').live('click', function(e){
-            
-            $(this).html().modal();
-        })*/
+        //   
+        // $('#site-bottomnav a').live('click', function(e){
+        //     $('#site-bottomnav a').not($(this))
+        //     $(this).html().modal();
+        // })
         
     });
   </script>
