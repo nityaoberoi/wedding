@@ -21,7 +21,7 @@ body {
 }
 
 a, a:hover, a:visited {
-  color: #416867;
+  color: #303;
   text-decoration: none;
 }
 
@@ -189,7 +189,7 @@ article p {
 /* The Groom */
 #the-groom article {  
     background: url(../img/purple-grain.png) repeat #303;
-    top: 120px;
+    top: 150px;
     left: 70px;
     width: 430px;
     box-shadow: 0 0 25px rgba(0,0,0,0.3); 
