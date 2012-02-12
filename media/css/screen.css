@@ -20,8 +20,13 @@ body {
   width: 335px;
 }
 
-a {
+a, a:hover, a:visited {
   color: #416867;
+  text-decoration: none;
+}
+
+.event-tip {
+  width: 300px;
 }
 
 /* -------------------- */
@@ -83,8 +88,11 @@ article h5 {
     display: initial;
 }
 
+article li {
+    list-style-type: url(../img/bullet.png);
+}
 
-.story article p {
+article p {
     margin-bottom: 25px; 
 }
 #welcome { 
@@ -200,6 +208,11 @@ article h5 {
     top: 130px;
     left: 45%;
     width: 45%;
+    opacity: 0.8;
+}
+
+#the-wedding-1 article p {
+    margin-bottom: 10px;
 }
 
 #the-wedding-2 article { 
@@ -207,6 +220,7 @@ article h5 {
     top: 100px;
     left: 10%;
     width: 40%;
+    opacity: 0.8;
 }
 
 /* -------------------- */
@@ -236,7 +250,7 @@ nav#side-nav a:hover, a.active {
     padding: 10px;
     z-index: 9999;
 }
-#site-bottomnav a{
+#site-bottomnav a, a.icon-home{
      margin: 0 7px 0 0 !important;
      width: 45px;
      height: 45px;
@@ -252,7 +266,10 @@ nav#side-nav a:hover, a.active {
 .icon-photo {
     background: url(../img/photo-gallery.png) 0 0 no-repeat;
 }
-.icon-contact:hover, .icon-rsvp:hover, .icon-photo:hover{
+.icon-home {
+    background: url(../img/home.png) 0 0 no-repeat;
+}
+.icon-contact:hover, .icon-rsvp:hover, .icon-photo:hover, .icon-home:hover{
     background-position: 0 100%;
 }
 /* -------------------- */
@@ -341,4 +358,11 @@ a#edit_form {
     color: white;
     float: right;
     cursor: pointer;
+}
+
+/* ----------------- */
+/* UI Dialog */
+
+.ui-dialog-titlebar {
+    display: none;
 }

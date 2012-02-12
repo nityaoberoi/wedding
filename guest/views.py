@@ -10,7 +10,7 @@ from guest.models import Guest, COMING_OPTS
 from guest.forms import GuestForm, GuestEmailForm
 
 def home(request):
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
 
 def rsvp_login(request):
     context = {}
@@ -58,12 +58,16 @@ def rsvp(request):
             prev_messages = guest.message or ''
             if message:
                 logging.debug("%s wrote %s" % (guest.name or email, message))
-                prev_messages = prev_messages + "@%s -- %s<br>" % (time_str(time.time()), message)
+                prev_messages = prev_messages + "@%s -- %s\n" % (time_str(time.time()), message)
             guest = form.save(commit=False)
             guest.message = prev_messages
             guest.save()
+            context['guest'] = guest
+            context['disabled'] = True
+            context['thanks'] = True
             request.session['email'] = guest.email
-            return render(request, 'index.html', {'thanks': "Thanks! We got it! You can update your RSVP at any time by logging in with your email and editing your information."})
+            #logging.debug("I am here")
+            #return render(request, 'index.html', {'thanks': "Thanks! We got it! You can update your RSVP at any time by logging in with your email and editing your information."})
         context['form'] = form
         return render(request, 'rsvp2.html', context)
     return HttpResponseRedirect(reverse('rsvp_login'))
