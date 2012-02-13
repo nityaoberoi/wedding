@@ -5,7 +5,7 @@
 {% block content %}
 <div class="fancybox">
     <div class="fancybox-title">
-        <h3>RSVP</h3>
+        <a href="{% url home %}" class="icon-home">Home</a><h3 style="text-align:center">RSVP</h3>
     </div>
     <div class="fancybox-body">
         <form action="{% url rsvp_login %}" method="post" id="email_form">

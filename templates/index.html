@@ -3,13 +3,14 @@
 {% block extra_css %}
     <link rel="stylesheet" href="css/tipsy.css">
     <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/basic.css">
     {# <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.0.4" type="text/css" media="screen" /> #}
 {% endblock %}
 
 {% block content %}
 {% if not thanks %}<div id="loading"><span>Just a moment please...</span></div>{% endif %}
 {% if thanks %}<div id="thanks_dialog" title="Thanks!">{{ thanks }}</div>{% endif %}
-{# <div id="browser_info" title="Browser Compatibility"> This site is best viewed in IE7+, Firefox, Safari or Chrome at </div> #}
+<div id="browser_info"> This site is best viewed in IE7+, Firefox, Safari or Chrome in full screen mode. </div>
 <div id="main" role="main">
     <nav id="side-nav" data-controller="MainNav" style="margin-top: -200px; ">
     <ul>
@@ -135,6 +136,7 @@
   <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
   <!--<script type="text/javascript" src="fancybox/source/jquery.fancybox.js?v=2.0.4"></script>-->
   <script type="text/javascript" src="js/jquery.easing-1.3.pack.js"></script>
+  <script type="text/javascript" src="js/jquery.simplemodal.js"></script>
 
   <script type="text/javascript">
     jQuery(function($) {
@@ -157,6 +159,15 @@
 
         $(window).load(function() {
             $('#loading').animate({"left" : "100%"});
+            $('#browser_info').modal({
+                position: [30, ],
+                modal: false,
+                autoResize: true,
+                onShow: function(){
+                    console.log($('#browser_info'));
+                    $('#simplemodal-container').delay('6000').hide('slow');
+                }
+            });
         });
 
         $('#thanks_dialog').dialog();
@@ -172,13 +183,12 @@
 
             $.fancybox([
                 '../img/fixed/image1.jpg',
-                '../img/fixed/image2.jpg',
                 '../img/fixed/image3.jpg',
                 '../img/fixed/image4.jpg',
                 '../img/fixed/image5.jpg',
                 '../img/fixed/image6.jpg',
-                '../img/fixed/image7.jpg',
                 '../img/fixed/image8.jpg',
+                '../img/fixed/image2.jpg',
                 '../img/fixed/image9.jpg',
                 '../img/fixed/image10.jpg',],
                 {

@@ -20,27 +20,7 @@ class Guest(models.Model):
     
     message = models.TextField(null=True)
     updated = models.PositiveIntegerField(null=True)  ## Private information about guests
-  # email = db.EmailProperty(required=True)
-  #   name = db.StringProperty()
-  #   coming = db.StringProperty()
-  #   count = db.IntegerProperty()
-  # 
-  #   # Hotel specific. June 9 8am until Jun 9 11:59
-  #   checkin = db.DateProperty()
-  #   checkout = db.DateProperty()
-  #   
-  #   ride_from_bom = db.BooleanProperty()
-  #   """
-  #   # If flying into Bombay airport, tell ur ARR/DEP details
-  #   arrival = db.StringProperty()
-  #   departure = db.StringProperty()
-  #   """
-  # 
-  #   # Other flight info, whatever they want to say
-  #   message = db.StringListProperty()
-  #   
-  #   
-  #   updated = db.IntegerProperty()
+
     def __str__(self):
         return "%s (%s) rsvp'd %s for a group of %d. Hotel: %s until %s." % (
       self.name, self.email, self.coming, self.count or 0, self.checkin, self.checkout)
