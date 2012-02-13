@@ -108,6 +108,11 @@
         {% if disabled %}
             $('#rsvp_form :input').not('.submit').not('[name="message"]').attr('disabled', true);
         {% endif %}
+        
+        $('#rsvp_form').submit(function(){
+            $('[disabled]').removeAttr('disabled');
+            $.post({url: $(this).attr('action'), data: $(this).serialize()})
+        })
     });
 </script>
 {% endblock %}

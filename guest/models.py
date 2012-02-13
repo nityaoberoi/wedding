@@ -18,7 +18,7 @@ class Guest(models.Model):
       departure = db.StringProperty()
     """
     
-    message = models.CharField(max_length=3000, null=True)
+    message = models.TextField(null=True)
     updated = models.PositiveIntegerField(null=True)  ## Private information about guests
   # email = db.EmailProperty(required=True)
   #   name = db.StringProperty()
