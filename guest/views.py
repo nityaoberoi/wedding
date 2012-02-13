@@ -59,7 +59,7 @@ def rsvp(request):
             prev_messages = guest.message or ''
             if message:
                 logging.debug("%s wrote %s" % (guest.name or email, message))
-                prev_messages = prev_messages + "@%s -- %s\n" % (time_str(time.time()), message)
+                prev_messages = prev_messages + "%s: %s\n" % (time_str(time.time()), message)
             guest = form.save(commit=False)
             guest.message = prev_messages
             guest.save()
@@ -72,4 +72,4 @@ def rsvp(request):
     return HttpResponseRedirect(reverse('rsvp_login'))
 
 def time_str(timestamp):
-  return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(timestamp)) if timestamp else ''
+  return time.strftime("On %b %d, %Y at %I:%M %p", time.localtime(timestamp)) if timestamp else ''
