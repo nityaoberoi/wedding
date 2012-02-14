@@ -29,7 +29,7 @@ a, a:hover, a:visited {
     cursor: pointer;
 }
 
-.event-tip .tipsy-inner{
+.event-tip .tipsy-inner {
   background-color: #303;
 }
 
@@ -168,16 +168,13 @@ article p {
     margin-top: 10px;
 }
 
-#welcome article p,
-#welcome article a { color: #ccc; }
-#welcome article a { text-decoration: underline; }
-#welcome article a:hover { color: #fff; }
+#welcome article p { color: #ccc; }
 
 /* The Bride */
 #the-bride article { 
     background: url(../img/purple-grain.png) repeat #303;
     border: 1px solid rgba(150,150,150,0.1);
-    top: 160px;
+    top: 110px;
     right: 90px;
     width: 445px;
 }
@@ -193,20 +190,11 @@ article p {
     width: 430px;
     box-shadow: 0 0 25px rgba(0,0,0,0.3); 
 }
-#the-groom .photograph { 
-    background: url(../img/photo.png) transparent 40% 100px no-repeat fixed; 
-    min-height: 1000px; 
-    padding: 0; 
-    margin: 0; 
-    width: 100%; 
-    position: relative; 
-    margin: 0 auto; 
-}
 
 /* Our Story */
 #our-story article {
     background: url(../img/grain.png) repeat #333;
-    top: 170px;
+    top: 15%;
     right: 90px;
     width: 450px;
 }
@@ -273,7 +261,7 @@ nav#side-nav a:hover, a.active {
     z-index: 9999;
 }
 #site-bottomnav a, a.icon-home{
-     margin: 0 7px 0 0 !important;
+     margin: 2px 7px 0 0 !important;
      width: 45px;
      height: 45px;
      text-indent: -9000px;
@@ -344,7 +332,9 @@ nav#side-nav a:hover, a.active {
 .fancybox-body form select{
     width: 262px;
     height: 30px;
+    appearance: none;
     -webkit-appearance:none;
+    -moz-appearance:none;
     border-radius: 0px;
     -webkit-border-radius:0px;
     -moz-border-radius: 0px;

@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     url(r'^$', 'guest.views.home', name='home'),
     url(r'^rsvp_login$', 'guest.views.rsvp_login', name='rsvp_login'),
     url(r'^rsvp$', 'guest.views.rsvp', name='rsvp'),
+    url(r'^hotel$', direct_to_template, {'template': 'corinthians.html'}, name='hotel'),
 )

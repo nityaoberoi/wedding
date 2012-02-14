@@ -14,6 +14,12 @@ class GuestForm(forms.ModelForm):
     class Meta:
         model = Guest
         exclude = ('message', 'updated')
+        
+    def clean_count(self):
+        count = self.cleaned_data.get('count', 0)
+        if count > 5:
+            raise forms.ValidationError("Please RSVP for 5 people or less.")
+        return count
 
 class GuestEmailForm(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True, label="Email:")
