@@ -120,7 +120,7 @@ article p {
     background: url(../img/our-story.jpg) 50% 50% no-repeat fixed; 
     background-color: #FDFDFC;
 }
-#the-engagement { 
+#the-proposal { 
     background: url(../img/the-ringer.jpg) 50% 50% no-repeat fixed;
     background-color: #ede8d5;
 }
@@ -199,16 +199,16 @@ article p {
     width: 450px;
 }
 /* The Engagement */
-#the-engagement { 
+#the-proposal { 
     padding: 50px 0;
 }
-#the-engagement article { 
+#the-proposal article { 
     background: url(../img/grain.png) repeat #333;
     top: 180px;
     right: 150px;
     width: 415px;
 }
-#the-engagement article a { 
+#the-proposal article a { 
     color: #ff0;
 }
 
