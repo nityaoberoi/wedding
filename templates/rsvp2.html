@@ -2,12 +2,12 @@
 {% block content %}
 <div class="fancybox">
     <div class="fancybox-title">
-        <a href="{% url home %}" class="icon-home">Home</a><h3 style="text-align:center">RSVP for {{guest.email}} {% if disabled %}<a id="edit_form">CLICK TO EDIT</a>{% endif %}</h3>
+        <a href="{% url home %}" class="icon-home" >Home</a><h3 style="text-align:center">RSVP for {{guest.email}} {% if disabled %}<a id="edit_form">CLICK TO EDIT</a>{% endif %}</h3>
     </div>
     <div class="fancybox-body">
         <form action="{% url rsvp %}" method="post" id="rsvp_form">
             {% if thanks %}
-                Here's what we have for you:
+                Here's what we have for you. You can always re-login with your email and update your RSVP:
             {% endif %}
             {{ form.non_field_errors }}
              <p>
@@ -43,11 +43,11 @@
                {{ form.checkout }}
            </p>
            <!--- Bombay airport ride? -->
-           <p class="rsvp_yes">
-               {{ form.ride_from_bom.errors }}
-               <label for="ride_from_bom">{{ form.ride_from_bom.label}}</label>
-               {{ form.ride_from_bom }}
-           </p>
+           {# <p class="rsvp_yes"> #}
+           {#                {{ form.ride_from_bom.errors }} #}
+           {#                <label for="ride_from_bom">{{ form.ride_from_bom.label}}</label> #}
+           {#                {{ form.ride_from_bom }} #}
+           {#            </p> #}
            <!-- END OF "IF YES" -->
             <!-- Message -->
             <p>

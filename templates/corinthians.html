@@ -1,20 +1,28 @@
-<style type="text/css">
-    .col1 {
-        clear: both;
-        float: left;
-        margin-right: 20px;
-        text-align: right;
-        width: 100px;
-    }
+<div id="directions_modal">
+    <div>
+        <img src="img/map.gif" class="map" title="The Corinthians Bon Boutique Hotel,<br/>Nyati County,NIBM Annexe, <br/>South Pune, Pune-411060">
+    </div>
+    <div>
+    </div>
+    <div class="col1">
+        <ul class="getting-there">
+            <li><a href="#"title="Getting here from Pune Airport" data-main="http://g.co/maps/emzsh" class="plane">Test</a></li>
+            <li><a href="#"title="Getting here from Pune Train Station" data-main="" class="train">Test</a></li>
+            <li><a href="#"title="Getting here by road from Bombay" data-main="" class="road">Test</a></li>
+        </ul>
+    </div>
+    <div class="col2">
+        <h3 class="title"></h3>
+    </div>
+    <div class="main">
+    </div>
     
-    .col2 {
-        float: left;
-    }
-</style>
-
-<div>
-    <div class="col1"><h4>Venue</h4></div>
-    <div class="col2">The Corinthians Bon Boutique Hotel<br /> Nyati County,NIBM Annexe, South Pune,<br />Pune-411060</div>
-    <div class="col1"><h4>Map</h4></div>
-    <div class="col2"></div>
 </div>
+<script type="text/javascript">
+    jQuery(function($){
+        $('.getting-there li a').live('click', function(e){
+            $('.title').html($(this).attr('title'))
+            $('.main').html($(this).attr('data-main'));
+        })
+    });
+</script>

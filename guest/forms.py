@@ -9,7 +9,7 @@ class GuestForm(forms.ModelForm):
     count = forms.IntegerField(required=False, label="Number attending:")
     checkin = forms.DateField(required=False, label="Checking in at Bonboutique? If so, when?")
     checkout = forms.DateField(required=False, label="...and checking out?")    
-    ride_from_bom = forms.BooleanField(required=False, label="Need a ride from BOM on Jun 9th?")
+    ride_from_bom = forms.BooleanField(required=False, label="Need a ride from Mumbai on Jun 9th?")
     
     class Meta:
         model = Guest
@@ -22,7 +22,7 @@ class GuestForm(forms.ModelForm):
         return count
 
 class GuestEmailForm(forms.ModelForm):
-    email = forms.CharField(max_length=100, required=True, label="Email:")
+    email = forms.CharField(max_length=100, required=True, label="Email:", widget=forms.TextInput(attrs={'title': "You will use this email to login and create/update your RSVP", 'class': 'tip'}))
     
     class Meta:
         model = Guest

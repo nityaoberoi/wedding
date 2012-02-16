@@ -1,6 +1,7 @@
 {% block extra_css %}
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="css/tipsy.css">
 {% endblock %}
 {% block content %}
 <div class="fancybox">
@@ -10,11 +11,11 @@
     <div class="fancybox-body">
         <form action="{% url rsvp_login %}" method="post" id="email_form">
             <p>
-                <div class="error_message hidden">Please enter a valid email</div>
+                <div class="errorlist hidden">Please enter a valid email</div>
             </p>
             <p>
                 {{ form.email.errors }}
-                <label for="email">Email: </label>
+                <label for="email">{{ form.email.label }}</label>
                 {{ form.email }}
             </p>
             <p>
@@ -25,6 +26,7 @@
 </div>
 {% endblock %}
 {% block extra_js %}
+<script type="text/javascript" src="js/jquery.tipsy.js"></script>
 <script type="text/javascript">
     jQuery(function($){
         
@@ -34,10 +36,15 @@
             var email = $('#id_email', emailform).val()
             if(email == null || email == "") {
                 $.fancybox.hideActivity();
-                $('.error_message', emailform).removeClass('hidden');
+                $('.errorlist', emailform).removeClass('hidden');
                 $.fancybox.resize();
                 return false;
             }
+        });
+        
+        $('.tip').tipsy({
+            gravity: 'w',
+            trigger: 'focus'
         });
     });
 </script>

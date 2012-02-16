@@ -38,6 +38,13 @@ a, a:hover, a:visited {
 /* Rules to colour arrows */
 .event-tip .tipsy-arrow-e { border-left-color: #303; }
 
+.question-mark {
+    position:relative;
+    height:18px;
+    width:18px;
+    background: url(../img/ui-icons_cccccc_256x240.png) 80% 60% no-repeat;
+}
+
 /* -------------------- */
 /* Loader               */
 /* -------------------- */
@@ -370,4 +377,62 @@ a#edit_form {
     color: white;
     float: right;
     cursor: pointer;
+}
+
+/* ----------------------- */
+/* 
+/* ----------------------- */
+
+.map {
+    -moz-box-shadow: 0 0 5px 5px #ccc;
+    -webkit-box-shadow: 0 0 5px 5px#ccc;
+    box-shadow: 0 0 5px 5px #ccc;
+    margin: 5px;
+    margin-bottom: 20px;
+}
+
+ul.getting-there {
+    display: inline;
+    list-style: none;
+}
+
+ul.getting-there li a {
+    width: 35px;
+    height: 35px;
+    float: left;
+    border:  1px solid  #aaa;
+    border-radius: 5px;
+    margin: 5px;
+    text-indent: -9999;
+}
+
+a.plane {
+    background: url(../img/plane.png) 0 0 no-repeat;
+}
+
+a.train {
+    background: url(../img/train.png) 0 0 no-repeat;
+}
+
+a.road {
+    background: url(../img/car.png) 0 0 no-repeat;
+}
+
+ul.getting-there li a:hover {
+    opacity: 0.4;
+}
+
+#directions_modal {
+    width: 350px;
+    display: none;
+}
+
+#directions_modal div {
+    overflow: auto;
+    float: left;
+}
+
+.col1 {
+    
+    width: 150px;
 }

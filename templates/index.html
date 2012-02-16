@@ -9,7 +9,6 @@
 
 {% block content %}
 {% if not thanks %}<div id="loading"><span>Just a moment please...</span></div>{% endif %}
-{% if thanks %}<div id="thanks_dialog" title="Thanks!">{{ thanks }}</div>{% endif %}
 <div id="browser_info"> This site is best viewed in IE7+, Firefox, Safari or Chrome in full screen mode. </div>
 <div id="main" role="main">
     <nav id="side-nav" data-controller="MainNav" style="margin-top: -200px; ">
@@ -23,7 +22,7 @@
          <li><a href="#the-wedding-2" class="tip" title="Guest Information &amp; Recommended Reading">the-wedding-2</a></li>
     </ul>
     </nav>
-
+    
     <div id="site-bottomnav" data-controller="SiteFunctions">
         <!--<a id="contact-us" href="mailto:nityaandsriram@gmail.com" title="Contact Us" class="icon-contact function-tip">Contact Us</a>-->
         <a id="rsvp" title="RSVP" class="icon-rsvp function-tip" href="{% url rsvp_login %}">RSVP</a>
@@ -87,7 +86,7 @@
           <article>
               <h2>Wedding - Events &amp; Details</h2>
               <div class="textbox">
-                  <p>We're getting married in Pune at the <span class="event-tip" title="">Corinthians Bon Boutique Hotel.</span>
+                  <p>We're getting married in Pune at the <a href="http://bonboutique.com/" target="_blank">Corinthians Bon Boutique Hotel</a>. We've compiled directions <A class="directions">here</a>. Please contact us if you have any questions!
                   <h4>Saturday, June 9th, 2012</h4>
                   <p><h5 class="event-tip" title="The <strong>mehndi</strong> ceremony is a colorful musical celebration where the ladies, including the bride, get ornate mehndi patterns applied on their hands.">Mehndi Ceremony: 11am - 3pm.</h5>
 		    <span style="float:right">Attire: Casual</span>
@@ -165,7 +164,6 @@
                 modal: false,
                 autoResize: true,
                 onShow: function(){
-                    console.log($('#browser_info'));
                     $('#simplemodal-container').delay('6000').hide('slow');
                 }
             });
@@ -200,6 +198,25 @@
                         'changeFade'        : 0
                     });
         });
+        
+        $('.directions').live('click', function(e){
+            var src = "http://365.ericmmartin.com/"; //{% url hotel %}
+            $('#directions_modal').modal({
+                modal: false
+            })
+                         // 
+                         // $.modal('<iframe src="' + src + '" height="450" width="450" style="border:0">', {
+                         //     closeHTML:"",
+                         //     containerCss:{
+                         //          backgroundColor:"#fff",
+                         //          borderColor:"#fff",
+                         //          height:450,
+                         //          padding:0,
+                         //          width:830
+                         //      },
+                         //     overlayClose:true
+                         // });
+        })
         /*$('#site-bottomnav a').live('click', function(e){
 
             $(this).html().modal();
