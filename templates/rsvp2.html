@@ -2,12 +2,12 @@
 {% block content %}
 <div class="fancybox">
     <div class="fancybox-title">
-        <a href="{% url home %}" class="icon-home" >Home</a><h3 style="text-align:center">RSVP for {{guest.email}} {% if disabled %}<a id="edit_form">CLICK TO EDIT</a>{% endif %}</h3>
+        <a href="{% url home %}" class="icon-home" >Home</a><h3>RSVP for {{guest.email}} {% if disabled %}<a id="edit_form">Click to edit form</a>{% endif %}</h3>
     </div>
     <div class="fancybox-body">
         <form action="{% url rsvp %}" method="post" id="rsvp_form">
-            {% if thanks %}
-                <h3>Here's what we have for you. You can always re-login with your email and update your RSVP:</h3>
+            {% if disabled %}
+                <h3>Here's what we have for you. You can update your RSVP by logging in with your email and editing the form:</h3>
             {% endif %}
             {{ form.non_field_errors }}
              <p>
@@ -43,23 +43,21 @@
                {{ form.checkout }}
            </p>
            <!--- Bombay airport ride? -->
-           <p class="rsvp_yes">
-              {{ form.ride_from_bom.errors }}
-              <label for="ride_from_bom">{{ form.ride_from_bom.label}}</label>
-              {{ form.ride_from_bom }}
-          </p>
+           {# <p class="rsvp_yes"> #}
+           {#               {{ form.ride_from_bom.errors }} #}
+           {#               <label for="ride_from_bom">{{ form.ride_from_bom.label}}</label> #}
+           {#               {{ form.ride_from_bom }} #}
+           {#           </p> #}
            <!-- END OF "IF YES" -->
             <!-- Message -->
             <p>
-                <label for="message">Optional Message:</label>
+                <label for="message">Optional Message for the couple:</label>
                 <textarea name="message" rows="5" cols="40" maxlength="200">{{ form.message }}</textarea>
             </p>
             <!-- display previous messages -->
             {% if guest.message %}
-            <p>
-                <div><label for="message-print" style="height:200px">Previous messages posted by you:</label></div>
-                <div>{{ guest.message|linebreaksbr }}</div>
-            </p>
+            <div style="float: left;"><label for="message-print">Previous messages posted by you:</label></div>
+            <div style="float: left; width: 600px">{{ guest.message|linebreaksbr }}</div>
             {% endif %}
             <p>
                 <input type="submit" value="Submit" class="submit">
@@ -111,6 +109,7 @@
         
         $('#rsvp_form').submit(function(){
             $('[disabled]').removeAttr('disabled');
+            $('.submit').attr('disabled', true);
             $.post({url: $(this).attr('action'), data: $(this).serialize()})
         })
     });

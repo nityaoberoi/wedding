@@ -62,7 +62,6 @@ def rsvp(request):
             guest.message = prev_messages
             guest.save()            
             context['disabled'] = True
-            context['thanks'] = True
             request.session['email'] = guest.email
         context['guest'] = guest
         context['form'] = form

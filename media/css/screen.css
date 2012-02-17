@@ -318,7 +318,7 @@ nav#side-nav a:hover, a.active {
 
 .fancybox-body form label{
     float: left;
-    width: 220px;
+    width: 241px;
     display: block;
     text-align: right;
     margin-right: 10px;
@@ -361,7 +361,7 @@ nav#side-nav a:hover, a.active {
 .fancybox-body form .submit {
     background: url(../img/purple-grain.png) repeat-x;
     clear: both;
-    margin: 5px 0 5px 230px;
+    margin: 5px 0 5px 251px;
     padding: .5em 20px;
     width: 150px;
 }
@@ -375,8 +375,8 @@ nav#side-nav a:hover, a.active {
 }
 
 a#edit_form {
-    color: white;
     float: right;
+    color: white;
     cursor: pointer;
 }
 

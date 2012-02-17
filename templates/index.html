@@ -8,8 +8,8 @@
 {% endblock %}
 
 {% block content %}
-{% if not thanks %}<div id="loading"><span>Just a moment please...</span></div>{% endif %}
-<div id="browser_info"  > This site is best viewed in IE7+, Firefox, Safari or Chrome in full screen mode. </div>
+<div id="loading"><span>Just a moment please...</span></div>
+<div id="browser_info"> This site is best viewed when maximized. Scrolling is recommended. </div>
 <div id="main" role="main">
     <nav id="side-nav" data-controller="MainNav" style="margin-top: -200px; ">
     <ul>
@@ -31,7 +31,7 @@
 
     <!-- Section #1 / Intro -->
     <section id="welcome" class="story" data-speed="6" data-type="background">
-        <div class="intro" data-type="sprite" data-offsety="260" data-xposition="94%" data-speed="-4"></div>
+        <div class="intro tip" data-type="sprite" data-offsety="260" data-xposition="94%" data-speed="-4"></div>
         <article>
             <h2>Nitya weds Sriram</h2>
             <h4>June 9-10, 2012</h4>
@@ -92,7 +92,7 @@
 		    <span style="float:right">Attire: Casual</span>
 		  </p>
 
-		  <p><h5 class="event-tip" title="The <strong>baraat</strong> is the groom's wedding procession where the groom rides on a horse, accompanied by a band. Once the groom's party arrives at the wedding, they are received by the bride's side. Later, the bride and the groom exchange garlands (<strong>jaimala</strong>).">Baraat Swagat, Jaimala &amp; Sangeet @ The Grand Ballroom: 7pm onwards.</h5>
+		  <p><h5 class="event-tip" title="The <strong>baraat</strong> is the groom's wedding procession where the groom rides on a horse, accompanied by a band. Once the groom's party arrives at the wedding, they are received by the bride's side. Later, the bride and the groom exchange garlands (<strong>jaimala</strong>). The <strong>sangeet</strong> is generally a themed event with the couple’s family and friends performing choreographed dances, skits and live performances.">Baraat Swagat, Jaimala &amp; Sangeet @ The Grand Ballroom: 7pm onwards.</h5>
 		    <span style="float:right">Attire: Traditional Indian</span>
 		  </p>
 
@@ -116,7 +116,7 @@
                 <div class="textbox">
                     <ul>
                         <li>We request all our guests to RSVP via the icon on the top left corner of the screen. Please keep us updated of your plans and leave us a message, if you'd like.</li>
-                        <li>We are in the process of arranging for private buses from Mumbai for the party on June 9th. We will post this information to all those that RSVP as needing a ride from Mumbai on June 9th as soon as we have more details.</li>
+                        {# <li>We are in the process of arranging for private buses from Mumbai for the party on June 9th. We will post this information to all those that RSVP as needing a ride from Mumbai on June 9th as soon as we have more details.</li> #}
                         <li>For our non-indian citizen guests, we encourage that you acquire your <a href="https://www.indian-visa.com/" target="_blank">Indian Visas</a> well before May and send us a copy in email so we can provide it to the hotel prior to your arrival.</li>
                     </ul>
                 <h2>Recommended Reading</h2>
@@ -160,7 +160,7 @@
 
         $(window).load(function() {
             $('#loading').animate({"left" : "100%"});
-            $('#browser_info').modal({
+             $('#browser_info').modal({
                 position: [30, ],
                 modal: false,
                 autoResize: true,

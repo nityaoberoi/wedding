@@ -1,7 +1,7 @@
 from django.db import models
 from google.appengine.ext import db
 
-COMING_OPTS = ((0, 'No'), (1, 'Yes'), (2, 'Maybe'))
+COMING_OPTS = ((0, 'No'), (1, 'Yes, absolutely!'), (2, 'Maybe'))
 
 class Guest(models.Model):
     email = models.EmailField(null=False, unique=True)

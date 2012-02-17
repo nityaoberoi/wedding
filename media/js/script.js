@@ -27,14 +27,15 @@ $(document).ready(function(){
 
                        // Move the background
                        $self.css({ backgroundPosition: coords });
-                       
                        $('#side-nav li a').each(function(){
-                           $(this).removeClass('active');
-                           if($(this).html() == $self.attr('id')){
-                                $(this).addClass('active');
-                            }
-                        });
-
+                           if (!topOffset == 0){
+                              $(this).removeClass('active');
+                              if($(this).html() == $self.attr('id')){
+                                   $(this).addClass('active');
+                              }
+                          }
+                       });
+                    
                        // Check for other sprites in this section    
                        $('[data-type="sprite"]', $self).each(function() {
  

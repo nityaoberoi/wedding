@@ -6,7 +6,7 @@
 {% block content %}
 <div class="fancybox">
     <div class="fancybox-title">
-        <h3>RSVP</h3>
+        <h3>Create, view or update your RSVP</h3>
     </div>
     <div class="fancybox-body">
         <form action="{% url rsvp_login %}" method="post" id="email_form">
@@ -40,12 +40,14 @@
                 $.fancybox.resize();
                 return false;
             }
+            $('.submit').attr('disabled', true);
         });
         
         $('.tip').tipsy({
             gravity: 'w',
             trigger: 'focus'
         });
+        
     });
 </script>
 {% endblock %}
