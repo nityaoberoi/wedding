@@ -23,6 +23,7 @@ body {
 a, a:hover, a:visited {
   color: #e46364;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .event-tip {
@@ -423,8 +424,9 @@ ul.getting-there li a:hover {
 }
 
 #directions_modal {
-    width: 350px;
+    width: 400px;
     color: #aaa;
+    overflow: auto;
 }
 
 #directions_modal div {

@@ -9,7 +9,7 @@
 
 {% block content %}
 {% if not thanks %}<div id="loading"><span>Just a moment please...</span></div>{% endif %}
-<div id="browser_info"> This site is best viewed in IE7+, Firefox, Safari or Chrome in full screen mode. </div>
+<div id="browser_info"  > This site is best viewed in IE7+, Firefox, Safari or Chrome in full screen mode. </div>
 <div id="main" role="main">
     <nav id="side-nav" data-controller="MainNav" style="margin-top: -200px; ">
     <ul>
@@ -44,7 +44,7 @@
           <h2>The Bride</h2>
 	  <p>Nitya grew up in Kuwait but her roots still lie in India. She went to UT Austin to pursue Bachelors in Computer Science and Advertising. After a summer internship at Goldman Sachs in New York City, she decided she had to aid in doing "God's work" and joined the firm full-time in 2006.</p>
 	  <p>After 4 years in the financial world, Nitya decided she'd had enough and decided to pursue her true passions - technology and web development. After a short stint in Lime Wire, she joined Yipit as their 6th employee and has been happily hacking away ever since.</p>
-	  <p>Nitya closely fits both the cancerian and lefty (though she claims "ambidextrous") stereotypes. She is highly creative and obsessive about her artwork. In fact, Nitya has never lived in an apartment that she didn't paint and decorate herself. Luckily (for me), she takes very little help while doing so.</p>
+	  <p>Nitya closely fits both the Cancerian and lefty (though she claims "ambidextrous") stereotypes. She is highly creative and obsessive about her artwork. In fact, Nitya has never lived in an apartment that she didn't paint and decorate herself. Luckily (for me), she takes very little help while doing so.</p>
 	  <p>Nitya's biggest passion is probably still travel, specifically adventure travel. Besides trying out various adventure sports, she occasionally pushes the envelope with outrageously daring experiences like spending a week with minimal supplies learning survival skills in the Utah wilderness. Perhaps for this reason, if not any other, she'd be the person I pick to be with if I were stranded on a deserted island.</p>
         </article>
     </section>
@@ -53,7 +53,7 @@
         <article>
             <h2>The Groom</h2>
             <p>Sriram was born and brought up in Chennai where he grew up with his sister, parents, and paati (grandmother). He went to UT Austin for his Bachelors in Electrical Engineering and on graduating, joined Google as a software engineer in California. Three years later, and after much coaxing (by me), he finally relented and left the west coast for New York. Last year, he moved to Spotify to pursue his interest in solving core backend engineering problems and loves it there.</p>
-            <p>Sriram is extremely passionate about music; he loves everything from psychedelic rock to classical carnatic. He's also an extremely adept percussionist, in all senses of the word. He first started playing the mirundangam at age 6 after some prodding from his mom and developed a natural sense of rhythm. At university, Sriram played for a band called Omkara. Later, he taught himself the tabla and drums, and he now regularly jams with friends to the tunes of Led Zep, Floyd etc. His other passions include traveling - he's travelled across 17 countries in 6 continents over the past 5 years and is always willing to partake in the next adventure even if it means hiccuping all the way up to the summit of Kilimanjaro.</p>
+            <p>Sriram is extremely passionate about music; he loves everything from psychedelic rock to classical carnatic. He's also an extremely adept percussionist, in all senses of the word. He first started playing the mridangam at age 6 after some prodding from his mom and developed a natural sense of rhythm. At university, Sriram played for a band called Omkara. Later, he taught himself the tabla and drums, and he now regularly jams with friends to the tunes of Led Zep, Floyd etc. His other passions include traveling - he's travelled across 17 countries in 6 continents over the past 5 years and is always willing to partake in the next adventure even if it means hiccuping all the way up to the summit of Kilimanjaro.</p>
         </article>
     </section>
 
@@ -86,7 +86,7 @@
           <article>
               <h2>Wedding - Events &amp; Details</h2>
               <div class="textbox">
-                  <p>We're getting married in Pune at the <a href="http://bonboutique.com/" target="_blank">Corinthians Bon Boutique Hotel</a>. We've compiled directions <A class="directions">here</a>. Please contact us if you have any questions!
+                  <p>We're getting married in Pune at the <a href="http://bonboutique.com/" target="_blank">Corinthians Bon Boutique Hotel</a>. We've compiled directions <a href="{% url hotel %}" class="directions">here</a>. Please contact us if you have any questions!
                   <h4>Saturday, June 9th, 2012</h4>
                   <p><h5 class="event-tip" title="The <strong>mehndi</strong> ceremony is a colorful musical celebration where the ladies, including the bride, get ornate mehndi patterns applied on their hands.">Mehndi Ceremony: 11am - 3pm.</h5>
 		    <span style="float:right">Attire: Casual</span>
@@ -116,6 +116,7 @@
                 <div class="textbox">
                     <ul>
                         <li>We request all our guests to RSVP via the icon on the top left corner of the screen. Please keep us updated of your plans and leave us a message, if you'd like.</li>
+                        <li>We are in the process of arranging for private buses from Mumbai for the party on June 9th. We will post this information to all those that RSVP as needing a ride from Mumbai on June 9th as soon as we have more details.</li>
                         <li>For our non-indian citizen guests, we encourage that you acquire your <a href="https://www.indian-visa.com/" target="_blank">Indian Visas</a> well before May and send us a copy in email so we can provide it to the hotel prior to your arrival.</li>
                     </ul>
                 <h2>Recommended Reading</h2>
@@ -164,12 +165,12 @@
                 modal: false,
                 autoResize: true,
                 onShow: function(){
-                    $('#simplemodal-container').delay('6000').hide('slow');
-                }
+                    setTimeout(function(){ 
+                        $.modal.close();
+                        $('#browser_info').hide();
+                }, 6000)}
             });
         });
-
-        $('#thanks_dialog').dialog();
 
         $('#rsvp').fancybox({
             centerOnScroll: true,
@@ -187,9 +188,23 @@
                 '../img/fixed/image5.jpg',
                 '../img/fixed/image6.jpg',
                 '../img/fixed/image8.jpg',
+                '../img/fixed/image16.jpg',
                 '../img/fixed/image2.jpg',
                 '../img/fixed/image9.jpg',
+                '../img/fixed/image11.jpg',
+                '../img/fixed/image12.jpg',
+                '../img/fixed/image21.jpg',
+                '../img/fixed/image13.jpg',
+                '../img/fixed/image14.jpg',
+                '../img/fixed/image15.jpg',
+                '../img/fixed/image7.jpg',
+                '../img/fixed/image17.jpg',
+                '../img/fixed/image18.jpg',
+                '../img/fixed/image20.jpg',
+                '../img/fixed/image23.jpg',
+                '../img/fixed/image24.jpg',
                 '../img/fixed/image10.jpg',],
+                
                 {
                         'padding'           : 0,
                         'transitionIn'      : 'none',
@@ -199,24 +214,11 @@
                     });
         });
         
-        $('.directions').live('click', function(e){
-            var src = "http://365.ericmmartin.com/"; //{% url hotel %}
-            $('#directions_modal').modal({
-                modal: false
-            })
-                         // 
-                         // $.modal('<iframe src="' + src + '" height="450" width="450" style="border:0">', {
-                         //     closeHTML:"",
-                         //     containerCss:{
-                         //          backgroundColor:"#fff",
-                         //          borderColor:"#fff",
-                         //          height:450,
-                         //          padding:0,
-                         //          width:830
-                         //      },
-                         //     overlayClose:true
-                         // });
-        })
+        $('.directions').fancybox({
+            centerOnScroll: true,
+            hideOnOverlayClick: false,
+        });
+
         /*$('#site-bottomnav a').live('click', function(e){
 
             $(this).html().modal();

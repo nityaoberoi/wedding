@@ -7,7 +7,7 @@
     <div class="fancybox-body">
         <form action="{% url rsvp %}" method="post" id="rsvp_form">
             {% if thanks %}
-                Here's what we have for you. You can always re-login with your email and update your RSVP:
+                <h3>Here's what we have for you. You can always re-login with your email and update your RSVP:</h3>
             {% endif %}
             {{ form.non_field_errors }}
              <p>
@@ -43,11 +43,11 @@
                {{ form.checkout }}
            </p>
            <!--- Bombay airport ride? -->
-           {# <p class="rsvp_yes"> #}
-           {#                {{ form.ride_from_bom.errors }} #}
-           {#                <label for="ride_from_bom">{{ form.ride_from_bom.label}}</label> #}
-           {#                {{ form.ride_from_bom }} #}
-           {#            </p> #}
+           <p class="rsvp_yes">
+              {{ form.ride_from_bom.errors }}
+              <label for="ride_from_bom">{{ form.ride_from_bom.label}}</label>
+              {{ form.ride_from_bom }}
+          </p>
            <!-- END OF "IF YES" -->
             <!-- Message -->
             <p>

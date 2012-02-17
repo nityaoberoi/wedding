@@ -3,8 +3,8 @@ from django import forms
 from guest.models import Guest, COMING_OPTS
 
 class GuestForm(forms.ModelForm):
-    email = forms.CharField(max_length=100, required=True, label="Email:")
-    name = forms.CharField(max_length=100, required=False, label="Name:")
+    email = forms.CharField(max_length=100, required=True, label="Your Email:")
+    name = forms.CharField(max_length=100, required=False, label="Your Name:")
     coming = forms.ChoiceField(required=False, label="Will you be joining us in Pune?", choices=COMING_OPTS)
     count = forms.IntegerField(required=False, label="Number attending:")
     checkin = forms.DateField(required=False, label="Checking in at Bonboutique? If so, when?")
@@ -22,7 +22,7 @@ class GuestForm(forms.ModelForm):
         return count
 
 class GuestEmailForm(forms.ModelForm):
-    email = forms.CharField(max_length=100, required=True, label="Email:", widget=forms.TextInput(attrs={'title': "You will use this email to login and create/update your RSVP", 'class': 'tip'}))
+    email = forms.CharField(max_length=100, required=True, label="Your Email:", widget=forms.TextInput(attrs={'title': "You will use this email to login and create/update your RSVP", 'class': 'tip'}))
     
     class Meta:
         model = Guest
