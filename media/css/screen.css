@@ -424,7 +424,7 @@ ul.getting-there li a:hover {
 
 #directions_modal {
     width: 350px;
-    display: none;
+    color: #aaa;
 }
 
 #directions_modal div {
@@ -432,7 +432,10 @@ ul.getting-there li a:hover {
     float: left;
 }
 
+#directions_modal .main {
+    margin-top: 10px;
+}
+
 .col1 {
-    
     width: 150px;
 }

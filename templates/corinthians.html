@@ -1,23 +1,36 @@
+<link rel="stylesheet" href="css/screen.css">
 <div id="directions_modal">
     <div>
-        <img src="img/map.gif" class="map" title="The Corinthians Bon Boutique Hotel,<br/>Nyati County,NIBM Annexe, <br/>South Pune, Pune-411060">
+        <a href="https://www.google.com/maps/vt/data=Ay5GWBeob_WIPLDYoIWcfVXxvZu9XwJ55OX7Ag,1w_Q96QT77anMZRDhPt3XClot0ujMnyR_7WldfTFEXa7O6nhJk9VQUx8uFNeA7sTL5-awhIJG-s9uKSMykCALDkHh6ZhgoWo6m-vHAXsV_feF-6nwN5Y-LsUULInbAKLbHSHHg" target="_blank"><img src="img/map.gif" class="map" title="The Corinthians Bon Boutique Hotel, Nyati County,NIBM Annexe, South Pune, Pune-411060"></a>
     </div>
-    <div>
-    </div>
+    <div style="height: 50px">
     <div class="col1">
         <ul class="getting-there">
-            <li><a href="#"title="Getting here from Pune Airport" data-main="http://g.co/maps/emzsh" class="plane">Test</a></li>
-            <li><a href="#"title="Getting here from Pune Train Station" data-main="" class="train">Test</a></li>
-            <li><a href="#"title="Getting here by road from Bombay" data-main="" class="road">Test</a></li>
+            <li><a href="#"title="By Plane" data-main="<strong>Closest International Airport: Mumbai, Maharashtra</strong> <br/><br/>Within India, flights are available to the Pune Airport from any major city. Flight TIme 1-2.5 hrs. From the airport, a cab would cost INR 200 (USD 4) to get to the hotel.<br/><br/><strong>Local Planes:</strong> Kingfisher, JetLite, SpiceJet, Air India, GO Air, Indigo. <br/><br/><strong>Helpful booking sites:</strong>
+            <a href='http://www.cleartrip.com/'>Cleartrip</a>,
+            <a href='http://www.makemytrip.com/'>MakeMyTrip</a>,
+            <a href='http://www.yatra.com/'>Yatra</a>,
+            <a href='http://www.cheapoair.com/'>CheapoAir</a>,
+            <a href='http://www.airfarewatchdog.com/'>AirfareWatchdog</a>,
+            <a href='http://www.vayama.com/'>Vayama</a>" class="plane">Test</a></li>
+            <li><a href="#"title="By Train" data-main="<strong>From Mumbai:</strong> approx 3 hours<br/><br/><strong>From Chennai:</strong> approx 19-23 hours<br/><br/><strong>From Bangalore:</strong> approx 19-23 hours<br/><br/><strong>From Delhi:</strong> approx 23-25 hours<br/><br/><strong>From Ambala:</strong> approx 28 hours<br/><br/><strong>Helpful booking sites:</strong>
+            <a href='http://www.cleartrip.com/'>Cleartrip</a>,
+            <a href='http://www.makemytrip.com/'>MakeMyTrip</a>,
+            <a href='http://www.yatra.com/'>Yatra</a>,
+            <a href='https://www.irctc.co.in/'>Indian Railway Corp</a>" class="train">Test</a></li>
+            <li><a href="#"title="By Road" data-main="We recommend road travel only if you are travelling from Mumbai. The approximate journey is about 2 hours. <br /><br />We are in the process of arranging for private buses for the party on June 9th at various times. We will post this information to all those that RSVP as needing a ride from Mumbai on June 9th as soon as we have more details." class="road">Test</a></li>
         </ul>
     </div>
     <div class="col2">
-        <h3 class="title"></h3>
+        <h2 class="title">Click for Directions</h2>
     </div>
-    <div class="main">
+    </div>
+    <div style="clear:both">
+        <div class="main"></div>
     </div>
     
 </div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript">
     jQuery(function($){
         $('.getting-there li a').live('click', function(e){
