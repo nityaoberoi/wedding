@@ -26,13 +26,9 @@ a, a:hover, a:visited {
   cursor: pointer;
 }
 
-.event-tip {
-    cursor: pointer;
-}
+.event-tip { cursor: pointer;}
 
-.event-tip .tipsy-inner {
-  background-color: #303;
-}
+.event-tip .tipsy-inner { background-color: #303;}
 
 .event-tip .tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed #303; }
 
@@ -406,22 +402,10 @@ ul.getting-there li a {
     margin: 5px;
     text-indent: -9999;
 }
-
-a.plane {
-    background: url(../img/plane.png) 0 0 no-repeat;
-}
-
-a.train {
-    background: url(../img/train.png) 0 0 no-repeat;
-}
-
-a.road {
-    background: url(../img/car.png) 0 0 no-repeat;
-}
-
-ul.getting-there li a:hover {
-    opacity: 0.4;
-}
+a.plane {background: url(../img/plane.png) 0 0 no-repeat;}
+a.train {background: url(../img/train.png) 0 0 no-repeat;}
+a.road {background: url(../img/car.png) 0 0 no-repeat;}
+ul.getting-there li a:hover {opacity: 0.4;}
 
 #directions_modal {
     width: 400px;
@@ -434,10 +418,6 @@ ul.getting-there li a:hover {
     float: left;
 }
 
-#directions_modal .main {
-    margin-top: 10px;
-}
+#directions_modal .main {margin-top: 10px;}
 
-.col1 {
-    width: 150px;
-}
+.col1 {width: 150px;}

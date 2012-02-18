@@ -28,11 +28,9 @@ $(document).ready(function(){
                        // Move the background
                        $self.css({ backgroundPosition: coords });
                        $('#side-nav li a').each(function(){
-                           if (!topOffset == 0){
-                              $(this).removeClass('active');
-                              if($(this).html() == $self.attr('id')){
-                                   $(this).addClass('active');
-                              }
+                          $(this).removeClass('active');
+                          if($(this).html() == $self.attr('id')){
+                               $(this).addClass('active');
                           }
                        });
                     
@@ -67,20 +65,3 @@ $(document).ready(function(){
         });
     });
 }); // document ready
-
-// function fancyboxFormSubmit(){
-//     var func = arguments.callee;
-//     $('.fancybox form').submit(function(){
-//         $.fancybox.showActivity();
-//         var data = $(this).serialize();
-//         var url = $(this).attr('action');
-//         $.ajax({type: "POST", 
-//                 url:url, 
-//                 data:data, 
-//                 success:function(msg){$.fancybox({content:msg,onComplete:func});}, 
-//                 error:function(){$.fancybox.error();}
-//         });
-//         return false;
-//     });
-// }
-// $(".fancyboxForm").fancybox({onComplete: fancyboxFormSubmit, autoScale: false});
