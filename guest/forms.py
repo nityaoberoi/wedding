@@ -7,7 +7,7 @@ class GuestForm(forms.ModelForm):
     name = forms.CharField(max_length=100, required=False, label="Your Name:")
     coming = forms.ChoiceField(required=False, label="Will you be joining us in Pune?", choices=COMING_OPTS)
     count = forms.IntegerField(required=False, label="Number attending:")
-    checkin = forms.DateField(required=False, label="Checking in at Bonboutique? If so, when?")
+    checkin = forms.DateField(required=False, label="Staying with us? When are you checking in?")
     checkout = forms.DateField(required=False, label="...and checking out?")    
     ride_from_bom = forms.BooleanField(required=False, label="Need a ride from Mumbai on Jun 9th?")
     

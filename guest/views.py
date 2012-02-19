@@ -23,8 +23,6 @@ def rsvp_login(request):
             guest = form.save()
             context['guest'] = guest
             context['form'] = GuestForm(instance=guest)
-            if not created:
-                context['disabled'] = True
             return render(request, 'rsvp2.html', context)
     # elif email:
     #        try:
