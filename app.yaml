@@ -20,6 +20,10 @@ handlers:
 - url: /.*
   script: djangoappengine/main/main.py
 
+- url: /remote_api
+  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+  login: admin
+
 skip_files:
 - ^(.*/)?.*\.psd
 
@@ -28,3 +32,6 @@ libraries:
   version: latest
 - name: django
   version: latest
+
+builtins:
+- remote_api: on
