@@ -36,10 +36,7 @@ a, a:hover, a:visited {
 .event-tip .tipsy-arrow-e { border-left-color: #303; }
 
 .question-mark {
-    position:relative;
-    height:18px;
-    width:18px;
-    background: url(../img/ui-icons_cccccc_256x240.png) 80% 60% no-repeat;
+    vertical-align: baseline;
 }
 
 /* -------------------- */
