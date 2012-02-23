@@ -21,7 +21,7 @@ handlers:
   script: djangoappengine/main/main.py
 
 - url: /remote_api
-  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+  script: $APPENGINE/google/appengine/ext/remote_api/handler.py
   login: admin
 
 skip_files:
