@@ -177,6 +177,10 @@
             overlayColor: '#333',
             hideOnOverlayClick: false
         });
+        
+        function formatTitle(title, currentArray, currentIndex, currentOpts) {
+            return '<div id="tip7-title"><span><a href="javascript:;" onclick="$.fancybox.close();"><img src="/data/closelabel.gif" /></a></span>' + (title && title.length ? '<b>' + title + '</b>' : '' ) + 'Image ' + (currentIndex + 1) + ' of ' + currentArray.length + '</div>';
+        }
 
         $("#photos").click(function() {
             //$("a.fancybox").attr('rel', 'gallery').fancybox();
@@ -194,6 +198,7 @@
                 '../img/fixed/image23.jpg',
                 '../img/fixed/image11.jpg',
                 '../img/fixed/image20.jpg',
+                '../img/fixed/image22.jpg',
                 '../img/fixed/image1.jpg',
                 '../img/fixed/image3.jpg',
                 '../img/fixed/image4.jpg',
@@ -208,7 +213,9 @@
                         'transitionIn'      : 'none',
                         'transitionOut'     : 'none',
                         'type'              : 'image',
-                        'changeFade'        : 0
+                        'changeFade'        : 0,
+                        //'titlePosition'     :'inside',
+                        //'titleFormat'		: formatTitle
                     });
         });
         
