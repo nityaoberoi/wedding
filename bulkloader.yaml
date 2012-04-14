@@ -25,7 +25,7 @@ python_preamble:
 transformers:
 
 - kind: django_session
-  connector: csv # TODO: Choose a connector here: csv, simplexml, etc...
+  connector: csv
   connector_options:
     # TODO: Add connector options here--these are specific to each connector.
   property_map:
@@ -35,18 +35,18 @@ transformers:
 
     - property: expire_date
       external_name: expire_date
-      # Type: Date/Time Stats: 29 properties of this type in this kind.
+      # Type: Date/Time Stats: 55 properties of this type in this kind.
       import_transform: transform.import_date_time('%Y-%m-%dT%H:%M:%S')
       export_transform: transform.export_date_time('%Y-%m-%dT%H:%M:%S')
 
     - property: session_data
       external_name: session_data
-      # Type: Text Stats: 29 properties of this type in this kind.
+      # Type: Text Stats: 55 properties of this type in this kind.
       import_transform: db.Text
 
 
 - kind: guest_guest
-  connector: csv # TODO: Choose a connector here: csv, simplexml, etc...
+  connector: csv
   connector_options:
     # TODO: Add connector options here--these are specific to each connector.
   property_map:
@@ -56,41 +56,41 @@ transformers:
 
     - property: checkin
       external_name: checkin
-      # Type: Date/Time Stats: 11 properties of this type in this kind.
+      # Type: Date/Time Stats: 22 properties of this type in this kind.
       import_transform: transform.import_date_time('%Y-%m-%dT%H:%M:%S')
       export_transform: transform.export_date_time('%Y-%m-%dT%H:%M:%S')
 
     - property: checkout
       external_name: checkout
-      # Type: Date/Time Stats: 11 properties of this type in this kind.
+      # Type: Date/Time Stats: 22 properties of this type in this kind.
       import_transform: transform.import_date_time('%Y-%m-%dT%H:%M:%S')
       export_transform: transform.export_date_time('%Y-%m-%dT%H:%M:%S')
 
     - property: coming
       external_name: coming
-      # Type: Integer Stats: 26 properties of this type in this kind.
+      # Type: Integer Stats: 43 properties of this type in this kind.
       import_transform: transform.none_if_empty(int)
 
     - property: count
       external_name: count
-      # Type: Integer Stats: 26 properties of this type in this kind.
+      # Type: Integer Stats: 43 properties of this type in this kind.
       import_transform: transform.none_if_empty(int)
 
     - property: email
       external_name: email
-      # Type: String Stats: 26 properties of this type in this kind.
+      # Type: String Stats: 43 properties of this type in this kind.
 
     - property: message
       external_name: message
-      # Type: Text Stats: 18 properties of this type in this kind.
+      # Type: Text Stats: 39 properties of this type in this kind.
       import_transform: db.Text
 
     - property: name
       external_name: name
-      # Type: String Stats: 26 properties of this type in this kind.
+      # Type: String Stats: 43 properties of this type in this kind.
 
     - property: ride_from_bom
       external_name: ride_from_bom
-      # Type: Boolean Stats: 26 properties of this type in this kind.
+      # Type: Boolean Stats: 43 properties of this type in this kind.
       import_transform: transform.regexp_bool('true', re.IGNORECASE)
 
