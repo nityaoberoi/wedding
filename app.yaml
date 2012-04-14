@@ -5,6 +5,11 @@ api_version: 1
 threadsafe: no
 
 handlers:
+    
+- url: /remote_api
+  script: $APPENGINE/google/appengine/ext/remote_api/handler.py
+  login: admin
+      
 - url: /img
   static_dir: media/img
 
@@ -19,10 +24,6 @@ handlers:
 
 - url: /.*
   script: djangoappengine/main/main.py
-
-- url: /remote_api
-  script: $APPENGINE/google/appengine/ext/remote_api/handler.py
-  login: admin
 
 skip_files:
 - ^(.*/)?.*\.psd

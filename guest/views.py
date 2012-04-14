@@ -16,6 +16,7 @@ def rsvp_login(request):
     #email = request.session.get('email')
     if request.method == "POST":
         email = request.POST.get('email')
+        email = email.lower()
         request.session['email'] = email
         guest, created = Guest.objects.get_or_create(email=email)
         form = GuestEmailForm(request.POST, instance=guest)

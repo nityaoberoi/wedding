@@ -27,3 +27,9 @@ class GuestEmailForm(forms.ModelForm):
     class Meta:
         model = Guest
         fields = ('email', )
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email', '')
+        if email:
+            email = email.lower()
+        return email
