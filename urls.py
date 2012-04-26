@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^rsvp_login$', 'guest.views.rsvp_login', name='rsvp_login'),
     url(r'^rsvp$', 'guest.views.rsvp', name='rsvp'),
     url(r'^hotel$', direct_to_template, {'template': 'corinthians.html'}, name='hotel'),
+    url(r'^registry$', direct_to_template, {'template': 'registry.html'}, name='registry'),
 )

@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="css/tipsy.css">
     <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/basic.css">
-    {# <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.0.4" type="text/css" media="screen" /> #}
 {% endblock %}
 
 {% block content %}
@@ -27,6 +26,7 @@
         <!--<a id="contact-us" href="mailto:nityaandsriram@gmail.com" title="Contact Us" class="icon-contact function-tip">Contact Us</a>-->
         <a id="rsvp" title="RSVP" class="icon-rsvp function-tip" href="{% url rsvp_login %}">RSVP</a>
         <a id="photos" title="Photo Gallery" class="icon-photo function-tip">Photo Gallery</a>
+        <a id="registry" title="Gift Registry" class="icon-registry function-tip" href="{% url registry %}">Gift Registry</a>
     </div>
 
     <!-- Section #1 / Intro -->
@@ -110,7 +110,7 @@
       </section>
 
       <!-- Section #7 / Wedding -2 -->
-        <section id="the-wedding-2" class="story" data-speed="10" data-type="background" data-offsety="525">
+      <section id="the-wedding-2" class="story" data-speed="10" data-type="background" data-offsety="525">
             <article>
                 <h2>Guest Information</h2>
                 <div class="textbox">
@@ -120,12 +120,21 @@
                         <li>For our non-indian citizen guests, we encourage that you acquire your <a href="https://www.indian-visa.com/" target="_blank">Indian Visas</a> well before May and send us a copy in email so we can provide it to the hotel prior to your arrival.</li>
                     </ul>
                 <h2>Recommended Reading</h2>
-		    <p>Spend a few hours enjoying <a href="http://www.bonboutique.com/recreation.asp" target="_blank">Bonboutique Hotel</a>.</p>
-		    <p>Look around Pune (refer:  <a href="http://wikitravel.org/en/Pune#b" target="_blank">Wikitravel</a>, <a href="http://www.lonelyplanet.com/india/maharashtra/pune" target="_blank">Lonely planet</a>)</p>
-		    <p>If you are traveling around after or before, <a href="http://www.lonelyplanet.com/india/mumbai-bombay" target="_blank">Mumbai</a> is a great city to check out.</p>
-		</div>
+                <ul>
+                  <li>Spend a few hours enjoying <a href="http://www.bonboutique.com/recreation.asp" target="_blank">Bonboutique Hotel</a>.</li>
+                  <li><strong>Historical Spots around Pune:</strong>
+                  Pratap Gad, Lophagdh,Sinhagad, Torana, Chakan, Rajgad. Detailed information can be obtained at <a href="www.aroundpune.com" target="_blank">aroundpune.com</a></li>
+                  <li><strong>Hill Stations</strong></li>
+                  <ul class="less-indent">
+                    <li>Mahabaleshwar  -  120 kms from Pune</li>
+                    <li>Panchgani   - 100 kms from Pune</li>
+                    <li>Lonavala/ Khandala - 60 to 70 kms from Pune,   (one hour train ride )</li>
+                  </ul>
+                  <li><strong>Spiritual Spots:</strong>
+                  <a href="http://www.shirdisaitemple.com/" target="_blank">Shirdi</a>, <a href="http://www.osho.com/Main.cfm?Area=medresort" target="_blank">Osho International Meditation Resort</a>, <a href="http://www.chinmayamission.com/chinmaya-vibhoooti.php" target="_blank">Chinmaya Vibhooti</a></li>
+		        </div>
             </article>
-        </section>
+      </section>
 
     </div> <!-- // End of #main -->
 {% endblock %}
@@ -219,7 +228,7 @@
                     });
         });
         
-        $('.directions').fancybox({
+        $('.directions, #registry').fancybox({
             centerOnScroll: true,
             hideOnOverlayClick: false,
         });

@@ -4,11 +4,6 @@ body {
     background-color: #333;
 }
 
-ul.less-indent {
-    margin: 0;
-    padding-left: 20px;
-}
-
 .hidden {
     display: none;
 }
@@ -31,48 +26,16 @@ a, a:hover, a:visited {
   cursor: pointer;
 }
 
-.event-tip { cursor: pointer;}
 
-.event-tip .tipsy-inner { background-color: #303;}
-
-.event-tip .tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed #303; }
-
-/* Rules to colour arrows */
-.event-tip .tipsy-arrow-e { border-left-color: #303; }
-
-.question-mark {
-    vertical-align: baseline;
-}
-
-/* -------------------- */
-/* Loader               */
-/* -------------------- */
-#loading {
-    background: url(../img/ajax-loader.gif) 50% 50% no-repeat #333;
-    height: 100%;
-    position: fixed;
-    width: 100%;
-    z-index: 99999;
-}
-#loading span {
-    position: absolute;
-    top: 54%;
-    left: 50%;
-    margin-left: -65px;
-    color: #999;
-}
 /* -------------------- */
 /* Stories              */
 /* -------------------- */
 .story {
-    height: 900px;
+    height: 600px;
     margin: 0 auto; 
     padding: 0;
     position: relative;
     width: 100%;
-    /*-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;*/
     background-size: 100%;
 }
 article {
