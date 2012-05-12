@@ -70,10 +70,9 @@ a, a:hover, a:visited {
     padding: 0;
     position: relative;
     width: 100%;
-    /*-webkit-background-size: cover;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;*/
-    background-size: 100%;
+    -o-background-size: cover;
 }
 article {
     border: 1px solid rgba(150,150,150,0.1);
